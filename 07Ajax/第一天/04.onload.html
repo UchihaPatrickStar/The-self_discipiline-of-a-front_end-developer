@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>online</title>
+</head>
+<body>
+    <script>
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('GET','time.php');
+
+        xhr.send(null);
+
+        // 新的书写方法  不过兼容性不是很好  onload是HTML5中提供的XMLHttpRequest v2.0定义的
+        xhr.onload = function(){
+            console.log(this.readyState);
+            console.log(this.responseText);
+        }
+    </script>
+</body>
+</html>
