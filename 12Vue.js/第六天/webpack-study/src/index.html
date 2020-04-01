@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 注意：不推荐在这里引用任何包和任何css文件 会发起二次请求 -->
+
+    <!-- 因为main中的代码，涉及到了ES6的新语法，但是浏览器解析不了 -->
+    <!-- <script src="./main.js"></script> -->
+    <!-- 通过webpack这个前端构建工具，把main.js做了一下处理，生成了一个bundle.js -->
+
+    <!-- <script src="../dist/bundle.js"></script> -->
+
+    <!-- 当使用html-webpack-plugin之后，我们不再需要手动处理bundle.js的引用路径了，因为这个插件已经帮我吗自动创建了一个合适的script标签，并且引用了正确的路径 -->
+    <!-- <script src="/bundle.js"></script> -->
+
+    <!-- css会发起二次请求  不推荐这么搞 -->
+    <!-- <link rel="stylesheet" href="./css/index.css"> -->
+    <!-- <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css"> -->
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box2"></div>
+
+    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+    <ul>
+        <li>这是第1个li</li>
+        <li>这是第2个li</li>
+        <li>这是第3个li</li>
+        <li>这是第4个li</li>
+        <li>这是第5个li</li>
+        <li>这是第6个li</li>
+        <li>这是第7个li</li>
+        <li>这是第8个li</li>
+        <li>这是第9个li</li>
+        <li>这是第10个li</li>
+    </ul>
+</body>
+</html>
