@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02.外边距合并</title>
+    <style>
+        /* 标准文档流中，竖直方向的margin不叠加，只取较大的值作为margin
+           水平方向的margin是可以叠加的，即水平方向没有塌陷现象
+           PS：如果不在标准流，比如盒子浮动了，那么两个盒子之间是没有margin
+               重叠现象的
+         */
+        div{
+            width: 300px;
+            height: 200px;
+            background-color: purple;
+        }
+        .one{
+            margin-bottom: 100px;
+        }
+        .two{
+            background-color: pink;
+            margin-top: 150px;  
+        }
+    </style>
+</head>
+<body>
+    <div class="one">1</div>
+    <div class="two">2</div>
+</body>
+</html>

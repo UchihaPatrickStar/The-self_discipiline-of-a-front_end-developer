@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03.外边距塌陷</title>
+    <style>
+        .father{
+            /* overflow: hidden; */
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+            /* border: 1px solid red; */
+            /* padding-top: 1px; */
+
+            /* 如果父亲没有border，那么儿子的margin实际上踹的是“流”，踹的是这“行”。
+                所以，父亲整体也掉下来了。
+               margin这个属性，本质上描述的是兄弟与兄弟之间的距离；最好不要用margin
+               而使用padding来表达父子之间的距离。
+
+                解决办法：1.给父元素添加border
+                         2.使用padding
+                         3.overflow: hidden;
+            */
+        }
+        .son{
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+</html>

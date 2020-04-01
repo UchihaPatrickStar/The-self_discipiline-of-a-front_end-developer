@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04.after伪元素清除浮动</title>
+    <style>
+        .clearfix:after{
+            display: block;
+            clear: both;
+            visibility: hidden;
+            content: "";
+            height: 0;
+        }
+        .father{
+            border: 1px solid red;
+            width: 300px;
+        }
+        .big{
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+        }
+        .small{
+            float: left;
+            width: 80px;
+            height: 80px;
+            background-color: blue;
+        }
+        .footer{
+            width: 400px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="father clearfix">
+        <div class="big"></div>
+        <div class="small"></div>
+    </div>
+    <div class="footer"></div>
+</body>
+</html>

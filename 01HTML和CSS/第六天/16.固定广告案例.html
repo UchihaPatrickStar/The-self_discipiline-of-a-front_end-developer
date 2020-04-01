@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>16.固定广告案例</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .top{
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 44px;
+            width: 100%;
+            background: url(img/top.png) no-repeat top center;
+        }
+        .box{
+            width: 1002px;
+            margin: 44px auto 0;
+        }
+        .ad-l,.ad-r{
+            position: fixed;
+            top: 100px;
+        }
+        .ad-r{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="top"></div>
+    <div class="box">
+        <img src="img/box.png" alt="" height="1760" width="1002">
+    </div>
+    <img src="img/ad-l.png" alt="" height="288" width="120" class="ad-l">
+    <img src="img/ad-r.png" alt="" height="288" width="120" class="ad-r">
+</body>
+</html>

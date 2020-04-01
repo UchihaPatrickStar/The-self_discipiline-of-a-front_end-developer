@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>11.浮动有隐藏模式转换</title>
+    <style>
+        div{
+            float: left;  /* 可以让元素默认转换为行内元素的特性 */
+            height: 100px;
+            background-color: pink;
+        }
+        span{
+            float: left;  /* 可以给行内元素添加浮动，此时不需要转换这个元素也可以有宽高 */
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div>哒哒哒</div>
+    <span>123123123</span>
+</body>
+</html>

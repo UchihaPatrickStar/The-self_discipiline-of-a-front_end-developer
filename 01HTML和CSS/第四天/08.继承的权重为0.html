@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08.继承的权重为0</title>
+    <style>
+        .father{   /* 0010 继承的权重为0 */
+            color: green!important;
+        }
+        p{   /* 0001 */
+            color: red;
+        }
+        div p{  /* 0001 + 0001 = 0002 */
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <p>继承的问题</p>
+    </div>
+</body>
+</html>

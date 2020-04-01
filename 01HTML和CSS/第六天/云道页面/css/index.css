@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #fff;
+    height: 3000px;
+}
+li{
+    list-style: none;
+}
+
+.header{
+    height: 100px;
+    background-color: #fff;
+    width: 1200px;
+    margin: 0 auto;
+    line-height: 100px;
+}
+.logo{
+    float: left;
+}
+.nav{
+    float: right;
+}
+.nav li{
+    float: left;
+    margin: 0 20px;
+}
+.nav li a{
+    color: #333;
+    text-decoration: none;
+}
+.nav li a:hover{
+    color: #2288f6;
+}
+
+.banner{
+    height: 620px;
+    background: url(../img/banner.jpg) no-repeat top center;
+}
+
+.service{
+    width: 1055px;
+    height: 660px;
+    margin: 75px auto 0;
+}
+.service-line{
+    border-top: 1px solid #ccc;
+    margin: 0 25px;
+}
+.service-img{
+    width: 167px;
+    height: 46px;
+    margin: -15px auto 0;
+}
+.service-line p{
+    width: 830px;
+    margin: 15px auto 0;
+    line-height: 26px;
+    color: #666;
+    font-size: 12px;
+    text-align: center;
+}
+
+.service-build{
+    margin-top: 40px;
+}
+.service-build li{
+    float: left;
+    width: 320px;
+    height: 510px;
+    background-color: #fff;
+    border: 1px solid #e7e8e9;
+}
+.service-build img{
+    width: 248px;
+    height: 132px;
+    margin: 40px 35px;
+}
+.service-build h3{
+    height: 40px;
+    font-size: 18px;
+    font-weight: normal;
+    text-align: center;
+}
+.service-build p{
+    width: 235px;
+    margin: 0 auto;
+    line-height: 26px;
+    font-size: 12px;
+    color: #666;
+}
+.service-build a{
+    display: block;
+    width: 148px;
+    height: 38px;
+    line-height: 38px;
+    border: 1px solid #ff9412;
+    margin: 30px auto 0;
+    text-align: center;
+    color: #ff9412;
+    font-size: 12px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.service-build a:hover{
+    color: #fff;
+    background-color: #ff9412;
+}
+.service-build-second{
+    margin: 0 45px;
+}

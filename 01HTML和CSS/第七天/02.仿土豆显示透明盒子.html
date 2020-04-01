@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02.仿土豆显示透明盒子</title>
+    <style>
+        a{
+            position: relative;
+            display: block;
+            width: 448px;
+            height: 252px;
+            margin: 100px;
+        }
+        .mask{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .4) url(img/arr.png) no-repeat center;
+        }
+        a:hover .mask{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <a href="#">
+        <img src="img/tudou.jpg" alt="" height="252" width="448">
+        <div class="mask"></div>
+    </a>
+    <a href="#">
+        <img src="img/tudou.jpg" alt="" height="252" width="448">
+        <div class="mask"></div>
+    </a>
+    <a href="#">
+        <img src="img/tudou.jpg" alt="" height="252" width="448">
+        <div class="mask"></div>
+    </a>
+</body>
+</html>

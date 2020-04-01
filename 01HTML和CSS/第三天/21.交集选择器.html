@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>21.交集选择器</title>
+</head>
+<style>
+    div.current{
+        color: red;
+    }
+    p.current{
+        color: blue;
+    }
+    p{
+        color: red;
+    }
+    div,span,p,.current{
+        color: blue;
+    }
+    .one,.two{
+        color: green;
+    }
+</style>
+<body>
+    <div class="current">123</div>
+    <p class="current">abc</p>
+    <div class="one">123123123</div>
+    <div class="two">123123123</div>
+</body>
+</html>
