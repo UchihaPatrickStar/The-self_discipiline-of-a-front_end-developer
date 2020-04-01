@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05.绘制一个镂空正方形</title>
+    <style>
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+        var myCanvas = document.querySelector('canvas');
+        var ctx = myCanvas.getContext('2d');
+
+        /*1.绘制两个正方形 一大200一小100 套在一起*/
+        ctx.moveTo(100,100);
+        ctx.lineTo(300,100);
+        ctx.lineTo(300,300);
+        ctx.lineTo(100,300);
+        ctx.closePath();
+
+        ctx.moveTo(150,150);
+        ctx.lineTo(150,250);
+        ctx.lineTo(250,250);
+        ctx.lineTo(250,150);
+        ctx.closePath();
+
+        /*2.去填充*/
+        //ctx.stroke();
+        ctx.fillStyle = 'red';
+        ctx.fill();
+
+        /*
+            在填充的时候回遵循非零环绕规则
+            非零环绕原则：
+　　        如果需要判断某一个区域是否需要填充颜色. 就从该区域中随机的选取一个点。
+            从这个点拉一条直线出来, 一定要拉到图形的外面. 此时以该点为圆心。
+            看穿过拉出的直线的线段. 如果是顺时针方向就记为 +1, 如果是 逆时针方向，
+            就记为 -1. 最终看求和的结果. 如果是 0 就不填充. 如果是 非零 就填充.
+        */
+        
+    </script>
+</body>
+</html>
