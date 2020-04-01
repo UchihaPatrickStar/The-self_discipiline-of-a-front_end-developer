@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>20.$冲突</title>
+    <script src="./itcast.js"></script>
+    <script src="./jquery-1.12.4.js"></script>
+
+    <script>
+        console.log($); 
+        //jQuery释放$的控制权
+        $.noConflict();    
+        jQuery(function () {      
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

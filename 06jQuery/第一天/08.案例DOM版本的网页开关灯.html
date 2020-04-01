@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08.案例DOM版本的网页开关灯</title>
+    <style>
+        .cls{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="关灯" id="btn">
+    <script>
+        // DOM版本的---10行代码
+        document.getElementById("btn").onclick = function(){
+            var body = document.body;
+            // 判断
+            if(body.className == "cls"){
+                body.className = "";
+                this.value = "关灯"
+            }else{
+                body.className = "cls";
+                this.value = "开灯";
+            }
+        };
+    </script>
+</body>
+</html>

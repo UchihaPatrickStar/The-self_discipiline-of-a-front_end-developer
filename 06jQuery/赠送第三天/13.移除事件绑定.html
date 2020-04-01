@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>13.移除事件绑定</title>
+</head>
+<body>
+    <input type="button" value="触发" id="btn">
+    <p>我是一个p元素</p>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {   
+            $("p").on("click", function () {
+                alert("呵呵");
+            })
+                   
+            //toggle：切换  trigger：触发
+            $("#btn").on("click",function () {
+                //触发p元素的点击事件
+                //$("p").click();
+                //$("p").trigger("click");
+            });         
+        });
+    </script>
+</body>
+</html>

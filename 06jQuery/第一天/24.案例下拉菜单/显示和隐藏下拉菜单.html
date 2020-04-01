@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>显示和隐藏下拉菜单</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .wrap{
+            width: 330px;
+            height: 30px;
+            padding-left: 10px;
+            margin: 100px auto 0;
+            background-image: url("./images/bg.JPG");
+        }
+        .wrap li{
+            background-image: url("./images/libg.JPG");
+        }
+        .wrap > ul > li{
+            position: relative;
+            float: left;
+            margin-right: 10px;
+        }
+        .wrap a{
+            display: block;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-decoration: none;
+            color: #000;
+            text-align: center;
+        }
+        .wrap li ul{
+            display: none;
+            position: absolute;
+            top: 30px;
+        }
+    </style>
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        // 页面加载事件
+        $(function(){
+            // 获取ul中所有的li，然后注册鼠标进入和鼠标离开事件
+            $(".wrap > ul > li").mouseenter(function(){
+                // 当前的li中所有的子元素，再从所有的子元素中找ul
+                $(this).children("ul").stop().show(200);
+            });
+            // 鼠标离开
+            $(".wrap > ul > li").mouseleave(function(){
+                $(this).children("ul").stop().hide(200);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <ul>
+            <li>
+                <a href="javascript:;">帅哥系列</a>
+                <ul>
+                    <li><a href="javascript:;">乔峰</a></li>
+                    <li><a href="javascript:;">张无忌</a></li>
+                    <li><a href="javascript:;">郭靖</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">美女系列</a>
+                <ul>
+                    <li><a href="javascript:;">柳 岩</a></li>
+                    <li><a href="javascript:;">杨 幂</a></li>
+                    <li><a href="javascript:;">萝 拉</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">渣男妇腐女</a>
+                <ul>
+                    <li><a href="javascript:;">凤姐</a></li>
+                    <li><a href="javascript:;">助教</a></li>
+                    <li><a href="javascript:;">导师</a></li>
+                </ul>
+            </li>
+        </ul>
+      </div>
+</body>
+</html>

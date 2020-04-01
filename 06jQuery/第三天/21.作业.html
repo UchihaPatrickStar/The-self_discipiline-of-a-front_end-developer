@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>21.作业</title>
+    <script>
+        /*
+            作业:
+            今天的案例都是一遍
+        */
+    </script>
+</head>
+<body>
+    <!-- 06 -->
+    <style>
+        div{
+            width: 600px;
+            height: 450px;
+            border: 1px solid red;
+        }
+    </style>
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        var arr=[
+            {"name":"传智播客","href":"http://www.itcast.cn"},
+            {"name":"快播","href":"http://www.kuaibo.cn"},
+            {"name":"优酷","href":"http://www.youku.cn"},
+            {"name":"爱奇艺","href":"http://www.iqiyi.cn"},
+            {"name":"B站","href":"http://www.bili.cn"},
+            {"name":"土豆","href":"http://www.tudou.cn"}
+        ];
+        // 页面加载
+        $(function(){
+            // 点击按钮创建表格
+            $("#btn").click(function(){
+                // 创建表格
+                var table = $("<table style='cursor:pointer' border='1' cellspacing='0' cellpadding='0'></table>")
+                // 把表格加入到div中
+                $("#dv").append(table);
+                // 循环遍历数组，创建行
+                for(var i = 0;i < arr.length;i++){
+                    var dt = arr[i];//每个数组元素，都是对象
+                    // 创建行，并加入到table中
+                    var tr = $("<tr></tr>");
+                    table.append(tr);
+                    // 在列中显示内容，列在行中
+                    // 创建td，并加入到tr中
+                    var td1 = $("<td>"+dt.name+"</td>");
+                    // 第一个列加入到tr中
+                    tr.append(td1);
+                    var td2 = $("<td><a href='"+dt.href+"'>"+dt.name+"</a></td>");
+                    // 第二个列加入到tr中
+                    tr.append(td2);
+
+                    // 鼠标进入到每一行的时候，该行有高亮显示的效果
+                    tr.mouseenter(function(){
+                        $(this).css("backgroundColor","green");
+                    }).mouseleave(function(){
+                        $(this).css("backgroundColor","");
+                    });
+                }
+            });
+
+            // 点击按钮移除表格
+            $("btn2").click(function(){
+                // 当前这个按钮的下一个兄弟元素，清空里面的子元素
+                $(this).next().next().empty();
+            });
+            // 点击按钮，在table中添加一行
+            $("#btn3").click(function(){
+                // 创建一行
+                var tr = $("<tr><td>腾讯</td><td><a href='http://.qq.com'>腾讯</a></td></tr>");
+                // 把这一行加入到table中
+                $("#dv").children("table").append(tr);
+            });
+        });
+    </script>
+    <input type="button" value="创建一个表格" id="btn"/>
+    <input type="button" value="移除表格" id="btn2"/>
+    <input type="button" value="添加一行" id="btn3"/>
+    <div id="dv"></div>
+
+    <!-- 07 -->
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        $(function(){
+            // 第三个按钮，把左边所有的移动到右边
+            $("#toAllRight").click(function(){
+                $("#se1 > option").appendTo($("#se2"));
+            });
+            // 第四个按钮，把右边的所有移动到左边
+            $("#toAllLeft").click(function(){
+                $("#se2 > option").appendTo($("#se1"));
+            });
+            // 第一个按钮，把左边选中的移动到右边
+            $("#toReft").click(function(){
+                $("#se1 > option:selected").appendTo($("#se2"));
+            });
+            // 第二个按钮，把右边选中的移动到左边
+            $("#toLeft").click(function(){
+                $("#se2 > option:selected").appendTo($("#se1"));
+            });
+        });
+    </script>
+    <div style="margin-left: 500px; margin-top: 20px; background-color: #999999">
+        <select multiple="multiple" style="float: left; width: 60px; height: 100px;" id="se1">
+            <option>添加</option>
+            <option>删除</option>
+            <option>修改</option>
+            <option>查询</option>
+            <option>打印</option>
+        </select>
+        <div style="width: 50px; float: left;">
+            <input type="button" name="name" value=">" style="width: 50px;" id="toRight"/>
+            <input type="button" name="name" value="<" style="width: 50px;" id="toLeft"/>
+            <input type="button" name="name" value=">>" style="width: 50px;" id="toAllRight"/>
+            <input type="button" name="name" value="<<" style="width: 50px;" id="toAllLeft"/>
+        </div>
+        <select multiple="multiple" style="float: left; width: 60px; height: 100px;" id="se2">
+        </select>
+    </div>
+
+    <!-- 12 -->
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        $(function(){
+            // 点击按钮 
+            $("#btn").click(function(){
+                // 点一下，选中了，再点，就不再选中了
+                if($("#ck").prop("checked")){
+                    // 选中了，就应该变成不是选中的状态
+                    $("#ck").prop("checked",false);
+                }else{
+                    $("#ck").prop("checked",true);
+                }
+            });
+        });
+    </script>
+    <input type="button" value="选中/不选中" id="btn"/>
+    <input type="checkbox" value="1" name="play" id="ck" />玩游戏
+
+    <!-- 13 -->
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap {
+            width: 300px;
+            margin: 100px auto 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #d0d0d0;
+            color: #404060;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td {
+            font: 14px "微软雅黑";
+        }
+
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+
+        tbody tr:hover {
+            background-color: #fafafa;
+            cursor: pointer;
+        }
+    </style>
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        $(function(){
+            // thead标签中的复选框----全选和全不选
+            $("#j_cbAll").click(function(){
+                // 直接设置tbody中复选框的选中状态和当前点击的复选框的选中状态一致
+                $("#j_tb").find("input").prop("checked",$(this).prop("checked"));
+            });
+
+            // 每个复选框都要注册点击事件
+            $("#j_tb").find("input").click(function(){
+                // 先获取所有的复选框的个数
+                var ckLength = $("#j_tb").find("input").length;
+                // 获取所有选中的复选框的个数
+                var checkedLength = $("#j_tb:checked").length;
+                $("#j_cbAll").prop("checked",checkedLength==ckLength);
+            });
+        });
+    </script>
+    <div class="wrap">
+        <table>
+            <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" id="j_cbAll"/>
+                </th>
+                <th>课程名称</th>
+                <th>所属学院</th>
+            </tr>
+            </thead>
+            <tbody id="j_tb">
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>JavaScript</td>
+                <td>前端与移动开发学院</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>css</td>
+                <td>前端与移动开发学院</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>html</td>
+                <td>前端与移动开发学院</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>jQuery</td>
+                <td>前端与移动开发学院</td>
+            </tr>      
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 17 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        /*.top {
+            height: 171px;
+        }
+        .nav {
+            height: 86px;
+        }*/
+    </style>
+    <script src="./jquery-1.12.2.js"></script>
+    <script>
+        $(function(){
+            // 浏览器的滚动条上下移动的时候，设置页面中的nav的div固定在页面的顶部或是回到原来的位置
+            // 为浏览器注册滚动的事件
+            $(window).scroll(function(){
+                // 获取页面的向上卷曲出去的距离的值
+                // console.log($(this).scrollTop());
+                // 如果向上卷曲出去的距离的值大于或者是等于第一个div的高度
+                if($(this).scrollTop() >= $(".top").height()){
+                    // 设置导航栏固定在页面的顶部
+                    $(".nav").css("position","fixed");
+                    // 设置导航栏在顶部的值是0
+                    $(".nav").css("top","0");
+                    // 设置.main的div的位置，不是直接跳上去的
+                    $(".main").css("marginTop",$(".nav").height());
+                }else{
+                    // 恢复
+                    $(".nav").css("position","static");
+                    $(".main").css("marginTop",0);
+                }
+            });
+        });
+    </script>
+    <div class="top">
+        <img src="images/top.png" />
+    </div>
+    <div class="nav">
+        <img src="images/nav.png" />
+    </div>
+    <div class="main">
+        <img src="images/main.png" />
+    </div>
+</body>
+</html>

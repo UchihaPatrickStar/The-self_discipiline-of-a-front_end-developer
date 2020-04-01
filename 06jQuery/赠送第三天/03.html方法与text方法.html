@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03.html方法与text方法</title>
+</head>
+<body>
+    <div><h3>我是标题</h3></div>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            //html:innerHTML  text:innerText
+            //console.log($("div").html());//<h3>我是标题</h3>
+            //console.log($("div").text());//我是标题
+            
+            //$("div").html("<p>我是文本</p>");
+            $("div").text("<p>我是文本</p>");          
+        });
+    </script>
+</body>
+</html>

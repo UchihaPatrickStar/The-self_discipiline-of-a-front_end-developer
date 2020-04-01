@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+    
+        img {
+            vertical-align: top;
+        }
+        
+        .main {
+            width: 1000px;
+            margin: 10px auto 0;
+        }
+        
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+        $(function () {   
+            $(window).scroll(function () {
+                //判断卷去的高度超过topPart的高度
+                //1. 让navBar有固定定位
+                //2. 让mainPart有一个marginTop
+                if($(window).scrollTop() >= $(".top").height() ){
+                    $(".nav").addClass("fixed");
+                    $(".main").css("marginTop", $(".nav").height() + 10);
+                }else {
+                    $(".nav").removeClass("fixed");
+                    $(".main").css("marginTop", 10);
+                }                
+            });    
+        });
+    </script>
+</head>
+<body>
+    <div class="top" id="topPart">
+        <img src="images/top.png" alt=""/>
+    </div>
+    <div class="nav" id="navBar">
+        <img src="images/nav.png" alt=""/>
+    </div>
+    <div class="main" id="mainPart">
+        <img src="images/main.png" alt=""/>
+    </div>
+</body>
+</html>

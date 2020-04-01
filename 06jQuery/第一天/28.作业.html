@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>28.作业</title>
+    <script>
+        // 每个选择器---两遍----参考22
+        /*
+            每个三遍
+            08
+            09
+            10
+            11---两遍
+            23
+            24
+            25
+            26
+            27
+        */
+    </script>
+</head>
+<body>
+    <!-- 选择器 -->
+    <script>
+        // id选择器
+        // $("#id属性值")
+        // 标签选择器
+        // $("标签名字")
+        // 类选择器
+        // $(".类样式的名字")
+        // 交集选择器------标签 + 类选择器
+        // $(".标签名.类样式名字")
+        // 并集选择器------多条件选择器
+        // $("标签名字,.类样式名字,#id选择器")
+        // 层次选择器
+        // $("选择器 选择器");======>$("#dv span")
+        // $("选择器>选择器");======>$("#dv span")
+        // $("选择器~选择器");======>$("#dv span")
+        // $("选择器+选择器");======>$("#dv span")
+
+
+        // id选择器
+        // $("#id属性值")
+        // 标签选择器
+        // $("标签名字")
+        // 类选择器
+        // $(".类样式的名字")
+        // 交集选择器------标签 + 类选择器
+        // $(".标签名.类样式名字")
+        // 并集选择器------多条件选择器
+        // $("标签名字,.类样式名字,#id选择器")
+        // 层次选择器
+        // $("选择器 选择器");======>$("#dv span")
+        // $("选择器>选择器");======>$("#dv span")
+        // $("选择器~选择器");======>$("#dv span")
+        // $("选择器+选择器");======>$("#dv span")
+    </script>
+
+    <!-- 08 -->
+    <style>
+        .cls{
+            background-color: black;
+        }
+    </style>
+    <input type="button" value="关灯" id="btn">
+    <script>
+        // DOM版本的---10行代码
+        document.getElementById("btn").onclick = function(){
+            var body = document.body;
+            // 判断
+            if(body.className == "cls"){
+                body.className = "";
+                this.value = "关灯";
+            }else{
+                body.className = "cls";
+                this.value = "开灯";
+            }
+        };
+    </script>
+
+    <style>
+        .cls{
+            background-color: black;
+        }
+    </style>
+    <input type="button" value="关灯" id="btn">
+    <script>
+        // DOM版本的---10行代码
+        document.getElementById("btn").onclick = function(){
+            var body = document.body;
+            // 判断
+            if(body.className == "cls"){
+                body.className = "";
+                this.value = "关灯";
+            }else{
+                body.className = "cls";
+                this.value = "开灯";
+            }
+        };
+    </script>
+
+    <style>
+        .cls{
+            background-color: black;
+        }
+    </style>
+    <input type="button" value="关灯" id="btn">
+    <script>
+        // DOM版本的---10行代码
+        document.getElementById("btn").onclick = function(){
+            var body = document.body;
+            // 判断
+            if(body.className == "cls"){
+                body.className = "";
+                this.value = "关灯";
+            }else{
+                body.className = "cls";
+                this.value = "开灯";
+            }
+        };
+    </script>
+
+    <!-- 09 -->
+    <style>
+        .cls{
+            background-color: black;
+        }
+    </style>
+    <input type="button" value="开关" id="btn">
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        $("#btn").click(function(){
+            // 判断body标签是否应用了cls的类样式
+            if($("body").hasClass("cls")){
+                // 此处应用了cls类样式，那么就移除这个类样式
+                $("body").removeClass("cls");
+            }else{
+                // 此处没有应用类样式cls，那么就添加类样式
+                $("body").addClass("cls");
+            }
+        });
+    </script>
+
+    <style>
+        .cls{
+            background-color: black;
+        }
+    </style>
+    <input type="button" value="开关" id="btn">
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        $("#btn").click(function(){
+            // 判断body标签是否应用了cls的类样式
+            if($("body").hasClass("cls")){
+                // 此处应用了cls类样式，那么就移除这个类样式
+                $("body").removeClass("cls");
+            }else{
+                // 此处没有应用类样式cls，那么就添加类样式
+                $("body").addClass("cls");
+            }
+        });
+    </script>
+
+    <style>
+        .cls{
+            background-color: black;
+        }
+    </style>
+    <input type="button" value="开关" id="btn">
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        $("#btn").click(function(){
+            // 判断body标签是否应用了cls的类样式
+            if($("body").hasClass("cls")){
+                // 此处应用了cls类样式，那么就移除这个类样式
+                $("body").removeClass("cls");
+            }else{
+                // 此处没有应用类样式cls，那么就添加类样式
+                $("body").addClass("cls");
+            }
+        });
+    </script>
+
+    <!-- 10 -->
+    <input type="button" value="关灯" id="btn">
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        $("#btn").click(function(){
+            // 判断这个按钮的值来修改body的样式
+            // 此处的this是当前的按钮DOM对象
+            // 判断按钮的value值是不是关灯
+            if($(this).val() == "关灯"){
+                // 修改body的背景颜色
+                $("body").css("backgroundColor", "black");
+                $(this).val("开灯")
+            }else{
+                $("body").css("backgroundColor", "");
+                $(this).val("关灯");
+            }
+        });
+    </script>
+
+    <input type="button" value="关灯" id="btn">
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        $("#btn").click(function(){
+            // 判断这个按钮的值来修改body的样式
+            // 此处的this是当前的按钮DOM对象
+            // 判断按钮的value值是不是关灯
+            if($(this).val() == "关灯"){
+                // 修改body的背景颜色
+                $("body").css("backgroundColor", "black");
+                $(this).val("开灯")
+            }else{
+                $("body").css("backgroundColor", "");
+                $(this).val("关灯");
+            }
+        });
+    </script>
+
+    <input type="button" value="关灯" id="btn">
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        $("#btn").click(function(){
+            // 判断这个按钮的值来修改body的样式
+            // 此处的this是当前的按钮DOM对象
+            // 判断按钮的value值是不是关灯
+            if($(this).val() == "关灯"){
+                // 修改body的背景颜色
+                $("body").css("backgroundColor", "black");
+                $(this).val("开灯")
+            }else{
+                $("body").css("backgroundColor", "");
+                $(this).val("关灯");
+            }
+        });
+    </script>
+
+    <!-- 11 -->
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        // 点击按钮，显示一句话
+        $("btn").click(function(){
+            console.log("小苏好帅哦");
+        });
+        // 没有页面加载的事件
+
+        // 注册事件----赋值的
+        // DOM中页面加载事件------页面全部加载完毕才触发(标签，文字，图片，引入的文件)
+        window.onload = function(){
+            console.log("小苏好帅");
+        };
+        window.onload = function(){
+            console.log("哈哈，我又变帅了");
+        };
+
+        // jQuery的代码
+
+        // 页面加载事件
+
+        // jQuery中第一种页面加载的事件
+        $(window).load(function(){
+            console.log("小苏好猥琐哦");
+        });
+        $(window).load(function(){
+            console.log("哈哈，小杨好帅哦");
+        });
+
+        // jQuery中第二种页面加载的事件----比上面的快----页面中的基本的元素加载后就触发
+        $(document).ready(function(){
+            console.log("1");
+        });
+        $(document).ready(function(){
+            console.log("2");
+        });
+
+        // jQuery中第三种页面加载的事件---页面中基本的元素加载后就触发了
+        jQuery(function(){
+            console.log("页面加载了1111");
+        });
+        jQuery(function(){
+            console.log("页面加载了2222");
+        });
+
+        $(function(){
+            console.log("页面加载了1");
+        });
+        $(function(){
+            console.log("页面加载了2");
+        });
+    </script>
+
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        // 点击按钮，显示一句话
+        $("btn").click(function(){
+            console.log("小苏好帅哦");
+        });
+        // 没有页面加载的事件
+
+        // 注册事件----赋值的
+        // DOM中页面加载事件------页面全部加载完毕才触发(标签，文字，图片，引入的文件)
+        window.onload = function(){
+            console.log("小苏好帅");
+        };
+        window.onload = function(){
+            console.log("哈哈，我又变帅了");
+        };
+
+        // jQuery的代码
+
+        // 页面加载事件
+
+        // jQuery中第一种页面加载的事件
+        $(window).load(function(){
+            console.log("小苏好猥琐哦");
+        });
+        $(window).load(function(){
+            console.log("哈哈，小杨好帅哦");
+        });
+
+        // jQuery中第二种页面加载的事件----比上面的快----页面中的基本的元素加载后就触发
+        $(document).ready(function(){
+            console.log("1");
+        });
+        $(document).ready(function(){
+            console.log("2");
+        });
+
+        // jQuery中第三种页面加载的事件---页面中基本的元素加载后就触发了
+        jQuery(function(){
+            console.log("页面加载了1111");
+        });
+        jQuery(function(){
+            console.log("页面加载了2222");
+        });
+
+        $(function(){
+            console.log("页面加载了1");
+        });
+        $(function(){
+            console.log("页面加载了2");
+        });
+    </script>
+
+    <!-- 23 -->
+    <style>
+        ul{
+            position: absolute;
+            left: 500px;
+            width: 200px;
+            list-style-type: none;
+        }
+        ul li{
+            margin-top: 10px;
+            text-align: center;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        $(function(){
+            // 点击按钮
+            $("#btn").click(function(){
+                $("#uu > li:even").css("backgroundColor", "red");
+                $("#uu > li:odd").css("backgroundColor", "yellow");
+            });
+        });
+    </script>
+    <input type="button" value="隔行变色" id="btn">
+    <ul id="uu">
+        <li>乔峰:降龙十八掌</li>
+        <li>张无忌:乾坤大挪移</li>
+        <li>段誉:凌波微步</li>
+        <li>丁鹏:天外流星贱</li>
+        <li>张三丰:太极掌</li>
+        <li>段飞:极乐神功</li>
+        <li>云飞扬:天馋功</li>
+        <li>杨过:黯然销魂掌</li>
+        <li>那谁谁:如来神掌</li>
+        <li>孟星魂:流星蝴蝶剑</li>
+        <li>楠哥:少女萌萌拳</li>
+    </ul>
+
+    <style>
+        ul{
+            position: absolute;
+            left: 500px;
+            width: 200px;
+            list-style-type: none;
+        }
+        ul li{
+            margin-top: 10px;
+            text-align: center;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        $(function(){
+            // 点击按钮
+            $("#btn").click(function(){
+                $("#uu > li:even").css("backgroundColor", "red");
+                $("#uu > li:odd").css("backgroundColor", "yellow");
+            });
+        });
+    </script>
+    <input type="button" value="隔行变色" id="btn">
+    <ul id="uu">
+        <li>乔峰:降龙十八掌</li>
+        <li>张无忌:乾坤大挪移</li>
+        <li>段誉:凌波微步</li>
+        <li>丁鹏:天外流星贱</li>
+        <li>张三丰:太极掌</li>
+        <li>段飞:极乐神功</li>
+        <li>云飞扬:天馋功</li>
+        <li>杨过:黯然销魂掌</li>
+        <li>那谁谁:如来神掌</li>
+        <li>孟星魂:流星蝴蝶剑</li>
+        <li>楠哥:少女萌萌拳</li>
+    </ul>
+
+    <style>
+        ul{
+            position: absolute;
+            left: 500px;
+            width: 200px;
+            list-style-type: none;
+        }
+        ul li{
+            margin-top: 10px;
+            text-align: center;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        $(function(){
+            // 点击按钮
+            $("#btn").click(function(){
+                $("#uu > li:even").css("backgroundColor", "red");
+                $("#uu > li:odd").css("backgroundColor", "yellow");
+            });
+        });
+    </script>
+    <input type="button" value="隔行变色" id="btn">
+    <ul id="uu">
+        <li>乔峰:降龙十八掌</li>
+        <li>张无忌:乾坤大挪移</li>
+        <li>段誉:凌波微步</li>
+        <li>丁鹏:天外流星贱</li>
+        <li>张三丰:太极掌</li>
+        <li>段飞:极乐神功</li>
+        <li>云飞扬:天馋功</li>
+        <li>杨过:黯然销魂掌</li>
+        <li>那谁谁:如来神掌</li>
+        <li>孟星魂:流星蝴蝶剑</li>
+        <li>楠哥:少女萌萌拳</li>
+    </ul>
+
+    <!-- 24 -->
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .wrap{
+            width: 330px;
+            height: 30px;
+            padding-left: 10px;
+            margin: 100px auto 0;
+            background-image: url("./images/bg.JPG");
+        }
+        .wrap li{
+            background-image: url("./images/libg.JPG");
+        }
+        .wrap > ul > li{
+            position: relative;
+            float: left;
+            margin-right: 10px;
+        }
+        .wrap a{
+            display: block;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-decoration: none;
+            color: #000;
+            text-align: center;
+        }
+        .wrap li ul{
+            display: none;
+            position: absolute;
+            top: 30px;
+        }
+    </style>
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        // 页面加载事件
+        $(function(){
+            // 获取ul中所有的li，然后注册鼠标进入和鼠标离开事件
+            $(".wrap > ul >li").mouseenter(function(){
+                // 当前的li中所有的子元素，再从所有的子元素中找ul
+                $(this).children("ul").stop().show(200);
+            });
+            // 鼠标离开
+            $(".wrap > ul > li").mouseleave(function(){
+                $(this).children("ul").stop().hide(200);
+            });
+        });
+    </script>
+        <div class="wrap">
+            <ul>
+                <li>
+                    <a href="javascript:;">帅哥系列</a>
+                    <ul>
+                        <li><a href="javascript:;">乔峰</a></li>
+                        <li><a href="javascript:;">张无忌</a></li>
+                        <li><a href="javascript:;">郭靖</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">美女系列</a>
+                    <ul>
+                        <li><a href="javascript:;">柳 岩</a></li>
+                        <li><a href="javascript:;">杨 幂</a></li>
+                        <li><a href="javascript:;">萝 拉</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">渣男妇腐女</a>
+                    <ul>
+                        <li><a href="javascript:;">凤姐</a></li>
+                        <li><a href="javascript:;">助教</a></li>
+                        <li><a href="javascript:;">导师</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+            }
+            ul{
+                list-style: none;
+            }
+            .wrap{
+                width: 330px;
+                height: 30px;
+                padding-left: 10px;
+                margin: 100px auto 0;
+                background-image: url("./images/bg.JPG");
+            }
+            .wrap li{
+                background-image: url("./images/libg.JPG");
+            }
+            .wrap > ul > li{
+                position: relative;
+                float: left;
+                margin-right: 10px;
+            }
+            .wrap a{
+                display: block;
+                width: 100px;
+                height: 30px;
+                line-height: 30px;
+                text-decoration: none;
+                color: #000;
+                text-align: center;
+            }
+            .wrap li ul{
+                display: none;
+                position: absolute;
+                top: 30px;
+            }
+        </style>
+        <script src="./jquery-1.12.1.js"></script>
+        <script>
+            // 页面加载事件
+            $(function(){
+                // 获取ul中所有的li，然后注册鼠标进入和鼠标离开事件
+                $(".wrap > ul >li").mouseenter(function(){
+                    // 当前的li中所有的子元素，再从所有的子元素中找ul
+                    $(this).children("ul").stop().show(200);
+                });
+                // 鼠标离开
+                $(".wrap > ul > li").mouseleave(function(){
+                    $(this).children("ul").stop().hide(200);
+                });
+            });
+        </script>
+        <div class="wrap">
+            <ul>
+                <li>
+                    <a href="javascript:;">帅哥系列</a>
+                    <ul>
+                        <li><a href="javascript:;">乔峰</a></li>
+                        <li><a href="javascript:;">张无忌</a></li>
+                        <li><a href="javascript:;">郭靖</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">美女系列</a>
+                    <ul>
+                        <li><a href="javascript:;">柳 岩</a></li>
+                        <li><a href="javascript:;">杨 幂</a></li>
+                        <li><a href="javascript:;">萝 拉</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">渣男妇腐女</a>
+                    <ul>
+                        <li><a href="javascript:;">凤姐</a></li>
+                        <li><a href="javascript:;">助教</a></li>
+                        <li><a href="javascript:;">导师</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+            }
+            ul{
+                list-style: none;
+            }
+            .wrap{
+                width: 330px;
+                height: 30px;
+                padding-left: 10px;
+                margin: 100px auto 0;
+                background-image: url("./images/bg.JPG");
+            }
+            .wrap li{
+                background-image: url("./images/libg.JPG");
+            }
+            .wrap > ul > li{
+                position: relative;
+                float: left;
+                margin-right: 10px;
+            }
+            .wrap a{
+                display: block;
+                width: 100px;
+                height: 30px;
+                line-height: 30px;
+                text-decoration: none;
+                color: #000;
+                text-align: center;
+            }
+            .wrap li ul{
+                display: none;
+                position: absolute;
+                top: 30px;
+            }
+        </style>
+        <script src="./jquery-1.12.1.js"></script>
+        <script>
+            // 页面加载事件
+            $(function(){
+                // 获取ul中所有的li，然后注册鼠标进入和鼠标离开事件
+                $(".wrap > ul >li").mouseenter(function(){
+                    // 当前的li中所有的子元素，再从所有的子元素中找ul
+                    $(this).children("ul").stop().show(200);
+                });
+                // 鼠标离开
+                $(".wrap > ul > li").mouseleave(function(){
+                    $(this).children("ul").stop().hide(200);
+                });
+            });
+        </script>
+        <div class="wrap">
+            <ul>
+                <li>
+                    <a href="javascript:;">帅哥系列</a>
+                    <ul>
+                        <li><a href="javascript:;">乔峰</a></li>
+                        <li><a href="javascript:;">张无忌</a></li>
+                        <li><a href="javascript:;">郭靖</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">美女系列</a>
+                    <ul>
+                        <li><a href="javascript:;">柳 岩</a></li>
+                        <li><a href="javascript:;">杨 幂</a></li>
+                        <li><a href="javascript:;">萝 拉</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">渣男妇腐女</a>
+                    <ul>
+                        <li><a href="javascript:;">凤姐</a></li>
+                        <li><a href="javascript:;">助教</a></li>
+                        <li><a href="javascript:;">导师</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    <!-- 25 -->
+    <style>
+        ul{
+            list-style-type: none;
+            cursor: pointer;
+        }
+    </style>
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        $(function(){
+            // 链式编程
+            $("#uu > li").mouseenter(function(){
+                $(this).css("backgroundColor","red");
+            }).mouseleave(function(){
+                $(this).css("backgroundColor","");
+            }).click(function(){
+                $(this).css("color","green").css("fontSize","30px").css("fontFamily","全新硬笔行书简");
+            });
+        });
+    </script>
+    <ul id="uu">
+        <li>倩女幽魂</li>
+        <li>海阔天空</li>
+        <li>千纸鹤</li>
+        <li>真的爱你</li>
+        <li>丑八怪</li>
+        <li>突然的自我</li>
+        <li>左手右手</li>
+        <li>喜洋洋</li>
+        <li>一路顺风</li>
+    </ul>
+
+    <style>
+        ul{
+            list-style-type: none;
+            cursor: pointer;
+        }
+    </style>
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        $(function(){
+            // 链式编程
+            $("#uu > li").mouseenter(function(){
+                $(this).css("backgroundColor","red");
+            }).mouseleave(function(){
+                $(this).css("backgroundColor","");
+            }).click(function(){
+                $(this).css("color","green").css("fontSize","30px").css("fontFamily","全新硬笔行书简");
+            });
+        });
+    </script>
+    <ul id="uu">
+        <li>倩女幽魂</li>
+        <li>海阔天空</li>
+        <li>千纸鹤</li>
+        <li>真的爱你</li>
+        <li>丑八怪</li>
+        <li>突然的自我</li>
+        <li>左手右手</li>
+        <li>喜洋洋</li>
+        <li>一路顺风</li>
+    </ul>
+
+    <style>
+        ul{
+            list-style-type: none;
+            cursor: pointer;
+        }
+    </style>
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        $(function(){
+            // 链式编程
+            $("#uu > li").mouseenter(function(){
+                $(this).css("backgroundColor","red");
+            }).mouseleave(function(){
+                $(this).css("backgroundColor","");
+            }).click(function(){
+                $(this).css("color","green").css("fontSize","30px").css("fontFamily","全新硬笔行书简");
+            });
+        });
+    </script>
+    <ul id="uu">
+        <li>倩女幽魂</li>
+        <li>海阔天空</li>
+        <li>千纸鹤</li>
+        <li>真的爱你</li>
+        <li>丑八怪</li>
+        <li>突然的自我</li>
+        <li>左手右手</li>
+        <li>喜洋洋</li>
+        <li>一路顺风</li>
+    </ul>
+
+
+    <!-- 26 -->
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        // 点击按钮，验证用户输入的是不是中文名字，如果是中文名字，则文本框的背景为绿色，否则为红色
+        $(function(){
+            // 按钮的点击事件
+            $("#btn").click(function(){
+                var reg = /^[\u4e00-u9fa5]{2,6}$/;
+                var flag = reg.test($("#txt").val());
+                if(flag){
+                    $("#txt").css("backgroundColor","green");
+                }else{
+                    $("#txt").css("backgroundColor","red");
+                }
+            });
+        });
+    </script>
+    请输入中文名字：<input type="text" value="" id="txt"><br>
+    <input type="button" value="验证" id="btn">
+
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        // 点击按钮，验证用户输入的是不是中文名字，如果是中文名字，则文本框的背景为绿色，否则为红色
+        $(function(){
+            // 按钮的点击事件
+            $("#btn").click(function(){
+                var reg = /^[\u4e00-u9fa5]{2,6}$/;
+                var flag = reg.test($("#txt").val());
+                if(flag){
+                    $("#txt").css("backgroundColor","green");
+                }else{
+                    $("#txt").css("backgroundColor","red");
+                }
+            });
+        });
+    </script>
+    请输入中文名字：<input type="text" value="" id="txt"><br>
+    <input type="button" value="验证" id="btn">
+
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        // 点击按钮，验证用户输入的是不是中文名字，如果是中文名字，则文本框的背景为绿色，否则为红色
+        $(function(){
+            // 按钮的点击事件
+            $("#btn").click(function(){
+                var reg = /^[\u4e00-u9fa5]{2,6}$/;
+                var flag = reg.test($("#txt").val());
+                if(flag){
+                    $("#txt").css("backgroundColor","green");
+                }else{
+                    $("#txt").css("backgroundColor","red");
+                }
+            });
+        });
+    </script>
+    请输入中文名字：<input type="text" value="" id="txt"><br>
+    <input type="button" value="验证" id="btn">
+
+    <!-- 27 -->
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .wrapper{
+            overflow: hidden;
+            width: 298px;
+            height: 248px;
+            margin: 100px auto 0;
+            border: 1px solid pink;
+        }
+        #left,#center,#right{
+            float: left;
+        }
+        #left li,#right li{
+            background: url("./images/lili.jpg") repeat-x;
+        }
+        #left li a,#right li a{
+            display: block;
+            width: 48px;
+            height: 27px;
+            line-height: 27px;
+            border-bottom: 1px solid pink;
+            text-align: center;
+            color: black;
+        }
+        #left li a:hover,#right li a:hover{
+            background-image: url("./images/abg.gif");
+        }
+        #center{
+            border-left: 1px solid pink;
+            border-right: 1px solid pink;
+        }
+    </style>
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        // 页面加载事件
+        $(function(){
+            // 左边的ul中的li
+            $("#left > li").mouseenter(function(){
+                // 先获取当前li的索引值
+                var index = $(this).index();
+                // 先隐藏所有的li
+                $("#center > li").hide();//隐藏
+                // 设置某个li显示
+                // $("#center > li:eq(索引值)")---->对应的li标签
+                // 显示当前的对应的li即可
+                $("#center > li:eq("+ index +")").show();
+            });
+            // 右边的ul中的li
+            $("#right > li").mouseenter(function(){
+                // 先获取当前li的索引值
+                var index = $(this).index() + 9;
+                // 先隐藏所有的li
+                $("#center > li").hide();//隐藏
+                // 设置某个li显示
+                // $("#center > li:eq(索引值)")---->对应的li标签
+                // 显示当前的对应的li即可
+                $("#center > li:eq("+ index +")").show();
+            });
+        });
+    </script>
+    <div class="wrapper">
+        <ul id="left">
+            <li><a href="#">女靴</a></li>
+            <li><a href="#">雪地靴</a></li>
+            <li><a href="#">冬裙</a></li>
+            <li><a href="#">呢大衣</a></li>
+            <li><a href="#">毛衣</a></li>
+            <li><a href="#">棉服</a></li>
+            <li><a href="#">女裤</a></li>
+            <li><a href="#">羽绒服</a></li>
+            <li><a href="#">牛仔裤</a></li>
+        </ul>
+        <ul id="center">
+            <li><a href="#"><img src="./images/女靴.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/雪地靴.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/冬裙.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/呢大衣.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/毛衣.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/棉服.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/女裤.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/羽绒服.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/牛仔裤.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/女包.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/男包.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/登山鞋.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/皮带.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/围巾.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/皮衣.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/男毛衣.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/男棉服.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/男靴.jpg" width="200" height="250"/></a></li>
+        </ul>
+        <ul id="right">
+            <li><a href="#">女包</a></li>
+            <li><a href="#">男包</a></li>
+            <li><a href="#">登山鞋</a></li>
+            <li><a href="#">皮带</a></li>
+            <li><a href="#">围巾</a></li>
+            <li><a href="#">皮衣</a></li>
+            <li><a href="#">男毛衣</a></li>
+            <li><a href="#">男棉服</a></li>
+            <li><a href="#">男靴</a></li>
+        </ul>
+    </div>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .wrapper{
+            overflow: hidden;
+            width: 298px;
+            height: 248px;
+            margin: 100px auto 0;
+            border: 1px solid pink;
+        }
+        #left,#center,#right{
+            float: left;
+        }
+        #left li,#right li{
+            background: url("./images/lili.jpg") repeat-x;
+        }
+        #left li a,#right li a{
+            display: block;
+            width: 48px;
+            height: 27px;
+            line-height: 27px;
+            border-bottom: 1px solid pink;
+            text-align: center;
+            color: black;
+        }
+        #left li a:hover,#right li a:hover{
+            background-image: url("./images/abg.gif");
+        }
+        #center{
+            border-left: 1px solid pink;
+            border-right: 1px solid pink;
+        }
+    </style>
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        // 页面加载事件
+        $(function(){
+            // 左边的ul中的li
+            $("#left > li").mouseenter(function(){
+                // 先获取当前li的索引值
+                var index = $(this).index();
+                // 先隐藏所有的li
+                $("#center > li").hide();//隐藏
+                // 设置某个li显示
+                // $("#center > li:eq(索引值)")---->对应的li标签
+                // 显示当前的对应的li即可
+                $("#center > li:eq("+ index +")").show();
+            });
+            // 右边的ul中的li
+            $("#right > li").mouseenter(function(){
+                // 先获取当前li的索引值
+                var index = $(this).index() + 9;
+                // 先隐藏所有的li
+                $("#center > li").hide();//隐藏
+                // 设置某个li显示
+                // $("#center > li:eq(索引值)")---->对应的li标签
+                // 显示当前的对应的li即可
+                $("#center > li:eq("+ index +")").show();
+            });
+        });
+    </script>
+    <div class="wrapper">
+        <ul id="left">
+            <li><a href="#">女靴</a></li>
+            <li><a href="#">雪地靴</a></li>
+            <li><a href="#">冬裙</a></li>
+            <li><a href="#">呢大衣</a></li>
+            <li><a href="#">毛衣</a></li>
+            <li><a href="#">棉服</a></li>
+            <li><a href="#">女裤</a></li>
+            <li><a href="#">羽绒服</a></li>
+            <li><a href="#">牛仔裤</a></li>
+        </ul>
+        <ul id="center">
+            <li><a href="#"><img src="./images/女靴.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/雪地靴.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/冬裙.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/呢大衣.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/毛衣.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/棉服.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/女裤.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/羽绒服.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/牛仔裤.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/女包.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/男包.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/登山鞋.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/皮带.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/围巾.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/皮衣.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/男毛衣.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/男棉服.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/男靴.jpg" width="200" height="250"/></a></li>
+        </ul>
+        <ul id="right">
+            <li><a href="#">女包</a></li>
+            <li><a href="#">男包</a></li>
+            <li><a href="#">登山鞋</a></li>
+            <li><a href="#">皮带</a></li>
+            <li><a href="#">围巾</a></li>
+            <li><a href="#">皮衣</a></li>
+            <li><a href="#">男毛衣</a></li>
+            <li><a href="#">男棉服</a></li>
+            <li><a href="#">男靴</a></li>
+        </ul>
+    </div>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .wrapper{
+            overflow: hidden;
+            width: 298px;
+            height: 248px;
+            margin: 100px auto 0;
+            border: 1px solid pink;
+        }
+        #left,#center,#right{
+            float: left;
+        }
+        #left li,#right li{
+            background: url("./images/lili.jpg") repeat-x;
+        }
+        #left li a,#right li a{
+            display: block;
+            width: 48px;
+            height: 27px;
+            line-height: 27px;
+            border-bottom: 1px solid pink;
+            text-align: center;
+            color: black;
+        }
+        #left li a:hover,#right li a:hover{
+            background-image: url("./images/abg.gif");
+        }
+        #center{
+            border-left: 1px solid pink;
+            border-right: 1px solid pink;
+        }
+    </style>
+    <script src="./jquery-1.12.1.js"></script>
+    <script>
+        // 页面加载事件
+        $(function(){
+            // 左边的ul中的li
+            $("#left > li").mouseenter(function(){
+                // 先获取当前li的索引值
+                var index = $(this).index();
+                // 先隐藏所有的li
+                $("#center > li").hide();//隐藏
+                // 设置某个li显示
+                // $("#center > li:eq(索引值)")---->对应的li标签
+                // 显示当前的对应的li即可
+                $("#center > li:eq("+ index +")").show();
+            });
+            // 右边的ul中的li
+            $("#right > li").mouseenter(function(){
+                // 先获取当前li的索引值
+                var index = $(this).index() + 9;
+                // 先隐藏所有的li
+                $("#center > li").hide();//隐藏
+                // 设置某个li显示
+                // $("#center > li:eq(索引值)")---->对应的li标签
+                // 显示当前的对应的li即可
+                $("#center > li:eq("+ index +")").show();
+            });
+        });
+    </script>
+    <div class="wrapper">
+        <ul id="left">
+            <li><a href="#">女靴</a></li>
+            <li><a href="#">雪地靴</a></li>
+            <li><a href="#">冬裙</a></li>
+            <li><a href="#">呢大衣</a></li>
+            <li><a href="#">毛衣</a></li>
+            <li><a href="#">棉服</a></li>
+            <li><a href="#">女裤</a></li>
+            <li><a href="#">羽绒服</a></li>
+            <li><a href="#">牛仔裤</a></li>
+        </ul>
+        <ul id="center">
+            <li><a href="#"><img src="./images/女靴.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/雪地靴.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/冬裙.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/呢大衣.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/毛衣.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/棉服.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/女裤.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/羽绒服.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/牛仔裤.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/女包.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/男包.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/登山鞋.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/皮带.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/围巾.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/皮衣.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/男毛衣.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/男棉服.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="./images/男靴.jpg" width="200" height="250"/></a></li>
+        </ul>
+        <ul id="right">
+            <li><a href="#">女包</a></li>
+            <li><a href="#">男包</a></li>
+            <li><a href="#">登山鞋</a></li>
+            <li><a href="#">皮带</a></li>
+            <li><a href="#">围巾</a></li>
+            <li><a href="#">皮衣</a></li>
+            <li><a href="#">男毛衣</a></li>
+            <li><a href="#">男棉服</a></li>
+            <li><a href="#">男靴</a></li>
+        </ul>
+    </div>
+</body>
+</html>

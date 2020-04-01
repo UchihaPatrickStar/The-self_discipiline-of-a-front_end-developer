@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02.val方法</title>
+</head>
+<body>
+    <input type="button" value="呵呵" id="btn">
+    <input type="text" value="洋酒" id="txt">
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            //console.log($("#btn").val());
+            //$("#btn").val("哈哈");
+            //console.log($("#btn").attr("value"));
+            
+            //$("#txt").val("123");
+            
+            
+            $("#txt").focus(function () {
+                //如果是默认值，清空内容
+                if($(this).val() === "洋酒"){
+                    $(this).val("");
+                }
+            });
+        
+            $("#txt").blur(function () {
+                if($(this).val() === ""){
+                    $(this).val("洋酒");
+                }
+            });          
+        });
+    </script>
+</body>
+</html>

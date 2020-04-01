@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01.jquery.color.js的使用</title>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+
+    <!--1. 引入jquery的js文件-->
+    <script src="./jquery-1.12.4.js"></script>
+    <!--2. 引入插件的js文件-->
+    <script src="./jquery.color.js"></script>
+    <script>
+        $(function () {
+            //3. 直接使用即可。
+            //说明jquery不支持颜色的渐变,颜色最好用16进制
+            $('div').animate({backgroundColor:"#ffc0cb"}, 3000, function () {
+                alert("呵呵");
+            });
+        });
+    </script>
+</body>
+</html>

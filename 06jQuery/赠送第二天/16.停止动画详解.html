@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>16.停止动画详解</title>
+    <style>
+        div {
+            display: none;
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="开始">
+    <input type="button" value="结束">
+    <div></div>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            $("input").eq(0).click(function () {
+                $("div").slideDown(4000).slideUp(4000);
+            });
+            
+            
+            $("input").eq(1).click(function () {
+                //stop:停止当前正在执行的动画
+                // 两个参数：默认都为false
+                //clearQueue:是否清除动画队列 true  false
+                //jumpToEnd:是否跳转到当前动画的最终效果 true false
+                
+                
+                //.stop().animate();
+                $("div").stop(true, true);
+            })
+        });
+    </script>
+</body>
+</html>

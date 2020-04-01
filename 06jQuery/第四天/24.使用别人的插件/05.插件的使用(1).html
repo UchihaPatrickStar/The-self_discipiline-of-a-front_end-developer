@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/coolShow(1).css">
+    <script src="./js/jquery-1.7.2.min.js"></script>
+    <script src="./js/coolShow.js"></script>
+</head>
+<body style = "background:#ecf0f1;">
+    <div id="plugin">
+        <div class = "main">
+            <div id = "coolShow"></div>
+            <div id = "handBar"></div>
+        </div>
+    </div>
+    
+    <script>
+        /*
+            定义需要展示的图片以及图片的展示时间
+        */
+        $(document).ready(function() {
+            $('#coolShow').coolShow({
+                imgSrc:['images/1(1).png','images/2.png','images/3.png'],
+                speed:40
+            });
+        });
+    </script>
+    <!-- 代码部分end -->
+</body>
+</html>
