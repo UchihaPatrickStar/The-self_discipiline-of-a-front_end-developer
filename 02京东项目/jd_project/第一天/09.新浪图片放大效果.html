@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09.新浪图片放大效果</title>
+    <style>
+        div{
+            overflow: hidden;
+            width: 386px;
+            height: 260px;
+        }
+        div img{
+            transition: all .5s;
+        }
+        div:hover img{
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="1.jpg" height="260" width="386" alt="">
+    </div>
+</body>
+</html>

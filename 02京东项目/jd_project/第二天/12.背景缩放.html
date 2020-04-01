@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>12.背景缩放</title>
+    <style>
+        div{
+            width: 400px;
+            height: 400px;
+            background: url(img/x.jpg) no-repeat;
+            border: 1px solid red;
+            /* background-size: 100px 100px; */
+            /* background-size: 100px; 如果只有一个值  后面一个值默认为auto 等比例缩放 */
+            /* background-size: cover; */
+            background-size: contain;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

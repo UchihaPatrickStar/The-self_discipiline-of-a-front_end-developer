@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05.京东侧边</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .subnav{
+            margin: 100px auto;
+            width: 20px;
+        }
+        .subnav li{
+            position: relative;
+            width: 20px;
+            height: 20px;
+            margin: 3px 0;
+            background-color: pink;
+        }
+        .subnav div{
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 20px;
+            width: 0;
+            background-color: purple;
+            transition: all .6s;
+            z-index: -1;
+        }
+        .subnav li:hover div{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="subnav">
+        <ul>
+            <li><div></div></li>
+            <li><div></div></li>
+            <li><div></div></li>
+            <li><div></div></li>
+            <li><div></div></li>
+        </ul>
+    </div>
+</body>
+</html>

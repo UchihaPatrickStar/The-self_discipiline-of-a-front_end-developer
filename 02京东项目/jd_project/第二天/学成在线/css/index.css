@@ -1,0 +1,315 @@
+body {
+	background-color: #f3f5f7;
+}
+header{
+    width: 1300px;
+    height: 100px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+.logo{
+    float: left;
+    width: 195px;
+    height: 42px;
+}
+.nav{
+    float: left;
+    margin-left: 20px;
+}
+.nav li{
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 25px;
+}
+.nav li a{
+    display: block;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 18px;
+}
+.nav li a:hover{
+    border-bottom: 2px solid #00a4ff;
+}
+.search{
+    float: left;
+    width: 410px;
+    height: 40px;
+    background-color: purple;
+    margin-left: 160px;
+}
+.search input{
+    float: left;
+    width: 361px;
+    height: 40px;
+    border: 1px solid #00a4ff;
+    padding-left: 10px;
+    outline: none;
+}
+.search button{
+    float: left;
+    width: 49px;
+    height: 40px;
+    border: 0;/* 按钮自带边框 */
+    background: url(../img/fa-search.png) no-repeat;
+    outline: none;
+}
+.personal{
+    float: right;
+    height: 40px;
+    line-height: 40px;
+}
+.personal dt, .personal dd{
+    float: left;
+}
+.personal s{
+    position: relative;
+    padding: 0 20px;
+    text-decoration: none;
+}
+.personal s::before{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 15px;
+    width: 6px;
+    height: 6px;
+    background-color: red;
+    border-radius: 50%;
+    content: "";
+}
+.personal span img{
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: all .6s;
+}
+.personal span img:hover{
+    transform: rotate(-360deg);
+}
+
+.banner{
+    height: 420px;
+    background-color: #1c036c;
+}
+.inner{
+    position: relative;
+    height: 420px;
+}
+.subnav{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 190px;
+    background: rgba(0, 0, 0, .3);
+    padding-top: 20px;
+}
+.subnav li{
+    position: relative;
+    padding-left: 20px;
+    height: 40px;
+    line-height: 40px;
+}
+.subnav a{
+    font-size: 14px;
+    color: #fff;
+}
+.subnav a:hover{
+    color: #00b4ff;
+}
+.subnav span{
+    position: absolute;
+    right: 20px;
+    top: 0;
+}
+.circle{
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    width: 176px;
+    height: 20px;
+    transform: translate(-50%);
+}
+.circle i{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background: rgba(255, 255, 255, .4);
+    margin: 0 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all .4s;
+}
+.circle i:hover{
+    width: 20px;
+    background-color: #fff;
+}
+.timebook{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 228px;
+    height: 300px;
+    background-color: #fff;
+    transform: translateY(-50%);
+}
+.timebook dt{
+    height: 50px;
+    line-height: 50px;
+    background-color: #9bceea;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+}
+.timebook dd{
+    padding: 15px 20px 0;
+}
+.timebook dd li{
+    height: 60px;
+    border-bottom: 1px solid #ccc;
+    padding-top: 6px;
+}
+.timebook dd li:last-child{
+    border: 0;
+}
+.timebook h5{
+    font-size: 16px;
+    font-weight: normal;
+}
+.timebook button{
+    height: 40px;
+    width: 100%;
+    border: 1px solid #22b0ff;
+    line-height: 40px;
+    background-color: #fff;
+    font-size: 16px;
+    color: #22b0ff;
+    outline: none;
+}
+.timebook button:hover{
+    background-color: #22b0ff;
+    border: 0;
+    color: #fff;
+}
+
+.recommend{
+    position: relative;
+    height: 60px;
+    line-height: 60px;
+    margin-top: 10px;
+    background-color: #fff;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, .4);
+}
+.rec-l{
+    padding-left: 30px;
+}
+.rec-l strong{
+    margin-right: 15px;
+    color: #22b0ff;
+    font-size: 14px;
+}
+.rec-l a{
+    margin: 0 15px;
+    font-size: 14px;
+}
+.recommend em{
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+}
+.products{
+    margin-top: 30px;
+}
+.pro-hd{
+    position: relative;
+    height: 40px;
+}
+.pro-hd h4{
+    font-weight: normal;
+    font-size: 18px;
+}
+.pro-hd a{
+    position: absolute;
+    top: 0;
+    right: 20px;
+}
+.pro-bd ul{
+    /*  此处应该使用clearfix来清除浮动，否则向上悬浮动画会被隐藏 */
+    /* overflow: hidden; */
+}
+.pro-bd li{
+    overflow: hidden;
+    float: left;
+    width: 228px;
+    height: 270px;
+    background-color: #fff;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    transition: all .4s;
+}
+.pro-bd li:hover{
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, .3);
+    transform: translateY(-10px);
+}
+.pro-bd li:nth-child(5n){
+    margin-right: 0;
+}
+.pic img{
+    transition: all .4s;
+}
+.pic img:hover{
+    margin-left: -5px;
+}
+.pro-title{
+    width: 185px;
+    margin: 20px auto;
+    font-size: 14px;
+    color: #050505;
+}
+.pro-bd p{
+    width: 185px;
+    margin: 20px auto;
+    color: #999;
+}
+.pro-bd p span{
+    color: #ff7c2d;
+}
+footer{
+    background-color: #fff;
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 300px;
+}
+.footer-l{
+    float: left;
+    margin-left: 20px;
+}
+.footer-l p{
+    margin: 25px 0 15px;
+    line-height: 24px;
+}
+.footer-l a{
+    display: block;
+    width: 120px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #22b0ff;
+    text-align: center;
+    color: #22b0ff;
+}
+.footer-r{
+    float: right;
+}
+.footer-r dl{
+    float: left;
+    margin-left: 130px;
+}
+.footer-r dl dt{
+    height: 30px;
+    font-size: 14px;
+    color: #333;
+}
+.footer-r dd{
+    height: 20px;
+}

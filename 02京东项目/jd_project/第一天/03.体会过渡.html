@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03.体会过渡</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            /* transition: width .5s ease 0s, height .3s; 多组属性用逗号分隔 */
+            transition: all .5s;
+            /* 过渡写到本身上  谁做过渡动画，写到谁身上 */
+        }
+        div:hover{
+            width: 800px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

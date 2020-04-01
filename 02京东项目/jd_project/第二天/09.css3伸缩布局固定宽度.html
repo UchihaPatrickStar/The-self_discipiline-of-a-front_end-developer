@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09.css3伸缩布局固定宽度</title>
+    <style>
+        section{
+            display: flex;
+            min-width: 500px;  /* section最小的宽度就是500 */
+            width: 80%;
+            height: 150px;
+            margin: 100px auto;
+        }
+        section div{
+            height: 100%;
+        }
+        section div:nth-child(1){
+            background-color: pink;
+            width: 200px;
+        }
+        section div:nth-child(2){
+            flex: 2;
+            background-color: purple;
+            margin: 0 10px;
+        }
+        section div:nth-child(3){
+            flex: 1;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </section>
+</body>
+</html>

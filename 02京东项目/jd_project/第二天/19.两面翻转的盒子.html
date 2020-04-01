@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>19.两面翻转的盒子</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            /* perspective: 500px; */
+        }
+        div{
+            width: 224px;
+            height: 224px;
+        }
+        div img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 2s;
+        }
+        div:hover img{
+            transform: rotateY(180deg);
+        }
+        div img:last-child{
+            backface-visibility: hidden;
+            /* 定义当图片不面向屏幕时是否可见 */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="img/hou.svg" alt="">
+        <img src="img/qian.svg" alt="">
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08.变形之缩放</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        div:hover{
+            /* transform: scale(.8, 1); 宽度变为了原来得80%  高度不变 */
+            /* transform: scale(1, .8); 高度变为了原来得80%  宽度不变 */
+            transform: scale(.8);/* 高度省略  默认和宽度一起缩放  都是0.8 */
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
