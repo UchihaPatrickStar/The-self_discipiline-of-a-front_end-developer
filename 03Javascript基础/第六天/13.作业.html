@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>13.作业</title>
+    <script>
+        //将一个字符串数组输出为|分割的形式，比如“刘备|张飞|关羽”。使用两种方式实现
+        //方法一：
+        var names = ["刘备","张飞","关羽"];
+        var str = "";
+        for(var i = 0;i < names.length - 1;i++){
+            str += names[i] + "|";
+        }
+        console.log(str + names[names.length - 1]);
+
+        //方法二：
+        var names = ["刘备","张飞","关羽"];
+        var str = "";
+        for(var i = 1;i < names.length;i++){
+            str += "|" + names[i];
+        }
+        console.log(names[0] + str);
+        //将一个字符串数组的元素的顺序进行反转。["a", "b", "c", "d"] -> [ "d","c","b","a"]。使用两种方式实现。提示：第i个和第length-i-1个进行交换
+        //方法一：
+        var array = ["a","b","c","d"];
+        for(var i = 0;i < array.length/2;i++){
+            var temp = array[i];
+            array[i] = array[array.length - 1 -i];
+            array[array.length - 1 -i] = temp;
+        }
+        console.log(array);
+
+        //方法二：
+        var array = ["a","b","c","d"];
+        var newArr = [];
+        for(var i = array.length - 1;i >= 0;i--){
+            newArr[newArr.length] = array[i];
+        }
+        console.log(newArr);
+        //工资的数组[1500, 1200, 2000, 2100, 1800],把工资超过2000的删除
+        var arr = [1500,1200,2000,2100,1800];
+        var newArr = [];
+        for(var i = 0;i < arr.length;i++){
+            if(arr[i] <= 2000){
+                newArr[newArr.length] = arr[i];
+            }
+        }
+        console.log(newArr);
+        //["c", "a", "z", "a", "x", "a"]找到数组中每一个a出现的位置
+        var arr = ["c", "a", "z", "a", "x", "a"];
+        for(var i = 0;i < arr.length;i++){
+            if(arr[i] == "a"){
+                console.log(i);
+            }
+        }
+        
+        //编写一个方法去掉一个数组的重复元素
+        function f1(arr){
+            var newArr = [];
+            for(var i = 0;i < arr.length;i++){
+                if(newArr.indexOf(arr[i]) == -1){
+                    newArr[newArr.length] = arr[i];
+                }
+            }
+            return newArr;
+        }
+        console.log(f1([1,5,8,4,5,9,4]));
+    </script>
+        
+    <script>
+        /*
+            //Math和Date和String和Array中的所有的方法,全部一遍
+
+            Math.abs(); 取绝对值
+            Math.ceil(); 向上取整
+            Math.floor(); 向下取整
+            Math.fround(2); 取32位浮点数
+            Math.max(); 取最大值
+            Math.min(); 取最小值
+            Math.pow(); n次方
+            Math.sqrt(); 开方
+            Math.random();0~1的随机数
+
+            var dt = new Date();
+            var dt = +new Date();//一种特殊的写法，只适用于这个Date的对象
+            console.log(dt);
+
+            dt.getFullYear(); //年
+            dt.getMonth(); //月---从0开始
+            dt.getDate(); //日
+            dt.getHours(); //小时
+            dt.getMinutes(); //分钟
+            dt.getSeconds(); //秒
+            dt.getDay(); //星期---从0开始
+            dt.toDateString(); //日期
+            dt.toLocaleDateString(); //日期
+            dt.toTimeString(); //时间
+            dt.toLocaleTimeString(); //时间
+            dt.valueOf(); //毫秒
+
+            .length---->字符串的长度
+            .charAt(索引)，返回值是指定索引位置的字符串，超出索引，结果是空字符串
+            .fromCharCode(数字值，可以是多个参数)，返回的是ASCII码对应的值
+            .concat(字符串1,字符串2,...);返回的是拼接之后的新的字符串
+            .indexOf(要找的字符串,从某个位置开始的索引);返回的是这个字符串的索引值，没找到则返回-1
+            .lastIndexOf(要找的字符串);从后向前找，但是索引仍然是从左向右的方式，找不到则返回-1
+            .replace("原来的字符串","新的字符串");用来替换字符串的
+            .slice(开始的索引,结束的索引);从索引5的位置开始提取，到索引为10的前一个结束，没有10，并返回这个提取后的字符串
+            .split("要干掉的字符串",切割后留下的个数);切割字符串
+            .substr(开始的位置,个数);返回的是截取后的新的字符串
+            .substring(开始的索引,结束的索引),返回截取后的字符串，不包含结束的索引的字符串
+            .toLocaleLowerCase();转小写
+            .toLowerCase();转小写
+            .toLocaleUppererCase();转小写
+            .toUpperCase();转大写
+            .trim();干掉字符串两端的空格
+
+            Array.isArray（对象）---->判断这个对象是不是数组
+            instanceof关键字
+            .concat(数组,数组,数组,...)组合一个新的数组
+            .every(函数)--返回值是布尔类型，函数作为参数使用，函数中有三个参数，第一个参数是元素的值，第二个参数是索引值，第三个参数是原来的数组（没用）
+            如果这个数组中的每个元素的值都符合条件，最后才返回的是true
+
+            .filter(函数)：返回的是数组中每一个元素都符合条件的元素，组成了一个新的数组
+
+            .push(值);--->把值追加到数组中，加到最后了---返回值也是追加数据之后的数组长度
+            .pop();--->删除数组中最后一个元素，返回值就是删除的这个值
+            .shift();--->删除数组中第一个元素，返回值就是删除的这个值
+            .unshift();--->向数组的第一个元素前面插入一个新的元素，---返回值是插入后的程度
+            .forEach(函数)方法---遍历数组用---相当于for循环
+            .indexOf(元素值);返回的是索引，没有则是-1
+            .join("字符串");----返回的是一个字符串
+            .map(函数);--->数组中的每个元素都要执行这个函数，把执行后的结果重新的全部放在一个新的数组中
+            .reverse();---->反转数组
+            .sort();---排序的，可能不稳定，如果不稳定，请写MDN中的那个固定的代码
+            .arr.slice(开始的索引，结束的索引);把截取的数组的值放在一个新的数组中，但是不包含结束的索引对应的元素值
+            .splice(开始的位置，要删除的个数，替换的元素的值);一般是用于删除数组中的元素，或者是替换元素，或者是插入元素
+        */
+
+        /*
+            所有的案例一遍
+        
+            Math对象的案例
+            格式化的日期的案例
+            string中的案例
+
+        */
+    
+        //例子：自己定义一个对象，实现系统的max的方法
+        function MyMath(){
+            //添加了一个方法
+            this.getMax = function(){
+                var max = arguments[0];
+                for(var i = 0;i < arguments.length;i++){
+                    if(max < arguments[i]){
+                        max = arguments[i];
+                    }
+                }
+                return max;
+            }
+        }
+        //实例对象
+        var mt = new MyMath();
+        var result = mt.getMax(10,20,30,40,100,3);
+        console.log(result);
+
+
+        //随即产生一个十六进制的颜色值
+        //封装成一个函数
+        console.log(parseInt(Math.random()*5));
+
+        function getColor(){
+            var str = "#";
+            //一个十六进制的值的数组
+            var arr = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+            for(var i = 0;i < 6;i++){
+                //产生的每个随机数都是一个索引，根据索引找到数组中对应的值，拼接到一起
+                var num = parseInt(Math.random()*16);
+                str += arr[num];
+            }
+            return str;
+        }
+        //页面记载的事件
+        window.onload = function(){
+            //在文档中通过id属性的值查找这个元素（标签）.设置该标签的背景颜色
+            document.getElementById("dv").style.backgroundColor = getColor();
+        }
+        console.log(getColor());
+
+
+        //创建实例对象
+        var dt = new Date();
+            //当前的时间---当前的服务器
+            console.log(dt);
+
+            var dt = new Date("2017/08/12");
+            //传入的时间
+            console.log(dt);
+
+
+            var dt = new Date("2017/08/12");
+            //传入的时间
+            console.log(dt);
+            //获取时间的对象
+            var dt = Date.now();
+            console.log(dt);  //毫秒
+
+            var dt = new Date();
+            //获取年份
+            console.log(dt.getFullYear());
+            //获取月份
+            console.log(dt.getMonth()+1);  //是0开始的  真实的月份是需要加1的
+            //获取日期
+            console.log(dt.getDate());
+            //获取小时
+            console.log(dt.getHours());
+            //获取分钟
+            console.log(dt.getMinutes());
+            //获取秒
+            console.log(dt.getSeconds());
+            //获取星期
+            console.log(dt.getDay());  //星期从0开始的
+
+            var dt = new Date();
+            console.log(dt.toDateString());  //英文的---日期
+            console.log(dt.toLocaleDateString());  //数字格式--日期
+
+            console.log(dt.toTimeString());  //小时分钟秒
+            console.log(dt.toLocaleTimeString());  //小时分钟秒
+
+            console.log(dt.valueOf());  //毫秒值
+            console.log(dt);
+            //转成字符串
+            console.log(dt.toString());
+
+            var num = 10;
+            console.log(num.toString());
+
+
+        //案例一：
+        var str = "我爱最帅的杨哥，太帅了";
+        console.log("杨哥");
+        var key = "杨哥";
+        //先获取要截取的字符串的索引的位置
+        var index = str.indexOf(key);
+        //从指定的位置开始截取，截取两个即可
+        str = str.substr(index,2);
+        console.log(str);
+
+        //案例二：找到这个字符串中所有的 o 出现的位置
+        var str2 = "hello wod odd ott fbo nhyo";
+        var index = 0;//开始的位置
+        var key = "o";//要找的字符串
+        while((index = str2.indexOf(key,index))!=-1){  //如果是-1情况，说明找完了
+            console.log(index);
+            index += key.length;
+        }
+        // 4 7 10 14 20 25
+        //var index = str2.indexOf("o",0);
+        //console.log(index);
+
+        //案例三：找到这个字符串中每个字符串出现了多少次
+        var str3 = "whatOareYyouYnoYshaHleiHoHmyHgod";
+        //第一步：把所有的字母全部变成小写
+        str3 = str3.toLocaleLowerCase();
+        //第二步：创建一个空对象，目的：把字母作为键，次数作为值
+        var obj = {};
+        //第三步，遍历字符串，获取每个字母
+        for(var i = 0;i < str3.length;i++){
+            //判断obj这个对象中有没有这个字母（字母---键）
+            var key = str3[i];//每个字母
+            if(obj[key]){  //判断obj中有没有这个键
+            //对象中有这个字母了
+                obj[key]++;
+            }else{
+                //对象中没有这个字母，那就把字母加到对象中，并且给这个字母一个出现的次数，默认1次
+                obj[key] = 1;
+            }
+        }
+
+        //遍历对象，显示每个字母的次数
+        for(var key in obj){
+            console.log(key+"这个字母出现了"+obj[key]+"次");
+        }
+        //创建新的对象---空对象---没有属性，也没有方法
+
+        var obj = {
+            "sex": "男"
+        }
+        //我想知道这个obj对象中有没有sex这个属性
+        //把对象["属性名字"]--->放在if的判断中即可----判断对象中有没有这个属性
+        //if的判断的结果是true，则有这个属性，否则没有这个属性
+        if(obj["age"]){
+            console.log("有");
+        }else{
+            console.log("没有");
+        }
+
+        /*  
+            Ctrl+鼠标左键---转到定义----适合没有网络,自己写代码,看结果,总结
+            MDN---在线文档，查结果----初级学习
+            百度----一定要多查----对比的看
+            谷歌----百度没有的,去谷歌---多对比 
+        */
+    </script>    
+</head>
+<body>
+    
+</body>
+</html>

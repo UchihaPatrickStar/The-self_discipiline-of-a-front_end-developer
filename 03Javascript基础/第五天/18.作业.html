@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>18.作业</title>
+    <script>
+        //创建一个电脑对象，有颜色，有重量，有品牌，有型号，可以看电影，可以听音乐，可以打游戏，可以敲代码
+        function createObject(color,weight,brand,type){
+            var obj = new Object();
+            obj.color = color;
+            obj.weight = weight;
+            obj.brand = brand;
+            obj.type = type;
+            obj.function = function(){
+                console.log("这是一台"+ this.brand +"电脑,"+"型号是："+ this.type +",颜色是："+ this.color +",重量是："+this.weight+",可以看电影，可以听音乐，可以打游戏，可以敲代码。");
+            }
+            return obj;
+        }
+        var com = createObject("黑色","1kg","华硕","001");
+        com.function();
+    </script>
+
+    <script> 
+        //创建一个按钮对象，宽，高，背景颜色，点击行为，按钮有鼠标进入的行为
+        function createObject(width,height,bgcolor){
+            var obj = new Object();
+            obj.width = width;
+            obj.height = height;
+            obj.bgcolor = bgcolor;
+            obj.behavior = function(){
+                console.log("这是一个宽为:"+ this.width +",高为:"+ this.height +",背景颜色为:"+ this.bgcolor +",有点击行为，有鼠标进入行为的按钮。")
+            }
+            return obj;
+        }
+        var button = createObject("100px","20px","橘色");
+        button.behavior();
+    </script>
+
+    <script>
+        //创建一个车的对象，有重量，颜色，牌子，可以载人，拉货
+        function createObject(weight,color,brand){
+            var obj = new Object();
+            obj.weight = weight;
+            obj.color = color;
+            obj.brand = brand;
+            obj.function = function(){
+                console.log("这是一辆重为:"+ this.weight +",颜色为:"+ this.color +",可以载人，拉货的"+ this.brand +"牌汽车。")
+            }
+            return obj;
+        }
+        var car = createObject("200kg","白色","大众");
+        car.function();
+    </script>
+
+    <script>
+        /*
+            三种方式各2遍  调用Object  自定义  字面量
+
+            Math对象讲的方法---三遍            
+        */
+
+        //第一种创建对象的方式
+        //小苏举例子：
+        //实例化对象
+        var obj = new Object();
+        //对象有特征---属性和行为---方法
+        //添加属性---如何添加属性？对象.名字 = 值;
+        obj.name = "小苏";
+        obj.age = 38;
+        obj.sex = "女";
+        //添加方法---如何添加方法？对象.名字 = 函数;
+        obj.eat = function(){
+            console.log("我喜欢吃油炸榴莲凉拌臭豆腐和大蒜");
+        }
+        obj.play = function(){
+            console.log("我喜欢玩飞机模型");
+        }
+        obj.cook = function(){
+            console.log("切菜");
+            console.log("洗菜");
+            console.log("把菜放进去");
+            console.log("大火5分钟");
+            console.log("出锅");
+            console.log("凉水过一下");
+            console.log("放料，吃");
+        }
+        console.log(obj.name);
+        console.log(obj.age);
+        console.log(obj.sex);
+        //方法的调用
+        obj.eat();
+        obj.play();
+        obj.cook();
+
+        //第一种创建对象的方式
+        //小苏举例子：
+        //实例化对象
+        var obj = new Object();
+        //对象有特征---属性和行为---方法
+        //添加属性---如何添加属性？对象.名字 = 值;
+        obj.name = "小苏";
+        obj.age = 38;
+        obj.sex = "女";
+        //添加方法---如何添加方法？对象.名字 = 函数;
+        obj.eat = function(){
+            console.log("我喜欢吃油炸榴莲凉拌臭豆腐和大蒜");
+        }
+        obj.play = function(){
+            console.log("我喜欢玩飞机模型");
+        }
+        obj.cook = function(){
+            console.log("切菜");
+            console.log("洗菜");
+            console.log("把菜放进去");
+            console.log("大火5分钟");
+            console.log("出锅");
+            console.log("凉水过一下");
+            console.log("放料，吃");
+        }
+        console.log(obj.name);
+        console.log(obj.age);
+        console.log(obj.sex);
+        //方法的调用
+        obj.eat();
+        obj.play();
+        obj.cook();
+
+
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+            this.sayHi = function(){
+                console.log("我叫:"+ this.name + ",年龄是："+ this.age);
+            }
+        }
+
+        //自定义构造函数创建对象：先自定义一个构造函数，创建对象
+        var obj = new Person("小明",10);
+        console.log(obj.name);
+        console.log(obj.age);
+        obj.sayHi();
+
+        var obj2 = new Person("小红",20);
+        console.log(obj2.name);
+        console.log(obj2.age);
+        obj2.sayHi();
+
+        console.log(obj instanceof Person);
+        console.log(obj2 instanceof Person);
+
+        //自定义狗的构造函数，创建对象
+        function Dog(name,age,sex){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+        var dog = new Dog("大黄",20,"男");
+        console.log(dog instanceof Person);  //false
+        console.log(dog instanceof Dog);  
+
+
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+            this.sayHi = function(){
+                console.log("我叫:"+ this.name + ",年龄是："+ this.age);
+            }
+        }
+
+        //自定义构造函数创建对象：先自定义一个构造函数，创建对象
+        var obj = new Person("小明",10);
+        console.log(obj.name);
+        console.log(obj.age);
+        obj.sayHi();
+
+        var obj2 = new Person("小红",20);
+        console.log(obj2.name);
+        console.log(obj2.age);
+        obj2.sayHi();
+
+        console.log(obj instanceof Person);
+        console.log(obj2 instanceof Person);
+
+        //自定义狗的构造函数，创建对象
+        function Dog(name,age,sex){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+        var dog = new Dog("大黄",20,"男");
+        console.log(dog instanceof Person);  //false
+        console.log(dog instanceof Dog);  
+
+
+        //字面量的方式创建对象
+        var obj = {};
+        obj.name = "小白";
+        obj.age = 10;
+        obj.sayHi = function(){
+            console.log("我是:"+ this.name);
+        }
+        obj.sayHi();
+        var obj2 = {
+            name: "小明",
+            age: 20,
+            sayHi: function(){
+                console.log("我是:"+ this.name);
+            },
+            eat: function(){
+                console.log("吃了");
+            }
+        }
+        obj2.sayHi();
+        obj2.eat();
+
+        var obj = {};
+        obj.name = "小白";
+        obj.age = 10;
+        obj.sayHi = function(){
+            console.log("我是:"+ this.name);
+        }
+        obj.sayHi();
+        var obj2 = {
+            name: "小明",
+            age: 20,
+            sayHi: function(){
+                console.log("我是:"+ this.name);
+            },
+            eat: function(){
+                console.log("吃了");
+            }
+        }
+        obj2.sayHi();
+        obj2.eat();
+
+
+        //Math对象方法
+        console.log(Math.abs('-1')); //1
+        console.log(Math.abs(-2)); //2
+        console.log(Math.abs(null)); //0----重点
+        console.log(Math.abs("string")); //NaN
+
+        console.log(Math.ceil(12.3)); 
+        console.log(Math.ceil(12.9)); 
+        console.log(Math.ceil(12.09)); 
+        console.log(Math.ceil(12.03)); 
+        console.log(Math.ceil(12.92)); 
+
+        console.log(Math.floor(12.3)); 
+        console.log(Math.floor(12.9)); 
+        console.log(Math.floor(12.09)); 
+        console.log(Math.floor(12.03)); 
+        console.log(Math.floor(12.92));
+
+        console.log(Math.fround(2)); 
+        console.log(Math.fround(2.1)); 
+        console.log(Math.fround(2.9)); 
+
+        //找一坨数字中的最大值
+        console.log(Math.max(10,1,9,100,200,45,78)); 
+        console.log(Math.min(10,1,9,100,200,45,78)); 
+        console.log(Math.pow(2,4)); 
+        console.log(Math.sqrt(16)); 
+
+        //0-4  没有5
+        console.log(parseInt(Math.random()*5)+1);
+        console.log(parseInt(Math.random()*100)+1);
+
+        console.log(Math.abs('-1')); //1
+        console.log(Math.abs(-2)); //2
+        console.log(Math.abs(null)); //0----重点
+        console.log(Math.abs("string")); //NaN
+
+        console.log(Math.ceil(12.3)); 
+        console.log(Math.ceil(12.9)); 
+        console.log(Math.ceil(12.09)); 
+        console.log(Math.ceil(12.03)); 
+        console.log(Math.ceil(12.92)); 
+
+        console.log(Math.floor(12.3)); 
+        console.log(Math.floor(12.9)); 
+        console.log(Math.floor(12.09)); 
+        console.log(Math.floor(12.03)); 
+        console.log(Math.floor(12.92));
+
+        console.log(Math.fround(2)); 
+        console.log(Math.fround(2.1)); 
+        console.log(Math.fround(2.9)); 
+
+        //找一坨数字中的最大值
+        console.log(Math.max(10,1,9,100,200,45,78)); 
+        console.log(Math.min(10,1,9,100,200,45,78)); 
+        console.log(Math.pow(2,4)); 
+        console.log(Math.sqrt(16)); 
+
+        //0-4  没有5
+        console.log(parseInt(Math.random()*5)+1);
+        console.log(parseInt(Math.random()*100)+1);
+
+        console.log(Math.abs('-1')); //1
+        console.log(Math.abs(-2)); //2
+        console.log(Math.abs(null)); //0----重点
+        console.log(Math.abs("string")); //NaN
+
+        console.log(Math.ceil(12.3)); 
+        console.log(Math.ceil(12.9)); 
+        console.log(Math.ceil(12.09)); 
+        console.log(Math.ceil(12.03)); 
+        console.log(Math.ceil(12.92)); 
+
+        console.log(Math.floor(12.3)); 
+        console.log(Math.floor(12.9)); 
+        console.log(Math.floor(12.09)); 
+        console.log(Math.floor(12.03)); 
+        console.log(Math.floor(12.92));
+
+        console.log(Math.fround(2)); 
+        console.log(Math.fround(2.1)); 
+        console.log(Math.fround(2.9)); 
+
+        //找一坨数字中的最大值
+        console.log(Math.max(10,1,9,100,200,45,78)); 
+        console.log(Math.min(10,1,9,100,200,45,78)); 
+        console.log(Math.pow(2,4)); 
+        console.log(Math.sqrt(16)); 
+
+        //0-4  没有5
+        console.log(parseInt(Math.random()*5)+1);
+        console.log(parseInt(Math.random()*100)+1);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

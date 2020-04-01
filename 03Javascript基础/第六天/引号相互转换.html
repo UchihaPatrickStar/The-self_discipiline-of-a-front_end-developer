@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>引号相互转换</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#dv").append( '    <textarea name="" id="input" cols="120" rows="20"></textarea>'+'    <div class="button">'+'        <input type="button" value="单引号转双引号" id="singleToDouble">'+'        <input type="button" value="双引号转单引号" id="doubleToSingle">'+'    </div>'+'    <textarea name="" id="output" cols="120" rows="20"></textarea>');
+        });
+    </script>
+    <style>
+        h3{
+            margin: 50px auto;
+            text-align: center;
+            font-size: 50px;
+            font-weight: 400;
+        }
+        #input,#output{
+            display: block;
+            margin: 20px auto;
+        }
+        .button{
+            margin-left: 850px;
+        }
+        #singleToDouble,#doubleToSingle{
+            width: 120px;
+            height: 30px;
+            border: none;
+            color: #fff;
+        }
+        #singleToDouble{
+            background-color: gray;
+        }
+        #doubleToSingle{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h3>引号相互转换</h3>
+    <textarea name="" id="input" cols="120" rows="20"></textarea>
+    <div class="button">
+        <input type="button" value="单引号转双引号" id="singleToDouble">
+        <input type="button" value="双引号转单引号" id="doubleToSingle">
+    </div>
+    <textarea name="" id="output" cols="120" rows="20"></textarea>
+
+    <!-- 测试 -->
+    <!-- <div id="dv"></div> -->
+
+
+    <script>
+        // document.getElementById("singleToDouble").addEventListener("click",function(){
+        //     var input = document.getElementById("input");
+        //     var str = input.value.split("\n");
+        //     var newArr = [];
+        //     for(var i = 0;i < str.length;i++){
+        //         str[i]=  str[i].replace(/\'/g,"\"");
+        //         var result = "\'" +  str[i] + "\'";
+        //         newArr[newArr.length] = result;
+        //         var result = newArr.join("+");
+        //         document.getElementById("output").value = "var param = " + result;
+        //     }
+        // });  
+        // document.getElementById("doubleToSingle").addEventListener("click",function(){
+        //     var input = document.getElementById("input");
+        //     var str = input.value.split("\n");
+        //     var newArr = [];
+        //     for(var i = 0;i < str.length;i++){
+        //         str[i]=  str[i].replace(/\"/g,"\'");
+        //         var result = "\"" + str[i] + "\"";
+        //         newArr[newArr.length] = result;
+        //         var result = newArr.join("+");
+        //         document.getElementById("output").value = "var param = " + result;
+        //     }
+        // });  
+
+
+        document.getElementById("singleToDouble").addEventListener("click",function(){
+            var input = document.getElementById("input");
+            var str = input.value.split("\n");
+            var param = document.getElementById("output").value = "var param =";
+            for(var i = 0;i < str.length;i++){
+                str[i]=  str[i].replace(/\'/g,"\"");
+                var result = "\'" +  str[i] + "\'";
+                // console.log(result);
+                var result = result.concat("+");
+                // console.log(result);
+                document.getElementById("output").value = param += result;
+                // console.log(param);
+            }
+        }); 
+
+        document.getElementById("doubleToSingle").addEventListener("click",function(){
+            var input = document.getElementById("input");
+            var str = input.value.split("\n");
+            var param = document.getElementById("output").value = "var param =";
+            for(var i = 0;i < str.length;i++){
+                str[i]=  str[i].replace(/\"/g,"\'");
+                var result = "\"" + str[i] + "\"";
+                // console.log(result);
+                var result = result.concat("+");
+                // console.log(result);
+                document.getElementById("output").value = param += result;
+                // console.log(param);
+            }
+        }); 
+    </script>
+</body>
+</html>

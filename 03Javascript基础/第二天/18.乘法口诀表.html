@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>18.乘法口诀表</title>
+    <script>
+        /*
+            控制行数
+            for(var i = 1;i <= 9;i++){
+                //控制每一行有多少个表达式
+                for(var j = 1;j <= 9;j++){
+                    document.write(j+"*"+i+"="+i*j);
+                }
+                document.write("<br>");
+            }
+
+            掌握---必须要写出来
+            for(var i = 1;i <= 9;i++){
+                //控制每一行有多少个表达式
+                for(var j = 1;j <= i;j++){
+                    document.write(i+"*"+j+"="+i*j);
+                }
+                document.write("<br>");
+            }
+        */
+
+        //表格版的---能够理解，如果写出来更好
+        //document.write("<a href='http://www.baidu.com'>百度</a>");
+
+        document.write("<table>");
+        for(var i = 1;i <= 9;i++){
+            document.write("<tr>");
+            for(var j = 1;j <= i;j++){
+                document.write("<td style='border:1px solid red;' >");
+                document.write(i + "*" + j +"=" + i * j);
+                document.write("</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+
+        //  console.log("和" + 10);
+        //  console.log(""+3+"e"+"32"+6)
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

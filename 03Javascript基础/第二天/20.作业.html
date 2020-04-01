@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>20.作业</title>
+    <script>
+        /*
+            题目:有一张0.0001米的纸，对折多少次可以达到珠穆朗玛峰的高度8848；
+
+            题目:有一对幼兔，幼兔1个月后长成小兔，小兔1个月后长成成兔并生下一对幼兔，
+                问8个月后有多少对兔子，幼兔、小兔、成兔对数分别是多少。
+
+            题目: 公鸡2文，母鸡1文，小鸡半文，每种至少一只，
+                100文买100只鸡有多少可能性 公鸡最多50，母鸡最多100，小鸡最多200
+
+            题目: 小明单位发了100元的购物卡，小明到超市买三类洗化用品，
+                  洗发水（15元），香皂（2元），牙刷（5元）。要把100元整好花掉，
+                  可如有哪些购买结合？
+
+        */
+        /*
+            写一遍
+            讲解思路。如果不会写程序，可以先把数学公式准备好
+
+            本金10000元存入银行，年利率是千分之三，
+            每过1年，将本金和利息相加作为新的本金。
+            计算5年后，获得的本金是多少？
+        */
+
+        var sum = 10000;
+        for(var i = 1;i <= 5; i++){
+            sum *= 1.003;
+        }
+        console.log(Math.round(sum));
+
+          
+
+        /*    
+            有个人想知道，一年之内一对兔子能繁殖多少对？
+            于是就筑了一道围墙把一对兔子关在里面。
+            已知一对兔子每个月可以生一对小兔子，
+            而一对兔子从出生后第3个月起每月生一对小兔子。
+            假如一年内没有发生死亡现象，那么，一对兔子一年内（12个月）能繁殖成多少对？
+            （兔子的规律为数列，1，1，2，3，5，8，13，21）
+        */
+        var temp;
+        var num1 = 1; //第一个月
+        var num2 = 1; //第二个月
+        for(var i = 3;i <= 12; i++){
+            temp = num2;
+            num2 = num1 + num2;
+            num1 = temp;
+        }
+        console.log(num2);
+            
+
+       
+    </script>
+
+
+  <script>
+         /*
+            所有的作业3遍
+
+            从05开始到18结束，里面所有的案例和练习
+        */
+
+
+        //05
+
+        if(8>6){
+                console.log(8);
+        }
+        //例子1：
+        var num1 = 10;
+        var num2 = 100;
+        if(num1>num2){
+            console.log(num1);
+        }
+        console.log("我执行了");
+
+        //例子2：
+        var age = 19;
+        if(age>=18){
+            console.log("可以看电影了，嘿嘿...");
+        }
+
+        //例子3：
+        //问小杨帅不帅，则输出真的好帅
+        var str = "帅";
+        if(str == "帅"){
+            console.log("真的好帅");
+        }
+
+        if(8>6){
+                console.log(8);
+        }
+        //例子1：
+        var num1 = 10;
+        var num2 = 100;
+        if(num1>num2){
+            console.log(num1);
+        }
+        console.log("我执行了");
+
+        //例子2：
+        var age = 19;
+        if(age>=18){
+            console.log("可以看电影了，嘿嘿...");
+        }
+
+        //例子3：
+        //问小杨帅不帅，则输出真的好帅
+        var str = "帅";
+        if(str == "帅"){
+            console.log("真的好帅");
+        }
+
+        if(8>6){
+                console.log(8);
+        }
+        //例子1：
+        var num1 = 10;
+        var num2 = 100;
+        if(num1>num2){
+            console.log(num1);
+        }
+        console.log("我执行了");
+
+        //例子2：
+        var age = 19;
+        if(age>=18){
+            console.log("可以看电影了，嘿嘿...");
+        }
+
+        //例子3：
+        //问小杨帅不帅，则输出真的好帅
+        var str = "帅";
+        if(str == "帅"){
+            console.log("真的好帅");
+        }
+    </script>
+
+    <script>
+        //06
+
+        //案例1：
+        var age = parseInt(prompt("请您输入年龄"));
+        if(age >= 18){
+            console.log("可以看电影了，嘎嘎...");
+        }else{
+            console.log("看什么看，回家写作业去");
+        }
+
+        //练习1：找到两个数字中的最大值
+        var num1 = 10;
+        var num2 = 20;
+        if(num1>num2){
+            console.log(num1);
+        }else{
+            console.log(num2);
+        }
+
+        //练习2：判断这个数字是奇数还是偶数
+        var number = parseInt(prompt("请输入一个数字"));
+        if(number%2==0){
+            console.log("偶数");
+        }else{
+            console.log("奇数");
+        }
+
+         //案例1：
+         var age = parseInt(prompt("请您输入年龄"));
+        if(age >= 18){
+            console.log("可以看电影了，嘎嘎...");
+        }else{
+            console.log("看什么看，回家写作业去");
+        }
+
+        //练习1：找到两个数字中的最大值
+        var num1 = 10;
+        var num2 = 20;
+        if(num1>num2){
+            console.log(num1);
+        }else{
+            console.log(num2);
+        }
+
+        //练习2：判断这个数字是奇数还是偶数
+        var number = parseInt(prompt("请输入一个数字"));
+        if(number%2==0){
+            console.log("偶数");
+        }else{
+            console.log("奇数");
+        }
+
+         //案例1：
+         var age = parseInt(prompt("请您输入年龄"));
+        if(age >= 18){
+            console.log("可以看电影了，嘎嘎...");
+        }else{
+            console.log("看什么看，回家写作业去");
+        }
+
+        //练习1：找到两个数字中的最大值
+        var num1 = 10;
+        var num2 = 20;
+        if(num1>num2){
+            console.log(num1);
+        }else{
+            console.log(num2);
+        }
+
+        //练习2：判断这个数字是奇数还是偶数
+        var number = parseInt(prompt("请输入一个数字"));
+        if(number%2==0){
+            console.log("偶数");
+        }else{
+            console.log("奇数");
+        }
+    </script>
+
+    <script>
+        //07
+
+        //两个数字中的最大值
+        var x = 10;
+        var y = 20;
+        var result1 = x > y ? x : y;
+        console.log(result1); 
+
+        //显示成年还是未成年
+        var age = 10;
+        var result2 = age >= 18 ? "成年人" : "未成年";
+        console.log(result2);
+
+        //两个数字中的最大值
+        var x = 10;
+        var y = 20;
+        var result1 = x > y ? x : y;
+        console.log(result1); 
+
+        //显示成年还是未成年
+        var age = 10;
+        var result2 = age >= 18 ? "成年人" : "未成年";
+        console.log(result2);
+
+        //两个数字中的最大值
+        var x = 10;
+        var y = 20;
+        var result1 = x > y ? x : y;
+        console.log(result1); 
+
+        //显示成年还是未成年
+        var age = 10;
+        var result2 = age >= 18 ? "成年人" : "未成年";
+        console.log(result2);
+    </script>
+
+    <script>
+        //08
+
+        //实现代码
+        var score = Number(prompt("请您输入成绩"));
+        if(!isNaN(score)){
+            if(score > 90 && score <= 100){
+                console.log("A级");
+            }else if(score > 80){
+                console.log("B级");
+            }else if(score > 70){
+                console.log("C级");
+            }else if(score >= 60){
+                console.log("D级");
+            }else{
+                console.log("E级");
+            }
+        }else{
+            console.log("您输入有误");
+        }
+
+        //练习：判断一个年份是不是闰年
+        //定义变量存储一个年份
+        var year = 2017;
+        if(year % 4 == 0 && year % 100 != 0 || year % 400 ==0){
+            console.log("闰年");
+        }else{
+            console.log("平年");
+        }
+
+        //实现代码
+        var score = Number(prompt("请您输入成绩"));
+        if(!isNaN(score)){
+            if(score > 90 && score <= 100){
+                console.log("A级");
+            }else if(score > 80){
+                console.log("B级");
+            }else if(score > 70){
+                console.log("C级");
+            }else if(score >= 60){
+                console.log("D级");
+            }else{
+                console.log("E级");
+            }
+        }else{
+            console.log("您输入有误");
+        }
+
+        //练习：判断一个年份是不是闰年
+        //定义变量存储一个年份
+        var year = 2017;
+        if(year % 4 == 0 && year % 100 != 0 || year % 400 ==0){
+            console.log("闰年");
+        }else{
+            console.log("平年");
+        }
+
+        //实现代码
+        var score = Number(prompt("请您输入成绩"));
+        if(!isNaN(score)){
+            if(score > 90 && score <= 100){
+                console.log("A级");
+            }else if(score > 80){
+                console.log("B级");
+            }else if(score > 70){
+                console.log("C级");
+            }else if(score >= 60){
+                console.log("D级");
+            }else{
+                console.log("E级");
+            }
+        }else{
+            console.log("您输入有误");
+        }
+
+        //练习：判断一个年份是不是闰年
+        //定义变量存储一个年份
+        var year = 2017;
+        if(year % 4 == 0 && year % 100 != 0 || year % 400 ==0){
+            console.log("闰年");
+        }else{
+            console.log("平年");
+        }
+    </script>
+
+    <script>
+        //09
+
+        /*
+            例子：获取一个人的成绩的级别，如果是A级则显示90到100直接的分数
+            如果是B级则显示80到90分
+            如果是C级则显示70到80之间分数
+            如果是D级则显示60到70分之间
+            否则显示0到59之间
+        */
+            var jiBie = "E";
+            switch(jiBie){
+                case "A":
+                    console.log("90到100之间");
+                    break;
+                case "B":
+                    console.log("80到90之间");
+                    break;
+                case "C":
+                    console.log("70到80之间");
+                    break;
+                case "D":
+                    console.log("60到70之间");
+                    break;
+                default:
+                    console.log("0到59之间");
+            }
+
+            //根据月份显示对应的天数
+            //1,3,5,7,8,10,12---31天
+            //2----28天
+            //4,6,9,11----30
+            var month = parseInt(prompt("请输入月份"));
+            switch (month){
+                case 1:console.log("31天");break;
+                case 2:console.log("28天");break;
+                case 3:console.log("31天");break;
+                case 4:console.log("30天");break;
+                case 5:console.log("31天");break;
+                case 6:console.log("30天");break;
+                case 7:console.log("31天");break;
+                case 8:console.log("31天");break;
+                case 9:console.log("30天");break;
+                case 10:console.log("31天");break;
+                case 11:console.log("30天");break;
+                case 12:console.log("31天");break;
+            }
+
+            var month = parseInt(prompt("请输入月份"));
+            switch(month){
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:console.log("31天");break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:console.log("30天");break;
+                case 2:console.lo("28天");break;
+            }
+
+            //练习：根据数字显示对应的星期
+            var num = parseInt(prompt("请输入一个星期的数字"));
+            switch(num){
+                case 1:console.log("星期一");break;
+                case 2:console.log("星期二");break;
+                case 3:console.log("星期三");break;
+                case 4:console.log("星期四");break;
+                case 5:console.log("星期五");break;
+                case 6:console.log("星期六");break;
+                case 7:console.log("星期日");break;
+                default:console.log("输入错误");
+            }
+
+            /*
+            例子：获取一个人的成绩的级别，如果是A级则显示90到100直接的分数
+            如果是B级则显示80到90分
+            如果是C级则显示70到80之间分数
+            如果是D级则显示60到70分之间
+            否则显示0到59之间
+        */
+        var jiBie = "E";
+            switch(jiBie){
+                case "A":
+                    console.log("90到100之间");
+                    break;
+                case "B":
+                    console.log("80到90之间");
+                    break;
+                case "C":
+                    console.log("70到80之间");
+                    break;
+                case "D":
+                    console.log("60到70之间");
+                    break;
+                default:
+                    console.log("0到59之间");
+            }
+
+            //根据月份显示对应的天数
+            //1,3,5,7,8,10,12---31天
+            //2----28天
+            //4,6,9,11----30
+            var month = parseInt(prompt("请输入月份"));
+            switch (month){
+                case 1:console.log("31天");break;
+                case 2:console.log("28天");break;
+                case 3:console.log("31天");break;
+                case 4:console.log("30天");break;
+                case 5:console.log("31天");break;
+                case 6:console.log("30天");break;
+                case 7:console.log("31天");break;
+                case 8:console.log("31天");break;
+                case 9:console.log("30天");break;
+                case 10:console.log("31天");break;
+                case 11:console.log("30天");break;
+                case 12:console.log("31天");break;
+            }
+
+            var month = parseInt(prompt("请输入月份"));
+            switch(month){
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:console.log("31天");break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:console.log("30天");break;
+                case 2:console.lo("28天");break;
+            }
+
+            //练习：根据数字显示对应的星期
+            var num = parseInt(prompt("请输入一个星期的数字"));
+            switch(num){
+                case 1:console.log("星期一");break;
+                case 2:console.log("星期二");break;
+                case 3:console.log("星期三");break;
+                case 4:console.log("星期四");break;
+                case 5:console.log("星期五");break;
+                case 6:console.log("星期六");break;
+                case 7:console.log("星期日");break;
+                default:console.log("输入错误");
+            }
+
+            /*
+            例子：获取一个人的成绩的级别，如果是A级则显示90到100直接的分数
+            如果是B级则显示80到90分
+            如果是C级则显示70到80之间分数
+            如果是D级则显示60到70分之间
+            否则显示0到59之间
+        */
+        var jiBie = "E";
+            switch(jiBie){
+                case "A":
+                    console.log("90到100之间");
+                    break;
+                case "B":
+                    console.log("80到90之间");
+                    break;
+                case "C":
+                    console.log("70到80之间");
+                    break;
+                case "D":
+                    console.log("60到70之间");
+                    break;
+                default:
+                    console.log("0到59之间");
+            }
+
+            //根据月份显示对应的天数
+            //1,3,5,7,8,10,12---31天
+            //2----28天
+            //4,6,9,11----30
+            var month = parseInt(prompt("请输入月份"));
+            switch (month){
+                case 1:console.log("31天");break;
+                case 2:console.log("28天");break;
+                case 3:console.log("31天");break;
+                case 4:console.log("30天");break;
+                case 5:console.log("31天");break;
+                case 6:console.log("30天");break;
+                case 7:console.log("31天");break;
+                case 8:console.log("31天");break;
+                case 9:console.log("30天");break;
+                case 10:console.log("31天");break;
+                case 11:console.log("30天");break;
+                case 12:console.log("31天");break;
+            }
+
+            var month = parseInt(prompt("请输入月份"));
+            switch(month){
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:console.log("31天");break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:console.log("30天");break;
+                case 2:console.lo("28天");break;
+            }
+
+            //练习：根据数字显示对应的星期
+            var num = parseInt(prompt("请输入一个星期的数字"));
+            switch(num){
+                case 1:console.log("星期一");break;
+                case 2:console.log("星期二");break;
+                case 3:console.log("星期三");break;
+                case 4:console.log("星期四");break;
+                case 5:console.log("星期五");break;
+                case 6:console.log("星期六");break;
+                case 7:console.log("星期日");break;
+                default:console.log("输入错误");
+            }
+    </script>
+
+    <script>
+        //11
+
+        //请输出10次：哈哈，我有变帅了
+        var i = 0; //计数器
+        while(i<10){
+            console.log("哈哈，我又变帅了"+(i+1));
+            i++; //记录次数
+        }
+
+        //练习：计算1~100之间所有数字的和
+        var sum = 0;//存储最终的和
+           var i = 1;//计数器
+           while(i <= 100){
+               sum += i; //不停的计算数字的和
+               i++;
+           }
+           console.log("和为："+sum);
+
+        //请输出10次：哈哈，我有变帅了
+        var i = 0; //计数器
+        while(i<10){
+            console.log("哈哈，我又变帅了"+(i+1));
+            i++; //记录次数
+        }
+
+        //练习：计算1~100之间所有数字的和
+        var sum = 0;//存储最终的和
+           var i = 1;//计数器
+           while(i <= 100){
+               sum += i; //不停的计算数字的和
+               i++;
+           }
+           console.log("和为："+sum);
+
+        //请输出10次：哈哈，我有变帅了
+        var i = 0; //计数器
+        while(i<10){
+            console.log("哈哈，我又变帅了"+(i+1));
+            i++; //记录次数
+        }
+
+        //练习：计算1~100之间所有数字的和
+        var sum = 0;//存储最终的和
+           var i = 1;//计数器
+           while(i <= 100){
+               sum += i; //不停的计算数字的和
+               i++;
+           }
+           console.log("和为："+sum);
+
+    </script>
+
+    <script>
+        //12
+
+        //求1-100之间所有的偶数的和
+        var i=1;//计数器
+        var sum=0;//存储所有数字的和
+        while(i<=100){
+            //判断这个数字是不是偶数,如果是偶数则相加,把结果存放在sum变量中
+            if(i%2==0){
+            sum+=i;
+            }
+            i++;//为了不变成死循环
+        }
+        console.log("和为:"+sum);
+
+        //求1-100之间所有的奇数的和
+        var i = 1;//计数器
+        var sum = 0;//存储和的
+        while (i <= 100) {
+            if (i % 2 != 0) {
+            sum += i;
+            }
+            i++;
+        }
+        console.log(sum);
+
+
+        //请输出1-100之间所有能够被7整除的数字
+        var i=1;
+        while(i<=100){
+        //判断这个数字是否能够被7整除
+            if(i%7==0){
+            console.log(i);
+            }
+            i++;
+        }
+
+        //求帐号和密码是否一致,登录的效果实现
+        //提示用户输入帐号
+        //提示用户输入密码
+        //如果帐号或者密码不对,则一直提示用户输入帐号和密码
+        //帐号--admin
+        //密码--123---字符串类型
+
+        var userName=prompt("请您输入帐号");//存储帐号的
+        var userPwd=prompt("请您输入密码");//存储密码
+        while(userName!="admin"||userPwd!="123"){
+            //变量的重新赋值
+            userName=prompt("请您输入帐号");//存储帐号的
+            userPwd=prompt("请您输入密码");//存储密码
+        }
+        console.log("登录成功");
+
+        //求1-100之间所有的偶数的和
+        var i=1;//计数器
+        var sum=0;//存储所有数字的和
+        while(i<=100){
+            //判断这个数字是不是偶数,如果是偶数则相加,把结果存放在sum变量中
+            if(i%2==0){
+            sum+=i;
+            }
+            i++;//为了不变成死循环
+        }
+        console.log("和为:"+sum);
+
+        //求1-100之间所有的奇数的和
+        var i = 1;//计数器
+        var sum = 0;//存储和的
+        while (i <= 100) {
+            if (i % 2 != 0) {
+            sum += i;
+            }
+            i++;
+        }
+        console.log(sum);
+
+
+        //请输出1-100之间所有能够被7整除的数字
+        var i=1;
+        while(i<=100){
+        //判断这个数字是否能够被7整除
+            if(i%7==0){
+            console.log(i);
+            }
+            i++;
+        }
+
+        //求帐号和密码是否一致,登录的效果实现
+        //提示用户输入帐号
+        //提示用户输入密码
+        //如果帐号或者密码不对,则一直提示用户输入帐号和密码
+        //帐号--admin
+        //密码--123---字符串类型
+
+        var userName=prompt("请您输入帐号");//存储帐号的
+        var userPwd=prompt("请您输入密码");//存储密码
+        while(userName!="admin"||userPwd!="123"){
+            //变量的重新赋值
+            userName=prompt("请您输入帐号");//存储帐号的
+            userPwd=prompt("请您输入密码");//存储密码
+        }
+        console.log("登录成功");
+
+        //求1-100之间所有的偶数的和
+        var i=1;//计数器
+        var sum=0;//存储所有数字的和
+        while(i<=100){
+            //判断这个数字是不是偶数,如果是偶数则相加,把结果存放在sum变量中
+            if(i%2==0){
+            sum+=i;
+            }
+            i++;//为了不变成死循环
+        }
+        console.log("和为:"+sum);
+
+        //求1-100之间所有的奇数的和
+        var i = 1;//计数器
+        var sum = 0;//存储和的
+        while (i <= 100) {
+            if (i % 2 != 0) {
+            sum += i;
+            }
+            i++;
+        }
+        console.log(sum);
+
+
+        //请输出1-100之间所有能够被7整除的数字
+        var i=1;
+        while(i<=100){
+        //判断这个数字是否能够被7整除
+            if(i%7==0){
+            console.log(i);
+            }
+            i++;
+        }
+
+        //求帐号和密码是否一致,登录的效果实现
+        //提示用户输入帐号
+        //提示用户输入密码
+        //如果帐号或者密码不对,则一直提示用户输入帐号和密码
+        //帐号--admin
+        //密码--123---字符串类型
+
+        var userName=prompt("请您输入帐号");//存储帐号的
+        var userPwd=prompt("请您输入密码");//存储密码
+        while(userName!="admin"||userPwd!="123"){
+            //变量的重新赋值
+            userName=prompt("请您输入帐号");//存储帐号的
+            userPwd=prompt("请您输入密码");//存储密码
+        }
+        console.log("登录成功");
+    </script>
+
+    <script>
+        //13
+
+        //  例子：
+        //  输出：哈哈，我又变帅了..10次
+
+        var i = 0;//计数器
+        do{
+            console.log("哈哈，我又变帅了");
+            i++;
+        }while(i<10);
+
+        // 例子：问用户：您觉得我帅吗？提示用户请输入y/n,如果n就一直问我帅不帅，如果用户输入的y，则结束，并提示用户，您真有眼光
+
+        do{
+        // 把用户输入的结果存储到result变量中
+            var result = prompt("您觉得我帅吗？y/n");
+        }while(result != "y");
+        console.log("您真又眼光");
+
+        //练习：求100以内所有3的倍数的和
+
+        var i = 1;
+        var sum = 0;
+        while(i <= 100){
+            if(i % 3 == 0){
+                sum += i;
+            }
+            i++;
+        }
+        console.log(sum); //1683
+
+        var i = 1;
+        var sum = 0;
+        do{
+            if(i % 3 == 0){
+                sum += i;
+            }
+            i++;
+        }while(i <= 100);
+        console.log(sum);
+
+        //  例子：
+        //  输出：哈哈，我又变帅了..10次
+
+        var i = 0;//计数器
+        do{
+            console.log("哈哈，我又变帅了");
+            i++;
+        }while(i<10);
+
+        // 例子：问用户：您觉得我帅吗？提示用户请输入y/n,如果n就一直问我帅不帅，如果用户输入的y，则结束，并提示用户，您真有眼光
+
+        do{
+        // 把用户输入的结果存储到result变量中
+            var result = prompt("您觉得我帅吗？y/n");
+        }while(result != "y");
+        console.log("您真又眼光");
+
+        //练习：求100以内所有3的倍数的和
+
+        var i = 1;
+        var sum = 0;
+        while(i <= 100){
+            if(i % 3 == 0){
+                sum += i;
+            }
+            i++;
+        }
+        console.log(sum); //1683
+
+        var i = 1;
+        var sum = 0;
+        do{
+            if(i % 3 == 0){
+                sum += i;
+            }
+            i++;
+        }while(i <= 100);
+        console.log(sum);
+
+        //  例子：
+        //  输出：哈哈，我又变帅了..10次
+
+        var i = 0;//计数器
+        do{
+            console.log("哈哈，我又变帅了");
+            i++;
+        }while(i<10);
+
+        // 例子：问用户：您觉得我帅吗？提示用户请输入y/n,如果n就一直问我帅不帅，如果用户输入的y，则结束，并提示用户，您真有眼光
+
+        do{
+        // 把用户输入的结果存储到result变量中
+            var result = prompt("您觉得我帅吗？y/n");
+        }while(result != "y");
+        console.log("您真又眼光");
+
+        //练习：求100以内所有3的倍数的和
+
+        var i = 1;
+        var sum = 0;
+        while(i <= 100){
+            if(i % 3 == 0){
+                sum += i;
+            }
+            i++;
+        }
+        console.log(sum); //1683
+
+        var i = 1;
+        var sum = 0;
+        do{
+            if(i % 3 == 0){
+                sum += i;
+            }
+            i++;
+        }while(i <= 100);
+        console.log(sum);
+    </script>
+
+    <script>
+        //14
+
+        var i = 5;
+            while(i<4){
+                console.log("小苏好帅哦");
+                i++;
+            }
+            console.log("嘎嘎.");
+        
+        var i =0;
+        do{
+            console.log("啊捏哈斯诶哟！");
+            i++;
+        }while(i<1);
+
+        var i = 5;
+            while(i<4){
+                console.log("小苏好帅哦");
+                i++;
+            }
+            console.log("嘎嘎.");
+        
+        var i =0;
+        do{
+            console.log("啊捏哈斯诶哟！");
+            i++;
+        }while(i<1);
+
+        var i = 5;
+            while(i<4){
+                console.log("小苏好帅哦");
+                i++;
+            }
+            console.log("嘎嘎.");
+        
+        var i =0;
+        do{
+            console.log("啊捏哈斯诶哟！");
+            i++;
+        }while(i<1);
+    </script>
+
+    <script>
+        //15
+
+        //例子：打印10次，哈哈，我又变帅了
+        for (var i = 0;i < 10;i++){
+            console.log("日照香炉生紫烟，一对情侣在林间，远看身影如神仙，近看竟然是于千");
+        }
+        //求1~100之间所有数字的和
+        var sum = 0;
+        for(var i = 1;i <= 100;i++){
+            sum += i;
+        }
+        console.log("和为：" + sum);
+
+        //例子：打印10次，哈哈，我又变帅了
+        for (var i = 0;i < 10;i++){
+            console.log("日照香炉生紫烟，一对情侣在林间，远看身影如神仙，近看竟然是于千");
+        }
+        //求1~100之间所有数字的和
+        var sum = 0;
+        for(var i = 1;i <= 100;i++){
+            sum += i;
+        }
+        console.log("和为：" + sum);
+
+        //例子：打印10次，哈哈，我又变帅了
+        for (var i = 0;i < 10;i++){
+            console.log("日照香炉生紫烟，一对情侣在林间，远看身影如神仙，近看竟然是于千");
+        }
+        //求1~100之间所有数字的和
+        var sum = 0;
+        for(var i = 1;i <= 100;i++){
+            sum += i;
+        }
+        console.log("和为：" + sum);
+    </script>
+
+    <script>
+        //16
+
+         //求1~100之间所有偶数的和
+         var sum1 = 0;
+        for(var i = 1;i <= 100;i++){
+            //判断i与2取余是0---->偶数
+            if(i%2==0){
+                sum1 += i;
+            }
+        }
+        console.log(sum1);  //2550
+
+        //求1~100之间所有奇数的和
+        var sum2 = 0;
+        for(var i = 1;i <= 100;i++){
+            if(i%2!=0){
+                //奇数
+                sum2 += i;
+            }
+        }
+        console.log("和为："+ sum2);
+
+        //求1~100之间所有能被3整除的数字的和
+        var sum3 = 0;
+        for(var i = 1;i <= 100;i++){
+            if(i%3==0){
+                sum3 += i;
+            }
+        }
+        console.log(sum3);
+
+        //求1~100之间所有能被7整除的数字的和
+        var sum4 = 0;
+        for(var i = 1;i <= 100; i++){
+            if(i%7 == 0){
+                sum4 += i;
+            }
+        }
+        console.log(sum4);
+
+         //求1~100之间所有偶数的和
+         var sum1 = 0;
+        for(var i = 1;i <= 100;i++){
+            //判断i与2取余是0---->偶数
+            if(i%2==0){
+                sum1 += i;
+            }
+        }
+        console.log(sum1);  //2550
+
+        //求1~100之间所有奇数的和
+        var sum2 = 0;
+        for(var i = 1;i <= 100;i++){
+            if(i%2!=0){
+                //奇数
+                sum2 += i;
+            }
+        }
+        console.log("和为："+ sum2);
+
+        //求1~100之间所有能被3整除的数字的和
+        var sum3 = 0;
+        for(var i = 1;i <= 100;i++){
+            if(i%3==0){
+                sum3 += i;
+            }
+        }
+        console.log(sum3);
+
+        //求1~100之间所有能被7整除的数字的和
+        var sum4 = 0;
+        for(var i = 1;i <= 100; i++){
+            if(i%7 == 0){
+                sum4 += i;
+            }
+        }
+        console.log(sum4);
+
+         //求1~100之间所有偶数的和
+         var sum1 = 0;
+        for(var i = 1;i <= 100;i++){
+            //判断i与2取余是0---->偶数
+            if(i%2==0){
+                sum1 += i;
+            }
+        }
+        console.log(sum1);  //2550
+
+        //求1~100之间所有奇数的和
+        var sum2 = 0;
+        for(var i = 1;i <= 100;i++){
+            if(i%2!=0){
+                //奇数
+                sum2 += i;
+            }
+        }
+        console.log("和为："+ sum2);
+
+        //求1~100之间所有能被3整除的数字的和
+        var sum3 = 0;
+        for(var i = 1;i <= 100;i++){
+            if(i%3==0){
+                sum3 += i;
+            }
+        }
+        console.log(sum3);
+
+        //求1~100之间所有能被7整除的数字的和
+        var sum4 = 0;
+        for(var i = 1;i <= 100; i++){
+            if(i%7 == 0){
+                sum4 += i;
+            }
+        }
+        console.log(sum4);
+    </script>
+    
+    <script>
+        //17
+
+        //画星星
+
+        //控制行数的---正方形
+        for(var i = 0;i <= 5;i++){
+            //控制每一行有几个星星
+            for(var j = 0;j <= 5;j++){
+                document.write("★");
+            }
+            document.write("<br>");
+        }
+
+        //三角形的---五角星---随着行数的增加，每一行都会比上一行多一个五角星
+        for(var i = 0;i <= 5;i++){
+            //控制每一行有几个星星
+            for(var j = 0;j <= i;j++){
+                document.write("★");
+            }
+            document.write("<br>");
+        }
+
+        //画星星
+
+        //控制行数的---正方形
+        for(var i = 0;i <= 5;i++){
+            //控制每一行有几个星星
+            for(var j = 0;j <= 5;j++){
+                document.write("★");
+            }
+            document.write("<br>");
+        }
+
+        //三角形的---五角星---随着行数的增加，每一行都会比上一行多一个五角星
+        for(var i = 0;i <= 5;i++){
+            //控制每一行有几个星星
+            for(var j = 0;j <= i;j++){
+                document.write("★");
+            }
+            document.write("<br>");
+        }
+
+        //画星星
+
+        //控制行数的---正方形
+        for(var i = 0;i <= 5;i++){
+            //控制每一行有几个星星
+            for(var j = 0;j <= 5;j++){
+                document.write("★");
+            }
+            document.write("<br>");
+        }
+
+        //三角形的---五角星---随着行数的增加，每一行都会比上一行多一个五角星
+        for(var i = 0;i <= 5;i++){
+            //控制每一行有几个星星
+            for(var j = 0;j <= i;j++){
+                document.write("★");
+            }
+            document.write("<br>");
+        }
+    </script>
+
+    <script>
+        //18
+
+        //      控制行数
+        for(var i = 1;i <= 9;i++){
+            //控制每一行有多少个表达式
+            for(var j = 1;j <= 9;j++){
+                document.write(j+"*"+i+"="+i*j);
+            }
+            document.write("<br>");
+        }
+
+        //    掌握---必须要写出来
+        for(var i = 1;i <= 9;i++){
+            //控制每一行有多少个表达式
+            for(var j = 1;j <= i;j++){
+                document.write(i+"*"+j+"="+i*j);
+            }
+            document.write("<br>");
+        }
+
+        //     表格版的---能够理解，如果写出来更好
+        document.write("<table border='1' cellpadding='0' cellspacing='0'>");
+        for(var i = 1;i <= 9;i++){
+            document.write("<tr>");
+            for(var j = 1;j <= i;j++){
+                document.write("<td>");
+                document.write(i + "*" + j +"=" + i * j);
+                document.write("</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+
+         //      控制行数
+         for(var i = 1;i <= 9;i++){
+            //控制每一行有多少个表达式
+            for(var j = 1;j <= 9;j++){
+                document.write(j+"*"+i+"="+i*j);
+            }
+            document.write("<br>");
+        }
+
+        //    掌握---必须要写出来
+        for(var i = 1;i <= 9;i++){
+            //控制每一行有多少个表达式
+            for(var j = 1;j <= i;j++){
+                document.write(i+"*"+j+"="+i*j);
+            }
+            document.write("<br>");
+        }
+
+        //     表格版的---能够理解，如果写出来更好
+        document.write("<table border='1' cellpadding='0' cellspacing='0'>");
+        for(var i = 1;i <= 9;i++){
+            document.write("<tr>");
+            for(var j = 1;j <= i;j++){
+                document.write("<td>");
+                document.write(i + "*" + j +"=" + i * j);
+                document.write("</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+
+         //      控制行数
+         for(var i = 1;i <= 9;i++){
+            //控制每一行有多少个表达式
+            for(var j = 1;j <= 9;j++){
+                document.write(j+"*"+i+"="+i*j);
+            }
+            document.write("<br>");
+        }
+
+        //    掌握---必须要写出来
+        for(var i = 1;i <= 9;i++){
+            //控制每一行有多少个表达式
+            for(var j = 1;j <= i;j++){
+                document.write(i+"*"+j+"="+i*j);
+            }
+            document.write("<br>");
+        }
+
+        //     表格版的---能够理解，如果写出来更好
+        document.write("<table border='1' cellpadding='0' cellspacing='0'>");
+        for(var i = 1;i <= 9;i++){
+            document.write("<tr>");
+            for(var j = 1;j <= i;j++){
+                document.write("<td>");
+                document.write(i + "*" + j +"=" + i * j);
+                document.write("</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /*
+            实现一个方法doubleFix, 作用于为时分秒只有个位的时候前面补0 实现双位对齐
+            参数 Number 传入一个数字
+            返回值 String 返回字符串
+            示例
+                doubleFix(3) => '03'
+                doubleFix(13) => '13'
+            要求: 用三种不同的处理思路完成函数
+        */
+        
+        //方法一：
+        // function doubleFix(num){        
+        //     return num < 10 ? '0' + num: String(num);//字符串+数字直接转化为字符串
+        // }
+        // console.log(doubleFix(3));
+    </script>
+  
+    <script>
+        //方法二：
+        // function doubleFix(num){
+        //     var str = "";
+        //     return num < 10 ? str.concat('0' + String(num)) : String(num);
+        // }
+        // function doubleFix(num){      
+        //         return String(num)[1] && String(num) || '0' + num;
+        // }
+        // console.log(doubleFix(13));
+
+        //('00' + num).substr(-2);  //从右往左数两个
+    </script>
+
+    <script>
+        //方法三：
+        // function doubleFix(num){      
+        //         return String(num).length == 1 ? Array(2).join("0") + num : String(num);
+        // }
+        // console.log(doubleFix(3));
+
+        var aa = "ss".concat("bb")
+        console.log(aa);
+    </script>
+
+
+
+</head>
+<body>
+
+</body>
+</html>
