@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>22.作业</title>
+    <script>
+        /*     
+            总结apply和call和bind方法的各自的特点或者区别
+            
+            都是一遍
+            11函数作为返回值的练习
+            闭包案例14
+            15案例
+            18案例
+            19案例
+            21递归的案例
+        */
+    </script>
+</head>
+<body>
+    <!-- 总结apply和call和bind方法的各自的特点或者区别 -->
+    <script>
+        /*
+        apply和call方法的使用和区别
+        
+        都可以改变this指向的
+        使用方式:
+        函数名.apply(对象,[参数1,参数2,参数3,...]);
+        函数名.call(对象,参数1,参数2,参数3,....);
+        我想要使用其他对象的某个方法,其他对象.方法名.apply(当前对象,参数,...);
+        这个方法就会被当前的对象所使用,同时这个方法中的this就是当前的对象,在调用方法的时候改变了this的指向
+        
+        bind方法的使用和区别
+        复制一个方法或者是函数,是在复制的同时改变了this的指向
+        使用方式:
+        函数名.bind(对象,参数1,参数2，...);------>返回值是复制之后的这个函数
+    */
+    </script>
+
+    <!-- 11 -->
+    <script>
+        // 排序，每个文件都有名字，大小，时间，都可以按照某个属性的值进行排序
+        // 三部电影，电影有名字，大小，上映时间
+        function File(name,size,time){
+            this.name = name;// 电影名字
+            this.size = size;// 电影大小
+            this.time = time;// 电影的上映时间
+        }
+        var f1 = new File("jack.avi","400M","1997-12-12");
+        var f2 = new File("tom.avi","200M","2017-12-12");
+        var f3 = new File("xiaosu.avi","800M","2010-12-12");
+        var arr = [f1,f2,f3];
+
+        function fn(attr){
+            // 函数作为返回值
+            return function getSort(obj1,obj2){
+                if(obj1[attr] > obj2[attr]){
+                    return 1;
+                }else if(obj1[attr] == obj2[attr]){
+                    return 0;
+                }else{
+                    return -1;
+                }
+            }
+        }
+
+        var ff = fn("name");
+        // 函数作为参数
+        arr.sort(ff);
+        for(var i = 0;i < arr.length;i++){
+            console.log(arr[i].name + "====>" + arr[i].size + "====>" + arr[i].time);
+        }
+    </script>
+
+    <!-- 14 -->
+    <script>
+        // 普通的函数
+        function f1(){
+            var num = 10;
+            num++;
+            return num;
+        }
+        console.log(f1());
+        console.log(f1());
+        console.log(f1());
+
+        // 函数模式的闭包
+        function f2(){
+            var num = 10;
+            return function(){
+                num++;
+                return num;
+            }
+        }
+
+        var ff = f2();
+        console.log(ff());// 11
+        console.log(ff());// 12
+        console.log(ff());// 13
+    </script>
+
+    <!-- 15 -->
+    <script>
+        function showRandom(){
+            var num = parseInt(Math.random() * 10 + 1);
+            console.log(num);
+        }
+
+        showRandom();
+        showRandom();
+        showRandom();
+
+        // 闭包的方式，产生三个随机数，但是都是相同的
+
+        function f1(){
+            var num = parseInt(Math.random() * 10 +1);
+            return function(){
+                console.log(num);
+            }
+        }
+
+        var ff = f1();
+
+        ff();
+        ff();
+        ff();
+
+        // 总结：如果想要缓存数据，就把这个数据放在外层的函数和里层的函数的中间位置
+
+        // 闭包的作用：缓存数据，优点也是缺陷，没有及时的释放
+
+        // 局部变量是在函数中，函数使用结束后，局部变量就会被自动的释放
+        // 闭包后，里面的局部变量的使用作用域链就会被延长
+    </script>
+
+    <!-- 18 -->
+    <input type="button" value="按钮" id="btn">
+    <script>
+        // 点击按钮，弹出对话框
+        (function(){
+            document.getElementById("btn").onclick = function(){
+                console.log("按钮被点击了");
+            };
+        }());
+    </script>
+    <script>
+        (function(){
+            var str = "小白喜欢小黑";
+            str = str.substr(2);
+            console.log(str);
+        }());
+
+        // 沙箱
+        (function(){
+            var str = "小明喜欢小红";
+            str = str.substr(2);
+            console.log(str);
+        }());
+    </script>
+
+    <!-- 19 -->
+    <div>这是div</div>
+    <div>这是div</div>
+    <div>这是div</div>
+    <p>这是p</p>
+    <p>这是p</p>
+    <p>这是p</p>
+    <script>
+        var getTag = 10;
+        var dvObjs = 20;
+        var pObjs = 30;
+        (function(){
+            // 根据标签名字获取元素
+            function getTag(tagName){
+                return document.getElementsByTagName(tagName)
+            }
+            // 获取所有的div
+            var dvObjs = getTag("div");
+            for(var i = 0;i < dvObjs.length;i++){
+                dvObjs[i].style.border = "2px solid pink";
+            }
+            // 获取所有的p
+            var pObjs = getTag("p");
+            for(var i = 0;i < pObjs.length;i++){
+                pObjs[i].style.border = "2px solid pink";
+            }
+        }());
+        console.log(getTag);
+        console.log(dvObjs);
+        console.log(pObjs);
+    </script>
+
+    <!-- 21 -->
+    <script>
+        // 递归案例：求一个数字各个位数上的数字的和：123 ---->  6  ---> 1+2+3
+        // 523
+        function getEverySum(x){
+            if(x < 10){
+                return x;
+            }
+            // 获取的是这个数字的个位数
+            return x % 10 + getEverySum(parseInt(x/10));
+        }
+        console.log(getEverySum(1364));
+
+        // 递归案例：求斐波纳契数列
+        function getFib(x){
+            if(x == 1 || x == 2){
+                return 1
+            }
+            return getFib(x - 1) + getFib(x - 2);
+        }
+        console.log(getFib(12));
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>14.闭包小案例</title>
+    <script>
+        //普通的函数
+        function f1() {
+            var num = 10;
+            num++;
+            return num;
+        }
+        console.log(f1());//11
+        console.log(f1());//11
+        console.log(f1());//11
+
+        //函数模式的闭包
+        function f2() {
+            var num = 10;
+            return function () {
+                num++;
+                return num;
+            }
+        }
+        var ff = f2();
+        console.log(ff());//11
+        console.log(ff());//12
+        console.log(ff());//13
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

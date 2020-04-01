@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>22.作业</title>
+    <script>
+        /*
+            下面的都是一遍
+            三种创建对象方式
+            工厂模式创建对象
+            案例10---理解
+            案例14
+            案例15
+            案例16
+            案例18
+
+            案例21写两遍
+        */
+    </script>
+
+</head>
+<body>
+    <!-- 三种创建方式 --> 
+    <script>
+        // 1.字面量的方式
+        var per1 = {
+            name: "卡卡西",
+            age: 20,
+            sex: "男",
+            eat: function(){
+                console.log("吃臭豆腐");
+            },
+            readBook: function(){
+                console.log("亲热天堂");
+            }
+        };
+
+        // 2.调用系统的构造函数
+        var per2 = new Object();
+        per2.name = "大蛇丸";
+        per2.age = "30";
+        per2.sex = "男";
+        per2.eat = function(){
+            console.log("吃榴莲");
+        };
+        per2.play = function(){
+            console.log("这个小蛇真好玩");
+        };
+
+        // 3.自定义构造函数
+        function Person(name,age,sex){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            this.play = function(){
+                console.log("天天打游戏");
+            };
+        }
+        var per = new Person("雏田",18,"女");
+    </script>
+
+    <!-- 工厂模式创建对象 -->
+    <script>
+        function createObject(name,age){
+            var obj = new Object();
+            obj.name = name;
+            obj.age = age;
+            obj.sayHi = function(){
+                console.log("您好");
+            };
+            return obj;
+        }
+    </script>
+
+    <!-- 案例10 -->
+    <style>
+        div{
+            width: 300px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+    <input type="button" value="显示效果" id="btn">
+    <div id="dv"></div>
+    <script src="common.js"></script>
+    <script>
+        function ChangeStyle(btnObj,dvObj,json){
+            this.btnObj = btnObj;
+            this.dvObj = dvObj;
+            this.json = json;
+        }
+        ChangeStyle.prototype.init = function(){
+            // 点击按钮，改变div多个样式属性值
+            var that = this;
+            this.btnObj.onclick = function(){
+                for(var key in that.json){
+                    that.dvObj.style[key] = that.json[key];
+                }
+            };
+        };
+
+        // 实例化对象
+        var json = {"width": "500px","height": "800px","backgroundColor": "blue","opacity": "0.2"};
+        var cs = new ChangeStyle(my$("btn"),my$("dv"),json);
+        cs.init();//调用方法
+    </script>
+
+    <!-- 案例14 -->
+    <script>
+        function Student(name,age,sex){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+        Student.prototype.height = "188";
+        Student.prototype.weight = "55kg";
+        Student.prototype.study = function(){
+            console.log("学习，写500行代码，小菜一碟");
+        };
+        Student.prototype.eat = function(){
+            console.log("吃一个10斤的西瓜");
+        };
+        // 实例化对象，并初始化
+        var stu = new Student("晨光",57,"女");
+        console.dir(Student);
+        console.dir(stu);
+    </script>
+
+    <!-- 案例15 -->
+    <script>
+        function Student(name,age,sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+        // 简单的原型写法
+        Student.prototype = {
+            // 手动修改构造器的指向
+            constructor: Student,
+            height: "188",
+            weight: "55kg",
+            study: function(){
+                console.log("学习好开心啊");
+            },
+            eat: function(){
+                console.log("我要吃好吃的");
+            }
+        };
+
+        var stu = new Student("段飞",20,"男");
+        stu.eat();
+        stu.study();
+        console.dir(Student);
+        console.dir(stu);
+    </script>
+
+    <!-- 案例16 -->
+    <script>
+        // 原型中的方法，是可以相互访问的
+        function Animal(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        // 原型中添加方法
+        Animal.prototype.eat = function(){
+            console.log("动物吃东西");
+            this.play();
+        };
+        Animal.prototype.play = function(){
+            console.log("玩球");
+            this.sleep();
+        };
+        Animal.prototype.sleep = function(){
+            console.log("睡觉了");
+        };
+
+        var dog = new Animal("小苏",20);
+        dog.eat();
+
+        // 原型中的方法，可以相互调用
+    </script>
+
+    <!-- 案例18 -->
+    <script>
+        // 我们能否为系统的对象的原型中添加方法，相当于在改变源码
+        // 我希望字符串中有一个倒序字符串的方法
+        String.prototype.myReverse = function(){
+            for(var i = this.length - 1;i >= 0;i--){
+                console.log(this[i]);
+            }
+        };
+        var str = "abcdefg";
+        str.myReverse();
+
+        // 未Array内置对象的原型对象中添加方法
+        Array.prototype.mySort = function(){
+            for(var i = 0;i < this.length - 1;i++){
+                for(var j = 0;j < this.length - 1 - i;j++){
+                    if(this[j] < this[j+1]){
+                        var temp = this[j];
+                        this[j] = this[j+1];
+                        this[j+1] = temp;
+                    }
+                }
+            }
+        };
+        var arr = [100,3,56,78,23,10];
+        arr.mySort();
+        console.log(arr);
+    </script>
+
+    <!-- 案例21 -->
+    <style>
+        .map{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #ccc;
+        }
+    </style>
+    <div class="map"></div>
+    <script src="common.js"></script>
+    <script>
+        // 产生随机对象的
+        (function(window){
+            function Randow(){
+
+            }
+            Random.prototype.getRandom = function(min,max){
+                return Math.floor(Math.random() * (max - min) + min);
+            };
+            // 把局部对象暴露给window顶级对象，就成了全局的对象
+            window.Random = new Random();
+        })(window);//自调用构造函数的方式，分号一定要加上
+
+        // 产生小方块对象
+        (function(window){
+            // 选择器的方式来获取元素对象
+            var map = document.querySelector(".map");
+
+            // 食物的构造函数
+            function Food(width,height,color){
+                this.width = width || 20;//默认的小方块的宽
+                this.height = height || 20;//默认的小方块的高
+                // 横坐标，纵坐标
+                this.x = 0;//横坐标随机产生的
+                this.y = 0;//纵坐标随机产生的
+                this.color = color;//小方块的背景颜色
+                this.element = document.createElement("div");//小方块的元素
+            }
+            // 初始化小方块的显示的效果及位置---显示地图上
+            Food.prototype.init = function(map){
+                // 设置小方块的样式
+                var div = this.element;
+                div.style.position = "absolute";//脱离文档流
+                div.style.width = this.width + "px";
+                div.style.height = this.height + "px";
+                div.style.backgroundColor = this.color;
+                // 把小方块加到map地图中
+                map.appendChild(div);
+                this.render(map);
+            };
+            // 产生随机位置
+            Food.prototype.render = function(map){
+                // 随机产生横纵坐标
+                var x = Random.getRandom(0,map.offsetWidth/this.width)*this.width;
+                var y = Random.getRandom(0,map.offsetHeight/this.height)*this.height;
+                this.x = x;
+                this.y = y;
+                var div = this.element;
+                div.style.left = this.x + "px";
+                div.style.top = this.y + "px";
+            };
+
+            // 实例化对象
+            var fd = new Food(20,20,"green");
+            fd.init(map);
+            console.log(fd.x+"===="+fd.y);
+        })(window);
+    </script>
+
+    <style>
+        .map{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #ccc;
+        }
+    </style>
+    <div class="map"></div>
+    <script src="common.js"></script>
+    <script>
+        // 产生随机对象的
+        (function(window){
+            function Random(){
+
+            }
+            Random.prototype.getRandom = function(min,max){
+                return Math.floor(Math.random()*(max - min) + min);
+            };
+            // 把局部对象暴露给window顶级对象，就成了全局的对象
+            window.Random = new Random();
+        })(window);//自调用构造函数的方式，分号一定要加上
+
+        // 产生小方块对象
+        (function(window){
+            // 选择器的方式来获取元素对象
+            var map = document.querySelector(".map");
+
+            // 食物的构造函数
+            function Food(width,height,color){
+                this.width = width || 20;//默认的小方块的宽
+                this.height = height || 20;//默认的小方块的高
+                // 横坐标，纵坐标
+                this.x = 0;//横坐标随机产生的
+                this.y = 0;//纵坐标随机产生的
+                this.color = color;//小方块的背景颜色
+                this.element = document.createElement("div");//小方块的元素
+            }
+            // 初始化小方块的显示效果及位置---显示地图上
+            Food.prototype.init = function(map){
+                // 设置小方块的样式
+                var div = this.element;
+                div.style.position = "absolute";//脱离文档流
+                div.style.width = this.width + "px";
+                div.style.hieght = this.hieght + "px";
+                div.style.backgroundColor = this.color;
+                // 把小方块加到map地图中
+                map.appendChild(div);
+                this.render(map);
+            };
+            // 产生随机位置
+            Food.prototype.render = function(map){
+                // 随机产生横纵坐标
+                var x = Random.getRandom(0,map.offsetWidth/this.width)*this.width;
+                var x = Random.getRandom(0,map.offsetHeight/this.height)*this.height;
+                this.x = x;
+                this.y = y;
+                var div = this.element;
+                div.style.left = this.x + "px";
+                div.style.top = this.y + "px";
+            };
+
+            // 实例化对象
+            var fd = new Food(20,20,"green");
+            fd.init(map);
+            console.log(fd.x+"===="+fd.y);
+        })(window);
+    </script>
+</body>
+</html>
