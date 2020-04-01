@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06.案例点击小图切换大图</title>
+</head>
+<body>
+    <a href="images/1.jpg" id="ak"><img src="images/1-small.jpg" alt=""></a>
+    <img src="" alt="" id="big">
+    <script src="common.js"></script>
+    <script>
+        //点击小图,下面显示大图
+        //点击超链接
+        my$("ak").onclick=function () {
+            my$("big").src=this.href;
+            return false;
+        };
+    </script>
+</body>
+</html>

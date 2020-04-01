@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>18.案例设置和获取文本框的值</title>
+</head>
+<body>
+    
+    <input type="button" value="按钮" id="btn"/>
+    <p>这是p</p>
+    <script src="common.js"></script>
+    <script>
+        my$("btn").onclick=function () {
+            console.log(document.getElementsByTagName("p")[0].innerText);
+        };
+        
+    // <input type="text" value="文本框" id="txt"/>
+    //  my$("txt").onblur=function () {
+    //      this.value="哈哈";
+    //      console.log(this.id);
+    //  };
+    </script>
+</body>
+</html>

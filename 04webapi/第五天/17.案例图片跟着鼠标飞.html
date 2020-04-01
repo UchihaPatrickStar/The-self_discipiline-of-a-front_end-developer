@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>17.案例图片跟着鼠标飞</title>
+    <style>
+        img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>  
+    <img src="images/tianshi.gif" alt="" id="im">
+    <script src="common.js"></script>
+    <script>
+        //鼠标在页面中移动,图片跟着鼠标移动
+        var imObj = my$("im");
+        document.onmousemove=function (e) {
+            //鼠标的移动的横纵坐标
+            //可视区域的横坐标
+            //可视区域的纵坐标
+            imObj.style.left=e.clientX+"px";
+            imObj.style.top=e.clientY+"px";
+        };
+    </script>
+</body>
+</html>

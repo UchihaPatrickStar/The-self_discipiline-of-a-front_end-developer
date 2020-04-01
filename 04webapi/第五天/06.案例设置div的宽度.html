@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06.案例设置div的宽度</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 150px;
+            background-color: red;
+            border-radius: 100px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="变宽" id="btn"/>
+    <div id="dv"></div>
+    <script src="common.js"></script>
+    <script>
+        my$("btn").onclick = function () {
+            var width = 200;
+            var timeId = setInterval(function () {
+                width+=10;
+                my$("dv").style.width=width+"px";
+                if(width==800){
+                    clearInterval(timeId);
+                }
+            }, 20);
+        };
+    </script>
+</body>
+</html>

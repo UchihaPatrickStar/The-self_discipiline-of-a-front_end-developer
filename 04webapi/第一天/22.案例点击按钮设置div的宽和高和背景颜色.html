@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>22.案例点击按钮设置div的宽和高和背景颜色</title>
+</head>
+<body>
+    <input type="button" value="设置样式" id="btn"/>
+    <div id="dv"></div>
+    <script src="common.js"></script>
+    <script>
+        //凡是css中这个属性是多个单词的写法,在js代码中DOM操作的时候.把-干掉,后面的单词的首字母大写即可
+    
+        //点击按钮,修改div的宽,高,背景颜色
+        // my$("btn").onclick = function () {
+        // my$("dv").style.width = "300px";
+        // my$("dv").style.height = "200px";
+        // my$("dv").style.backgroundColor = "pink";
+    
+        // };
+
+        // 优化：这样只需查询一次dom树，不预存的话每次都要重新查询，太浪费性能
+        var oDv = my$("dv");
+        my$("btn").onclick = function () {
+            oDv.style.width = "300px";
+            oDv.style.height = "200px";
+            oDv.style.backgroundColor = "pink";
+        }
+    </script>
+</body>
+</html>

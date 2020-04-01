@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>19.案例一闪一闪亮晶晶</title>
+    <style>
+        div{
+            width: 600px;
+            height: 600px;
+            border:2px solid yellow;
+            background-color: black;
+            position: relative;
+        }
+        span{
+            font-size: 30px;
+            color: yellow;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="亮起来" id="btn"/>
+    <div id="dv"></div>
+    <script src="common.js"></script>
+    <script>
+    my$("btn").onclick=function () {
+        setInterval(function () {
+            my$("dv").innerHTML="<span>★</span>";
+            var x = parseInt(Math.random() * 600 + 1);
+            var y = parseInt(Math.random() * 600 + 1);
+            my$("dv").firstElementChild.style.left=x+"px";
+            my$("dv").firstElementChild.style.top=y+"px";
+        },5);  //不建议这么小，定时器最小不要小于1000/30，即30fps
+               //因为浏览器最大刷新频率就是30fps，再小的话渲染跟不上了。
+    };
+    </script>
+</body>
+</html>

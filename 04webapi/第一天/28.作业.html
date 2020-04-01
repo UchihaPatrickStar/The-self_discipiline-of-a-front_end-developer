@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>30.作业</title>
+    <script>
+        /*
+            作业：
+            从案例7开始到27  每个两遍
+        */
+    </script>
+</head>
+<body id="bd">
+    <!-- 07 -->
+    <input type="button" value="按钮" id="btn">
+    <script>
+        var btnObj = document.getElementById("btn");
+        btnObj.onclick = function(){
+            alert("哦，小苏好帅哦");
+        }
+    </script>
+
+    <input type="button" value="按钮" id="btn">
+    <script>
+        var btnObj = document.getElementById("btn");
+        btnObj.onclick = function(){
+            alert("哦，小苏好帅哦");
+        }
+    </script>
+
+    <!-- 08 -->
+    <input type="button" value="显示图片" id="btn">
+    <img src="" alt="" id="im">
+    <script>
+        var btnObj = document.getElementById("btn");
+        btnObj.onclick = function(){
+            var imObj = document.getElementById("im");
+            imObj.src = "images/liuyan.jpg";
+            imObj.width = "300";
+            imObj.height = "400";
+        }
+    </script>
+
+    <input type="button" value="显示图片" id="btn">
+    <img src="" alt="" id="im">
+    <script>
+        var btnObj = document.getElementById("btn");
+        btnObj.onclick = function(){
+            var imObj = document.getElementById("im");
+            imObj.src = "images/liuyan.jpg";
+            imObj.width = "300";
+            imObj.height = "400";
+        }
+    </script>
+
+    <!-- 09 -->
+    <input type="button" value="设置p的内容" id="btn"/>
+    <p id="p1">我是一个p标签</p>
+    <script>
+        //案例:点击按钮,修改p标签的显示内容
+
+        //凡是成对的标签,中间的文本内容,设置的时候,都使用innerText这个属性的方式
+
+        //根据id获取按钮,为按钮注册点击事件,添加事件处理函数
+        document.getElementById("btn").onclick=function () {
+        //根据id获取p标签,设置内容
+        document.getElementById("p1").innerText="这是一个p";
+        };
+    </script>
+
+    <input type="button" value="设置p的内容" id="btn"/>
+    <p id="p1">我是一个p标签</p>
+    <script>
+        //案例:点击按钮,修改p标签的显示内容
+
+        //凡是成对的标签,中间的文本内容,设置的时候,都使用innerText这个属性的方式
+
+        //根据id获取按钮,为按钮注册点击事件,添加事件处理函数
+        document.getElementById("btn").onclick=function () {
+        //根据id获取p标签,设置内容
+        document.getElementById("p1").innerText="这是一个p";
+        };
+    </script>
+
+    <!-- 10 -->
+    <input type="button" value="显示效果" id="btn"/>
+    <a id="ak" href="https://www.jiumodiary.com/">鸠摩搜书</a>
+    <script>
+        //案例:点击按钮修改a标签的地址和热点文字
+
+        //根据id获取按钮,注册点击事件,添加事件处理函数
+        //  document.getElementById("btn").onclick = function () {
+        //    //根据id获取超链接,设置href属性
+        //    document.getElementById("ak").href = "http://www.itcast.cn";
+        //    //根据id获取超链接,设置文字内容
+        //    document.getElementById("ak").innerText = "传智播客";
+        //  };
+
+        //优化后的:
+
+        document.getElementById("btn").onclick = function () {
+            //根据id获取超链接,设置href属性
+            var aObj = document.getElementById("ak");
+            aObj.href = "http://www.itcast.cn";
+            //根据id获取超链接,设置文字内容
+            aObj.innerText = "传智播客";
+        };
+
+    </script>
+
+    <input type="button" value="显示效果" id="btn"/>
+    <a id="ak" href="https://www.jiumodiary.com/">鸠摩搜书</a>
+    <script>
+        //案例:点击按钮修改a标签的地址和热点文字
+
+        //根据id获取按钮,注册点击事件,添加事件处理函数
+        //  document.getElementById("btn").onclick = function () {
+        //    //根据id获取超链接,设置href属性
+        //    document.getElementById("ak").href = "http://www.itcast.cn";
+        //    //根据id获取超链接,设置文字内容
+        //    document.getElementById("ak").innerText = "传智播客";
+        //  };
+
+        //优化后的:
+
+        document.getElementById("btn").onclick = function () {
+            //根据id获取超链接,设置href属性
+            var aObj = document.getElementById("ak");
+            aObj.href = "http://www.itcast.cn";
+            //根据id获取超链接,设置文字内容
+            aObj.innerText = "传智播客";
+        };
+
+    </script>
+
+    <!-- 11 -->
+    <input type="button" value="显示效果" id="btn"/>
+    <div id="dv1">
+        <p>哈哈,我又变帅了</p>
+        <p>哈哈,我又变帅了</p>
+        <p>哈哈,我又变帅了</p>
+        <p>哈哈,我又变帅了</p>
+        <p>哈哈,我又变帅了</p>
+    </div>
+    
+    <div id="dv2">
+        <p>嘎嘎</p>
+        <p>嘎嘎</p>
+        <p>嘎嘎</p>
+        <p>嘎嘎</p>
+    </div>
+    <script>
+        //document.getElementsByTagName("标签的名字");返回的是一个伪数组,
+        //无论获取的是一个标签,还是多个标签,最终都是在数组中存储的,这行代码的返回值就是一个数组
+
+        //案例:点击按钮设置多个p标签的文字内容
+        //根据id获取按钮,注册点击事件,添加事件处理函数
+        document.getElementById("btn").onclick=function () {
+            //根据标签名字获取标签
+            var pObjs= document.getElementsByTagName("p");
+            //var pObjs=document.getElementById("dv1").getElementsByTagName("p");
+            //循环遍历这个数组
+            for(var i=0;i<pObjs.length;i++){
+            //每个p标签,设置文字
+            pObjs[i].innerText="我们都是p";
+            }
+
+        };
+    </script>
+
+    <input type="button" value="显示效果" id="btn"/>
+    <div id="dv1">
+        <p>哈哈,我又变帅了</p>
+        <p>哈哈,我又变帅了</p>
+        <p>哈哈,我又变帅了</p>
+        <p>哈哈,我又变帅了</p>
+        <p>哈哈,我又变帅了</p>
+    </div>
+
+    <div id="dv2">
+        <p>嘎嘎</p>
+        <p>嘎嘎</p>
+        <p>嘎嘎</p>
+        <p>嘎嘎</p>
+    </div>
+    <script>
+        //document.getElementsByTagName("标签的名字");返回的是一个伪数组,
+        //无论获取的是一个标签,还是多个标签,最终都是在数组中存储的,这行代码的返回值就是一个数组
+
+        //案例:点击按钮设置多个p标签的文字内容
+        //根据id获取按钮,注册点击事件,添加事件处理函数
+        document.getElementById("btn").onclick=function () {
+            //根据标签名字获取标签
+            var pObjs= document.getElementsByTagName("p");
+            //var pObjs=document.getElementById("dv1").getElementsByTagName("p");
+            //循环遍历这个数组
+            for(var i=0;i<pObjs.length;i++){
+            //每个p标签,设置文字
+            pObjs[i].innerText="我们都是p";
+            }
+
+        };
+    </script>
+
+    <!-- 12 -->
+    <input type="button" value="显示效果" id="btn"/>
+    <img src="images/cangjingkong.jpg" alt="哈哈" title="嘎嘎"/>
+    <script>
+        document.getElementById("btn").onclick = function () {
+        //返回的是一个伪数组
+        var imgObjs = document.getElementsByTagName("img");
+        imgObjs[0].alt = "改了";
+        imgObjs[0].title = "现实吧";
+        };
+    </script>
+
+    <input type="button" value="显示效果" id="btn"/>
+    <img src="images/cangjingkong.jpg" alt="哈哈" title="嘎嘎"/>
+    <script>
+        document.getElementById("btn").onclick = function () {
+        //返回的是一个伪数组
+        var imgObjs = document.getElementsByTagName("img");
+        imgObjs[0].alt = "改了";
+        imgObjs[0].title = "现实吧";
+        };
+    </script>
+
+    <!-- 13 -->
+    <input type="button" value="修改文本框的值" id="btn"/><br/>
+    <input type="text" value=""/><br/>
+    <input type="text" value=""/><br/>
+    <input type="text" value=""/><br/>
+    <input type="text" value=""/><br/>
+    <input type="text" value=""/><br/>
+    <input type="text" value=""/><br/>
+    <input type="text" value=""/><br/>
+    <input type="text" value=""/><br/>
+    <script>
+        //根据id获取按钮,为按钮注册点击事件,添加事件处理函数
+        document.getElementById("btn").onclick = function () {
+            //获取所有的文本框
+            var inputs = document.getElementsByTagName("input");
+            for (var i = 0; i < inputs.length; i++) {
+                //判断这个元素是不是按钮
+                if (inputs[i].type != "button") {
+                    inputs[i].value = "其实,助教喜欢小苏";
+                }
+            }
+        };
+    </script>
+
+    <input type="button" value="修改文本框的值" id="btn"/><br/>
+    <input type="text" value=""/><br/>
+    <input type="text" value=""/><br/>
+    <input type="text" value=""/><br/>
+    <input type="text" value=""/><br/>
+    <input type="text" value=""/><br/>
+    <input type="text" value=""/><br/>
+    <input type="text" value=""/><br/>
+    <input type="text" value=""/><br/>
+    <script>
+        //根据id获取按钮,为按钮注册点击事件,添加事件处理函数
+        document.getElementById("btn").onclick = function () {
+            //获取所有的文本框
+            var inputs = document.getElementsByTagName("input");
+            for (var i = 0; i < inputs.length; i++) {
+                //判断这个元素是不是按钮
+                if (inputs[i].type != "button") {
+                    inputs[i].value = "其实,助教喜欢小苏";
+                }
+            }
+        };
+    </script>
+
+    <!-- 14 -->
+    <style>
+        img{
+            width: 200px;
+            height: 150px;
+        }
+    </style>
+    <img src="images/1.jpg" alt="" id="im1" />
+    <img src="images/2.jpg" alt="" id="im2" />
+    <img src="images/3.jpg" alt="" id="im3" />
+    <script>
+        //  document.getElementById("im1").onclick=function () {
+        //    alert("被点了");
+        //  };
+        //  document.getElementById("im2").onclick=function () {
+        //    alert("被点了");
+        //  };
+        //  document.getElementById("im3").onclick=function () {
+        //    alert("被点了");
+        //  };
+
+        //根据标签的名字获取图片标签,分别注册点击事件
+        var imgObjs=document.getElementsByTagName("img");
+        //循环遍历数组,获取每个图片标签,注册点击事件,添加事件处理函数
+        for(var i=0;i<imgObjs.length;i++){
+            imgObjs[i].onclick=function () {
+            alert("被点击了");
+            };
+        }
+    </script>
+
+    <style>
+        img{
+            width: 200px;
+            height: 150px;
+        }
+    </style>
+    <img src="images/1.jpg" alt="" id="im1" />
+    <img src="images/2.jpg" alt="" id="im2" />
+    <img src="images/3.jpg" alt="" id="im3" />
+    <script>
+        //  document.getElementById("im1").onclick=function () {
+        //    alert("被点了");
+        //  };
+        //  document.getElementById("im2").onclick=function () {
+        //    alert("被点了");
+        //  };
+        //  document.getElementById("im3").onclick=function () {
+        //    alert("被点了");
+        //  };
+
+        //根据标签的名字获取图片标签,分别注册点击事件
+        var imgObjs=document.getElementsByTagName("img");
+        //循环遍历数组,获取每个图片标签,注册点击事件,添加事件处理函数
+        for(var i=0;i<imgObjs.length;i++){
+            imgObjs[i].onclick=function () {
+            alert("被点击了");
+            };
+        }
+    </script>
+
+    <!-- 15 -->
+    <input type="button" value="按钮" id="btn"/>
+    <script>
+        //在某个元素的事件中,自己的事件中的this就是当前的这个元素对象
+
+        var btnObj = document.getElementById("btn");
+        btnObj.onclick = function () {
+            //修改按钮的value属性
+            this.value="我是按钮,谁咬我,我就咬谁";
+            this.type="text";
+            this.id="btn2";
+        };
+    </script>
+
+    <input type="button" value="按钮" id="btn"/>
+    <script>
+        //在某个元素的事件中,自己的事件中的this就是当前的这个元素对象
+
+        var btnObj = document.getElementById("btn");
+        btnObj.onclick = function () {
+            //修改按钮的value属性
+            this.value="我是按钮,谁咬我,我就咬谁";
+            this.type="text";
+            this.id="btn2";
+        };
+    </script>
+
+    <!-- 16 -->
+    <img src="images/liuyan.jpg" alt="" id="im"/>
+    <script>
+        //点击图片,修改自身的宽和高
+        var imgObj = document.getElementById("im");
+        imgObj.onclick = function () {
+            this.width = "200";
+            this.height = "300";
+        };
+    </script>
+
+    <img src="images/liuyan.jpg" alt="" id="im"/>
+    <script>
+        //点击图片,修改自身的宽和高
+        var imgObj = document.getElementById("im");
+        imgObj.onclick = function () {
+            this.width = "200";
+            this.height = "300";
+        };
+    </script>
+
+    <!-- 17 -->
+    <input type="button" value="没怀孕"/>
+    <input type="button" value="没怀孕"/>
+    <input type="button" value="没怀孕"/>
+    <input type="button" value="没怀孕"/>
+    <input type="button" value="没怀孕"/>
+    <input type="button" value="没怀孕"/>
+    <script>
+        //获取所有的按钮,分别注册点击事件
+        var btnObjs = document.getElementsByTagName("input");
+        //循环遍历所有的按钮
+        for (var i = 0; i < btnObjs.length; i++) {
+            //为每个按钮都要注册点击事件
+            btnObjs[i].onclick = function () {
+            //把所有的按钮的value值设置为默认的值:没怀孕
+            for (var j = 0; j < btnObjs.length; j++) {
+                btnObjs[j].value = "没怀孕";
+            }
+            //当前被点击的按钮设置为:怀孕了
+            this.value = "怀孕了";
+            };
+
+        }
+    </script>
+
+    <input type="button" value="没怀孕"/>
+    <input type="button" value="没怀孕"/>
+    <input type="button" value="没怀孕"/>
+    <input type="button" value="没怀孕"/>
+    <input type="button" value="没怀孕"/>
+    <input type="button" value="没怀孕"/>
+    <script>
+        //获取所有的按钮,分别注册点击事件
+        var btnObjs = document.getElementsByTagName("input");
+        //循环遍历所有的按钮
+        for (var i = 0; i < btnObjs.length; i++) {
+            //为每个按钮都要注册点击事件
+            btnObjs[i].onclick = function () {
+            //把所有的按钮的value值设置为默认的值:没怀孕
+            for (var j = 0; j < btnObjs.length; j++) {
+                btnObjs[j].value = "没怀孕";
+            }
+            //当前被点击的按钮设置为:怀孕了
+            this.value = "怀孕了";
+            };
+
+        }
+    </script>
+
+    <!-- 18 -->
+    <a id="ak" href="images/1.jpg"><img src="images/1-small.jpg" alt="" id="im"></a>
+    <script>
+        //点击图片标签,设置图片标签的src路径为超链接中大图的路径
+
+        document.getElementById("im").onclick=function () {
+            this.src=document.getElementById("ak").href;
+            return false;
+        };
+    </script>
+
+    <a id="ak" href="images/1.jpg"><img src="images/1-small.jpg" alt="" id="im"></a>
+    <script>
+        //点击图片标签,设置图片标签的src路径为超链接中大图的路径
+
+        document.getElementById("im").onclick=function () {
+            this.src=document.getElementById("ak").href;
+            return false;
+        };
+    </script>
+
+    <!-- 19 -->
+    <input type="button" value="显示大图" id="btn"/>
+    <img src="images/1-small.jpg" alt="" id="im">
+    <script>
+        function my$(id) {
+        return document.getElementById(id);
+        }
+
+        my$("btn").onclick=function () {
+            my$("im").src="images/1.jpg";
+        };
+    </script>
+
+    <input type="button" value="显示大图" id="btn"/>
+    <img src="images/1-small.jpg" alt="" id="im">
+    <script>
+        function my$(id) {
+        return document.getElementById(id);
+        }
+
+        my$("btn").onclick=function () {
+            my$("im").src="images/1.jpg";
+        };
+    </script>
+
+    <!-- 20 -->
+    <input type="button" value="修改性别" id="btn1"/>
+    <input type="radio" value="1" name="sex"/>男
+    <input type="radio" value="2" name="sex" id="rad1"/>女
+    <input type="radio" value="3" name="sex"/>保密
+    <script>
+        function my$(id) {
+        return document.getElementById(id);
+        }
+        //规律:在表单标签中,如果属性和值只有一个,并且值是这个属性本身,那么
+        //那么,那么,在写js代码,DOM操作的时候,这个属性值,是布尔类型就可以了
+        my$("btn1").onclick = function () {
+            my$("rad1").checked = true;
+        };
+    </script>
+    <br>
+
+    <input type="button" value="选择兴趣" id="btn2"/>
+    <input type="checkbox" value="1" name="xingqu" />吃饭
+    <input type="checkbox" value="2" name="xingqu" />睡觉
+    <input type="checkbox" value="3" name="xingqu" id="ck1" />打豆豆
+    <input type="checkbox" value="4" name="xingqu" />打篮球
+    <input type="checkbox" value="5" name="xingqu" />打足球
+    <input type="checkbox" value="6" name="xingqu" id="ck2" />打铅球
+    <script>
+        my$("btn2").onclick=function () {
+        my$("ck1").checked=true;
+        my$("ck2").checked=true;
+        };
+    </script>
+
+    <input type="button" value="修改性别" id="btn1"/>
+    <input type="radio" value="1" name="sex"/>男
+    <input type="radio" value="2" name="sex" id="rad1"/>女
+    <input type="radio" value="3" name="sex"/>保密
+    <script>
+        function my$(id) {
+        return document.getElementById(id);
+        }
+        //规律:在表单标签中,如果属性和值只有一个,并且值是这个属性本身,那么
+        //那么,那么,在写js代码,DOM操作的时候,这个属性值,是布尔类型就可以了
+        my$("btn1").onclick = function () {
+            my$("rad1").checked = true;
+        };
+    </script>
+    <br>
+
+    <input type="button" value="选择兴趣" id="btn2"/>
+    <input type="checkbox" value="1" name="xingqu" />吃饭
+    <input type="checkbox" value="2" name="xingqu" />睡觉
+    <input type="checkbox" value="3" name="xingqu" id="ck1" />打豆豆
+    <input type="checkbox" value="4" name="xingqu" />打篮球
+    <input type="checkbox" value="5" name="xingqu" />打足球
+    <input type="checkbox" value="6" name="xingqu" id="ck2" />打铅球
+    <script>
+        my$("btn2").onclick=function () {
+        my$("ck1").checked=true;
+        my$("ck2").checked=true;
+        };
+    </script>
+
+    <!-- 21 -->
+    <input type="button" value="点菜" id="btn"/>
+    <select name="" id="ss">
+        <option value="1">油炸榴莲</option>
+        <option value="2">爆炒臭豆腐</option>
+        <option value="3">清蒸助教</option>
+        <option value="4" id="op1">凉拌班主任</option>
+        <option value="5">红烧小苏</option>
+    </select>
+    <script src="common.js"></script>
+    <script>
+        my$("btn").onclick=function () {
+        //点击按钮选择菜
+        my$("op1").selected=true;
+        };
+    </script>
+
+
+<textarea name="" id="tt" cols="30" rows="10" readonly="readonly" >
+  注册用户的协议:
+
+  某人问智者,
+  大师:您觉得怎么做才是最快乐的?
+  回答说:不要和愚者辩论
+  这个人说:我不这么认为!
+  大师说:您说的对,
+  我就是这么帅
+    
+</textarea>
+    <input type="button" value="注册" id="btn2"/>
+    <script>
+        //disabled=====>这个属性是禁用的,
+        //html中属性和值是自己的,并且只有一个的,其实,可以只写这个属性,不用赋值
+    
+    
+        my$("btn2").onclick=function () {
+        my$("tt").value="嘎嘎";//推荐用value,因为看成了是表单的标签
+        //my$("tt").innerText="哈哈";
+        };
+    </script>
+
+<input type="button" value="点菜" id="btn"/>
+<select name="" id="ss">
+    <option value="1">油炸榴莲</option>
+    <option value="2">爆炒臭豆腐</option>
+    <option value="3">清蒸助教</option>
+    <option value="4" id="op1">凉拌班主任</option>
+    <option value="5">红烧小苏</option>
+</select>
+<script src="common.js"></script>
+<script>
+    my$("btn").onclick=function () {
+    //点击按钮选择菜
+    my$("op1").selected=true;
+    };
+</script>
+
+
+<textarea name="" id="tt" cols="30" rows="10" readonly="readonly" >
+注册用户的协议:
+
+某人问智者,
+大师:您觉得怎么做才是最快乐的?
+回答说:不要和愚者辩论
+这个人说:我不这么认为!
+大师说:您说的对,
+我就是这么帅
+
+</textarea>
+<input type="button" value="注册" id="btn2"/>
+<script>
+    //disabled=====>这个属性是禁用的,
+    //html中属性和值是自己的,并且只有一个的,其实,可以只写这个属性,不用赋值
+
+
+    my$("btn2").onclick=function () {
+    my$("tt").value="嘎嘎";//推荐用value,因为看成了是表单的标签
+    //my$("tt").innerText="哈哈";
+    };
+</script>
+
+    <!-- 22 -->
+    <input type="button" value="设置样式" id="btn"/>
+    <div id="dv"></div>
+    <script src="common.js"></script>
+    <script>
+        //凡是css中这个属性是多个单词的写法,在js代码中DOM操作的时候.把-干掉,后面的单词的首字母大写即可
+    
+        //点击按钮,修改div的宽,高,背景颜色
+        my$("btn").onclick = function () {
+        my$("dv").style.width = "300px";
+        my$("dv").style.height = "200px";
+        my$("dv").style.backgroundColor = "pink";
+    
+        };
+    </script>
+
+    <input type="button" value="设置样式" id="btn"/>
+    <div id="dv"></div>
+    <script src="common.js"></script>
+    <script>
+        //凡是css中这个属性是多个单词的写法,在js代码中DOM操作的时候.把-干掉,后面的单词的首字母大写即可
+
+        //点击按钮,修改div的宽,高,背景颜色
+        my$("btn").onclick = function () {
+        my$("dv").style.width = "300px";
+        my$("dv").style.height = "200px";
+        my$("dv").style.backgroundColor = "pink";
+
+        };
+    </script>
+
+    <!-- 23 -->
+    <style>
+        div{
+            width: 300px;
+            height: 200px;
+            background-color: darkmagenta;
+        }
+    </style>
+    <input type="button" value="隐藏" id="btn"/>
+    <input type="button" value="显示" id="btn2"/>
+    <div id="dv">
+    
+    </div>
+    <script src="common.js"></script>
+    <script>
+        //根据id获取按钮,注册点击事件,添加事件处理函数
+        my$("btn").onclick=function () {
+            my$("dv").style.display="none";
+        };
+        my$("btn2").onclick=function () {
+        my$("dv").style.display="block";
+        };
+    </script>
+
+    <style>
+        div{
+            width: 300px;
+            height: 200px;
+            background-color: darkmagenta;
+        }
+    </style>
+    <input type="button" value="隐藏" id="btn"/>
+    <input type="button" value="显示" id="btn2"/>
+    <div id="dv">
+
+    </div>
+    <script src="common.js"></script>
+    <script>
+        //根据id获取按钮,注册点击事件,添加事件处理函数
+        my$("btn").onclick=function () {
+            my$("dv").style.display="none";
+        };
+        my$("btn2").onclick=function () {
+        my$("dv").style.display="block";
+        };
+    </script>
+
+    <!-- 24 -->
+    <style>
+        div{
+            width: 300px;
+            height: 200px;
+            background-color: darkmagenta;
+        }
+    </style>
+    <input type="button" value="隐藏" id="btn"/>
+    <div id="dv">
+    
+    </div>
+    <script src="common.js"></script>
+    <script>
+        //根据id获取按钮,注册点击事件,添加事件处理函数
+        my$("btn").onclick=function () {
+            //判断当前点击的按钮的value属性值
+        if(this.value=="隐藏"){
+            my$("dv").style.display="none";//隐藏
+            this.value="显示";
+        }else if(this.value=="显示"){
+            my$("dv").style.display="block";//显示
+            this.value="隐藏";
+        }
+        };
+    </script>
+
+    <style>
+        div{
+            width: 300px;
+            height: 200px;
+            background-color: darkmagenta;
+        }
+    </style>
+    <input type="button" value="隐藏" id="btn"/>
+    <div id="dv">
+
+    </div>
+    <script src="common.js"></script>
+    <script>
+        //根据id获取按钮,注册点击事件,添加事件处理函数
+        my$("btn").onclick=function () {
+            //判断当前点击的按钮的value属性值
+        if(this.value=="隐藏"){
+            my$("dv").style.display="none";//隐藏
+            this.value="显示";
+        }else if(this.value=="显示"){
+            my$("dv").style.display="block";//显示
+            this.value="隐藏";
+        }
+        };
+    </script>
+
+    <!-- 25 -->
+    <style>
+        .cls {
+            width: 300px;
+            height: 200px;
+            background-color: yellow;
+            border: 2px solid red;
+        }
+    </style>
+    <input type="button" value="设置样式" id="btn"/>
+    <div id="dv"></div>
+    <script src="common.js"></script>
+    <script>
+        //设置div的样式
+        my$("btn").onclick = function () {
+               var dvObj = my$("dv");
+               dvObj.style.width = "300px";
+               dvObj.style.height = "300px";
+               dvObj.style.backgroundColor = "yellow";
+               dvObj.style.border = "10px solid red";
+            
+            // 在js代码中DOM操作的时候,设置元素的类样式,不用class关键字,应该使用,className
+            my$("dv").className="cls";
+        };
+    </script>
+
+    <style>
+        .cls {
+            width: 300px;
+            height: 200px;
+            background-color: yellow;
+            border: 2px solid red;
+        }
+    </style>
+    <input type="button" value="设置样式" id="btn"/>
+    <div id="dv"></div>
+    <script src="common.js"></script>
+    <script>
+        //设置div的样式
+        my$("btn").onclick = function () {
+            var dvObj = my$("dv");
+            dvObj.style.width = "300px";
+            dvObj.style.height = "300px";
+            dvObj.style.backgroundColor = "yellow";
+            dvObj.style.border = "10px solid red";
+            
+            // 在js代码中DOM操作的时候,设置元素的类样式,不用class关键字,应该使用,className
+            my$("dv").className="cls";
+        };
+    </script>
+
+    <!-- 26 -->
+    <style>
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: yellow;
+            border: 2px solid red;
+        }
+
+        .cls {
+            display: none;
+        }
+    </style>
+    <input type="button" value="隐藏" id="btn"/>
+    <div id="dv"></div>
+    <script src="common.js"></script>
+    <script>
+        //点击按钮,通过类样式的方式设置div的显示和隐藏
+        my$("btn").onclick = function () {
+        // console.log(my$("dv").className);
+    
+        //判断的是div是否应用了类样式
+        if (my$("dv").className != "cls") {
+            //现在是显示的,应该隐藏
+            my$("dv").className = "cls";
+            this.value = "显示";
+        } else {
+            //隐藏的状态----立刻显示
+            my$("dv").className = "";
+            this.value = "隐藏";
+        }
+        };
+    </script>
+
+    <style>
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: yellow;
+            border: 2px solid red;
+        }
+
+        .cls {
+            display: none;
+        }
+    </style>
+    <input type="button" value="隐藏" id="btn"/>
+    <div id="dv"></div>
+    <script src="common.js"></script>
+    <script>
+        //点击按钮,通过类样式的方式设置div的显示和隐藏
+        my$("btn").onclick = function () {
+        // console.log(my$("dv").className);
+
+        //判断的是div是否应用了类样式
+        if (my$("dv").className != "cls") {
+            //现在是显示的,应该隐藏
+            my$("dv").className = "cls";
+            this.value = "显示";
+        } else {
+            //隐藏的状态----立刻显示
+            my$("dv").className = "";
+            this.value = "隐藏";
+        }
+        };
+    </script>
+
+    <!-- 27 -->
+    <style>
+        .cls {
+            background-color: black;
+        }
+    </style>
+        <input type="button" value="开/关灯" id="btn"/>
+        <script src="common.js"></script>
+        <script>
+            my$("btn").onclick = function () {
+            //获取body标签
+            document.body.className = document.body.className != "cls" ? "cls" : "";
+            };
+    </script>
+
+    <style>
+        .cls {
+            background-color: black;
+        }
+    </style>
+        <input type="button" value="开/关灯" id="btn"/>
+        <script src="common.js"></script>
+        <script>
+            my$("btn").onclick = function () {
+            //获取body标签
+            document.body.className = document.body.className != "cls" ? "cls" : "";
+            };
+    </script>
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>21.作业</title>
+    <script>
+
+        /*        
+            1.绑定事件和解绑事件的兼容代码---一遍
+            2.两遍
+            案例8
+            百度的案例案例9
+            
+            定时器的案例18 和19 和20 两遍
+            
+            
+            自己对照笔记总结BOM的内容
+            把BOM中的属性和方法写一遍
+            
+            自己复习内置对象的方法
+            
+            Array中的方法,String中的方法----写一遍        
+        */
+    </script>
+        <!-- 绑定事件和解绑事件的兼容代码---一遍 -->
+        <input type="button" value="按钮" id="btn1"/>
+        <input type="button" value="干掉第一个按钮的事件" id="btn2"/>
+        <script src="common.js"></script>
+    <script>
+        //绑定事件的兼容
+        function addEventListener(element,type,fn){
+            if(element.addEventListener){
+                element.addEventListener(type,fn,false);
+            }else if(element.attachEvent){
+                element.attachEvent("on" + type,fn);
+            }else{
+                element["on" + type] = fn;
+            }
+        }
+
+        //解绑事件的兼容
+        //为任意的一个元素，解绑对应的事件
+        function removeEventListener(element,type,fnName){
+            if(element.removeEventListener){
+                element.removeEventListener(type,fnName,false);
+            }else if(element.detachEvent){
+                element.detachEvent("on" + type,fnName);
+            }else{
+                element["on" + type] = null;
+            }
+        }
+    </script>
+
+    <!-- 28 -->
+    <input type="button" value="小苏" id="btn"/>
+    <script src="common.js"></script>
+    <script>
+        //为同一个元素绑定多个不同事件指向同一个事件处理函数
+        my$("btn").onclick = f1;
+        my$("btn").onmouseover = f1;
+        my$("btn").onmouseout = f1;
+        function f1(e){
+            switch(e.type){
+                case "click":
+                    alert("好帅哦");
+                    break;
+                case "mouseover":
+                    this.style.backgroundColor = "red";
+                    break;
+                case "mouseout":
+                    this.style.backgroundColor = "green";
+                    break;
+            }
+        }
+    </script>
+
+    <!-- 28 -->
+    <input type="button" value="小苏" id="btn">
+    <script src="common.js"></script>
+    <script>
+        //为同一个元素绑定多个不同事件指向同一个事件处理函数
+        my$("btn").onclick = f1;
+        my$("btn").onmouseover = f1;
+        my$("btn").onmouseout = f1;
+        function f1(e){
+            switch(e.type){
+                case "click":
+                    alert("好帅哦");
+                    break;
+                case  "mouseover":
+                    this.backgroundColor = "red";
+                    break;
+                case "mouseout":
+                    this.backgroundColor = "green";
+                    break;
+            }
+        }
+    </script>
+
+    <!-- 09 -->
+    <style>
+        #box {
+            width: 450px;
+            margin: 200px auto; 
+        }
+
+        #txt {
+            width: 350px;
+        }
+
+        #pop {
+            width: 350px;
+            border: 1px solid red;
+        }
+
+        #pop ul {
+            margin: 10px;
+            padding: 0px;
+            width: 200px;
+            list-style-type: none;
+        }
+    </style>
+
+    <div id="box">
+        <input type="text" id="txt" value="">
+        <input type="button" value="搜索" id="btn">
+    </div>
+    <script src="common.js"></script>
+    <script>
+        var keyWords = ["小杨才是最纯洁的", "小杨才是最帅的", "小段是最猥琐的", "小超是最龌龊的", "传智播客是一个培训机构", "传说在传智有个很帅很纯洁的小杨", "苹果好吃", "苹果此次召回还是没有中国"];
+        //获取文本框注册键盘抬起事件
+        my$("txt").onkeyup = function(){
+            //每一次的键盘键盘抬起都判断这个页面中有没有这个div
+            if(my$("dv")){
+                //删除一次
+                my$("box").removeChild(my$("dv"));
+            }
+            //获取文本框输入的内容
+            var text = this.value;
+            //临时数组---空数组------->存放对应上的数据
+            var tempArr = [];
+            //把文本框输入的内容和数组中的每个数据对比
+            for(var i = 0;i < keyWords.length;i++){
+                //是否是最开始出现的
+                if(keyWords[i].indexOf(text) == 0){
+                    tempArr.push(keyWords[i]);//追加
+                }
+            }
+
+            //如果文本框是空的，临时数组是空的，不用创建div
+            if(this.value.length == 0 || tempArr.length == 0){
+                //如果页面中有这个div，删除这个div
+                if(my$("dv")){
+                    my$("box").removeChild(my$("dv"));
+                }
+                return;
+            }
+
+
+
+            //创建div，把div加入id为box的div中
+            var dvObj = document.createElement("div");
+            my$("box").appendChild(dvObj);
+            dvObj.id = dv;
+            dvObj.style.width = "350px";
+            dvObj.style.border = "1px solid green";
+            //循环遍历临时数组，创建对应的p标签
+            for(var i = 0;i < tempArr.length;i++){
+                //创建p标签
+                //把p加入div中
+                var pObj = document.createElement("p");
+                dvObj.appendChild(pObj);
+                setInnerText(pObj,tempArr[i]);
+                pObj.style.margin = 0;
+                pObj.style.padding = 0;
+                pObj.style.cursor = "pointer";
+                pObj.style.marginTop = "5px";
+                pObj.style.marginLeft = "5px";
+                //鼠标进入
+                pObj.onmouseover = function(){
+                    this.style.backgroundColor = "yellow";
+                };
+                 //鼠标离开
+                 pObj.onmouseover = function(){
+                    this.style.backgroundColor = "";
+                };
+                 //改进：鼠标点击
+                 pObj.onclick = function(){
+                   my$("txt").value = this.innerText;
+                   dvObj.style.display = "none";
+                };
+            }
+        };
+    </script>
+
+    <style>
+        #box {
+            width: 450px;
+            margin: 200px auto; 
+        }
+
+        #txt {
+            width: 350px;
+        }
+
+        #pop {
+            width: 350px;
+            border: 1px solid red;
+        }
+
+        #pop ul {
+            margin: 10px;
+            padding: 0px;
+            width: 200px;
+            list-style-type: none;
+        }
+    </style>
+
+    <div id="box">
+        <input type="text" id="txt" value="">
+        <input type="button" value="搜索" id="btn">
+    </div>
+    <script src="common.js"></script>
+    <script>
+        var keyWords = ["小杨才是最纯洁的", "小杨才是最帅的", "小段是最猥琐的", "小超是最龌龊的", "传智播客是一个培训机构", "传说在传智有个很帅很纯洁的小杨", "苹果好吃", "苹果此次召回还是没有中国"];
+        //获取文本框注册键盘抬起事件
+        my$("txt").onkeyup = function(){
+            //每一次的键盘键盘抬起都判断这个页面中有没有这个div
+            if(my$("dv")){
+                //删除一次
+                my$("box").removeChild(my$("dv"));
+            }
+            //获取文本框输入的内容
+            var text = this.value;
+            //临时数组---空数组------->存放对应上的数据
+            var tempArr = [];
+            //把文本框输入的内容和数组中的每个数据对比
+            for(var i = 0;i < keyWords.length;i++){
+                //是否是最开始出现的
+                if(keyWords[i].indexOf(text) == 0){
+                    tempArr.push(keyWords[i]);//追加
+                }
+            }
+
+            //如果文本框是空的，临时数组是空的，不用创建div
+            if(this.value.length == 0 || tempArr.length == 0){
+                //如果页面中有这个div，删除这个div
+                if(my$("dv")){
+                    my$("box").removeChild(my$("dv"));
+                }
+                return;
+            }
+
+
+
+            //创建div，把div加入id为box的div中
+            var dvObj = document.createElement("div");
+            my$("box").appendChild(dvObj);
+            dvObj.id = dv;
+            dvObj.style.width = "350px";
+            dvObj.style.border = "1px solid green";
+            //循环遍历临时数组，创建对应的p标签
+            for(var i = 0;i < tempArr.length;i++){
+                //创建p标签
+                //把p加入div中
+                var pObj = document.createElement("p");
+                dvObj.appendChild(pObj);
+                setInnerText(pObj,tempArr[i]);
+                pObj.style.margin = 0;
+                pObj.style.padding = 0;
+                pObj.style.cursor = "pointer";
+                pObj.style.marginTop = "5px";
+                pObj.style.marginLeft = "5px";
+                //鼠标进入
+                pObj.onmouseover = function(){
+                    this.style.backgroundColor = "yellow";
+                };
+                 //鼠标离开
+                 pObj.onmouseover = function(){
+                    this.style.backgroundColor = "";
+                };
+                 //改进：鼠标点击
+                 pObj.onclick = function(){
+                   my$("txt").value = this.innerText;
+                   dvObj.style.display = "none";
+                };
+            }
+        };
+    </script>
+
+    <!-- 18 -->
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+        }
+
+        div {
+            position: absolute;
+        }
+    </style>
+
+    <input type="button" value="摇起来" id="btn1"/>
+    <input type="button" value="停止" id="btn2"/>
+    <div id="dv">
+    <img src="images/heihei.jpg" alt=""/>
+    <img src="images/lyml.jpg" alt=""/>
+    </div>
+    <script src="common.js"></script>
+    <script>
+        //点击按钮摇起来
+        var timeId = "";
+        my$("btn1").onclick = function(){
+            timeId = setInterval(function(){
+                //随机数
+                var x = parseInt(Math.random()*100 + 1);
+                var y = parseInt(Math.random()*100 + 1);
+                //设置元素的left和top属性
+                my$("dv").style.left = x +"px";
+                my$("dv").style.top = y +"px";
+            },10);
+        };
+
+        my$("btn2").onclick = function(){
+            clearInterval(timeId);
+        };
+    </script>
+
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+        }
+
+        div {
+            position: absolute;
+        }
+    </style>
+
+    <input type="button" value="摇起来" id="btn1"/>
+    <input type="button" value="停止" id="btn2"/>
+    <div id="dv">
+    <img src="images/heihei.jpg" alt=""/>
+    <img src="images/lyml.jpg" alt=""/>
+    </div>
+    <script src="common.js"></script>
+    <script>
+        //点击按钮摇起来
+        var timeId = "";
+        my$("btn1").onclick = function(){
+            timeId = setInterval(function(){
+                //随机数
+                var x = parseInt(Math.random()*100 + 1);
+                var y = parseInt(Math.random()*100 + 1);
+                //设置元素的left和top属性
+                my$("dv").style.left = x +"px";
+                my$("dv").style.top = y +"px";
+            },10);
+        };
+
+        my$("btn2").onclick = function(){
+            clearInterval(timeId);
+        };
+    </script>
+    <!-- 19 -->
+    <style>
+        div{
+            width: 600px;
+            height: 600px;
+            border:2px solid yellow;
+            background-color: black;
+            position: relative;
+        }
+        span{
+            font-size: 30px;
+            color: yellow;
+            position: absolute;
+        }
+    </style>
+
+    <input type="button" value="亮起来" id="btn"/>
+    <div id="dv"></div>
+    <script src="common.js"></script>
+    <script>
+        my$("btn").onclick = function(){
+            setInterval(function(){
+                my$("dv").innerHtml = "<span>★</sapn>";
+                var x = parseInt(Math.random()*600 + 1);
+                var y = parseInt(Math.random()*600 + 1);
+                my$("dv").firstElementChild.style.left = x + "px";
+                my$("dv").firstElementChild.style.top = y + "px";
+            },5)
+        };
+    </script>
+
+    <style>
+        div{
+            width: 600px;
+            height: 600px;
+            border:2px solid yellow;
+            background-color: black;
+            position: relative;
+        }
+        span{
+            font-size: 30px;
+            color: yellow;
+            position: absolute;
+        }
+    </style>
+
+    <input type="button" value="亮起来" id="btn"/>
+    <div id="dv"></div>
+    <script src="common.js"></script>
+    <script>
+        my$("btn").onclick = function(){
+            setInterval(function(){
+                my$("dv").innerHtml = "<span>★</sapn>";
+                var x = parseInt(Math.random()*600 + 1);
+                var y = parseInt(Math.random()*600 + 1);
+                my$("dv").firstElementChild.style.left = x + "px";
+                my$("dv").firstElementChild.style.top = y + "px";
+            },5)
+        };
+    </script>
+
+    <!-- 20 -->
+
+    <img src="" alt="" id="im" />
+    <script src="common.js"></script>
+    <script>
+        function f1(){
+            //获取当前时间
+            var dt = new Date();
+            //获取小时
+            var hour = dt.grtHours();
+            //获取秒
+            var second = dt.getSeconds();
+
+            hour = hour < 10 ? "0" + hour : hour;
+            second = second < 10 ? "0" + second : second;
+
+            my$("im").src = "meimei/" + hour + "_" + second + ".jpg";
+        }
+        f1();
+        //页面加载完毕后，过了1秒才执行函数的代码
+        setInterval(f1(),1000);
+    </script>
+
+    
+    <img src="" alt="" id="im" />
+    <script src="common.js"></script>
+    <script>
+        function f1(){
+            //获取当前时间
+            var dt = new Date();
+            //获取小时
+            var hour = dt.grtHours();
+            //获取秒
+            var second = dt.getSeconds();
+
+            hour = hour < 10 ? "0" + hour : hour;
+            second = second < 10 ? "0" + second : second;
+
+            my$("im").src = "meimei/" + hour + "_" + second + ".jpg";
+        }
+        f1();
+        //页面加载完毕后，过了1秒才执行函数的代码
+        setInterval(f1(),1000);
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

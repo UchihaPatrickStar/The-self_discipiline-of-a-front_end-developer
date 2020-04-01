@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>16.案例点击图片修改自身的宽和高</title>
+</head>
+<body>
+    <img src="images/liuyan.jpg" alt="" id="im"/>
+    <script>
+        //点击图片,修改自身的宽和高
+        var imgObj = document.getElementById("im");
+        imgObj.onclick = function () {
+            this.width = "200";
+            this.height = "300";
+        };
+    </script>
+</body>
+</html>
