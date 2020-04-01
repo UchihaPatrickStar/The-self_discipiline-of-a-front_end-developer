@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background: url("./images/bg.jpg");
+        }
+        ul{
+            position: relative;
+            width: 600px;
+            height: 600px;
+            margin: 100px auto;
+        }
+        /* 将ul内部的各个li居中 */
+        /* 并不是球在旋转，而是每个li在旋转 */
+        ul > li{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            border: 2px solid #394057;
+            list-style: none;  
+            transform: translate(-50%,-50%);    
+            animation: star linear infinite;
+        }
+        ul > li:nth-of-type(1){
+            width: 60px;
+            height: 60px;
+            border: none;
+            background-color: #fff741;
+            box-shadow: 0 0 50px #fff741;
+        }
+        ul > li:nth-of-type(2){
+            width: 120px;
+            height: 120px;        
+            animation-duration: 2s;
+        }
+        ul > li:nth-of-type(3){
+            width: 180px;
+            height: 180px;
+            animation-duration: 4s;
+        }
+        ul > li:nth-of-type(4){
+            width: 240px;
+            height: 240px;
+            background: url("./images/asteroids_meteorids.png") no-repeat;
+            background-size: 240px 240px;
+            animation-duration: 7s;
+        }
+        ul > li:nth-of-type(5){
+            width: 300px;
+            height: 300px;
+            animation-duration: 13s;
+        }
+        ul > li:nth-of-type(6){
+            width: 360px;
+            height: 360px;
+            animation-duration: 18s;
+        }
+        ul > li:nth-of-type(7){
+            width: 420px;
+            height: 420px; 
+            animation-duration: 28s;
+        }
+        ul > li:nth-of-type(8){
+            width: 480px;
+            height: 480px;          
+            animation-duration: 43s;
+        }
+        ul > li:nth-of-type(9){
+            width: 540px;
+            height: 540px;           
+            animation-duration: 66s;
+        }
+        ul > li:nth-of-type(10){
+            width: 600px;
+            height: 600px;          
+            animation-duration: 88s;
+        }
+        /* 不是蓝球在旋转，而是黄球在旋转 */
+        ul > li > span{
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 6px;
+            background-color: #fff741;
+            transform: translate(-50%,-50%);
+            animation: star 2s linear infinite;
+        }
+        ul > li > span > span{
+            position: absolute;
+            left: 3px;
+            top: -10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 3px;
+            background-color: blue;
+        }
+
+        @keyframes star{
+            from{
+                transform: translate(-50%,-50%) rotate(0deg);
+            }
+            to{
+                transform: translate(-50%,-50%) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span><span></span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+    </ul>
+</body>
+</html>

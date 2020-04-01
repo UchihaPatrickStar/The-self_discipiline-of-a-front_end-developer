@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05.HTML5-伪元素-before-after</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            padding: 200px;
+        }
+        div:nth-of-type(1){
+            float: left;
+            width: 300px;
+            height: 200px;
+            background-color: red;
+        }
+        div:nth-of-type(2){
+            float: left;
+            position: relative;
+            width: 100px;
+            height: 200px;
+            background-color: blue;
+        }
+
+        div:nth-of-type(2)::before{
+            /*默认是行级元素，如果想设置宽高，就必须转换为块级元素*/
+            position: absolute;
+            left: -10px;
+            top: -10px;
+            /*必须添加content属性，否则后期不可见*/
+            content: "";/*content属性与width属性同级*/
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+        div:nth-of-type(2)::after{
+            /*默认是行级元素，如果想设置宽高，就必须转换为块级元素*/
+            position: absolute;
+            left: -10px;
+            bottom: -10px;
+            /*必须添加content属性，否则后期不可见*/
+            content: "";/*conten属性与width属性同级*/
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+</body>
+</html>

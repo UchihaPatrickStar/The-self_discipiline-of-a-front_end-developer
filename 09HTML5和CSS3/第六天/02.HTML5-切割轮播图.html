@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02.HTML5-切割轮播图</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .view{
+            position: relative;
+            width: 560px;
+            height: 300px;
+            margin: 100px auto;
+        }
+        ul{
+            width: 100%;
+            height: 100%;
+            list-style: none;
+            /* transform: rotate3d(1,1,0,-30deg); */
+            /* transform-style: preserve-3d; */
+        }
+        ul > li{
+            float: left;
+            position: relative;
+            width: 25%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform .5s;
+        }
+        ul > li > span{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        ul > li > span:nth-of-type(1){
+            background: url("./images/q1.jpg");
+            transform: translateZ(150px);
+        }
+        ul > li > span:nth-of-type(2){
+            background: url("./images/q2.jpg");
+            transform: translateY(-150px) rotateX(90deg);
+        }
+        ul > li > span:nth-of-type(3){
+            background: url("./images/q3.jpg");
+            transform: translateZ(-150px) rotateX(180deg);
+        }
+        ul > li > span:nth-of-type(4){
+            background: url("./images/q4.jpg");
+            transform: translateY(150px) rotateX(-90deg);
+        }
+        /* 设置每一个li元素的span所显示的图片的位置 */
+        ul > li:nth-of-type(2) > span{
+            background-position: -100% 0;
+        }
+        ul > li:nth-of-type(3) > span{
+            background-position: -200% 0;
+        }
+        ul > li:nth-of-type(4) > span{
+            background-position: -300% 0;
+        }
+        .pre,.next{
+            position: absolute;
+            top: 50%;
+            width: 60px;
+            height: 60px;
+            line-height:60px;
+            background-color: rgba(0,0,0,0.5);
+            text-decoration: none;
+            text-align: center;
+            font-size: 40px;
+            color: #fff;
+            /* 由于谷歌浏览器的视角问题右边的箭头看不见，所以此处需加上translateZ(10px) */
+            transform: translate(0,-50%) translateZ(10px);
+        }
+        .pre{
+            left: 0;
+        }
+        .next{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="view">
+        <ul>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+        </ul>
+        <a href="javascript:;" class="pre">&lt;</a>
+        <a href="javascript:;" class="next">&gt;</a>
+    </div>
+    <!-- <script src="./js/jquery.min.js"></script> -->
+    <!-- <script>
+        $(function(){
+            // 定义图片索引
+            var index=0;
+            // 添加节流阀  true说明本次单击会有响应处理
+            var flag=true;
+            // 下一张
+            $(".next").on("click",function(){
+                if(flag==true){
+                    // 设置节流阀
+                    flag=false;
+                    index--;
+                    // 所谓下一张，就是将所有li元素围绕x旋转
+                    $("li").each(function(key,value){
+                        // 通过添加transform样式进行旋转
+                        $(this).css({
+                            "transform": "rotateX(" + (index * 90) + "deg)",
+                            "transition-delay": (key * 0.2) + "s"
+                        });
+                    });
+                    setTimeout(function(){
+                        flag=true;
+                    },1000);
+                }
+            });
+            // 上一张
+            $(".pre").on("click",function(){
+                if(flag==true){
+                    // 设置节流阀
+                    flag=false;
+                    index++;
+                    // 所谓下一张，就是将所有li元素围绕x旋转
+                    $("li").each(function(key,value){ 
+                        // 通过添加transform样式进行旋转
+                        $(this).css({
+                            "transform": "rotateX(" + (index * 90) + "deg)",
+                            "transition-delay": (key * 0.2) + "s"
+                        });
+                    });
+                    setTimeout(function(){
+                        flag=true;
+                    },1000);
+                }
+            });
+        });
+    </script> -->
+
+    <!-- 用原生js编写 -->
+    <script>
+        window.onload = function(){
+            var index = 0;
+            var flag = true;
+            var Next = document.querySelector(".next");
+            var Pre = document.querySelector(".pre");
+            var liObj = document.getElementsByTagName("li");
+            // 下一张
+            Next.addEventListener("click",function(){
+                if(flag == true){
+                    flag = false;
+                    index--;
+                    for(var i = 0;i < liObj.length;i++){
+                        liObj[i].style.transform = "rotateX(" + (index * 90) + "deg)";
+                        liObj[i].style.transitionDelay =  (i * 0.2) + "s";
+                    }
+                    setTimeout(function(){
+                        flag=true;
+                    },1000);
+                }
+            },false);
+            // 上一张
+            Pre.addEventListener("click",function(){
+                if(flag == true){
+                    flag = false;
+                    index++;
+                    // 倒序优化
+                    for(var i = 0;i < liObj.length;i++){
+                        liObj[i].style.transform = "rotateX(" + (index * 90) + "deg)";
+                        liObj[i].style.transitionDelay =  ((3-i) * 0.2) + "s";
+                    }
+                    setTimeout(function(){
+                        flag=true;
+                    },1000);
+                }
+            },false);
+        };
+    </script>
+</body>
+</html>

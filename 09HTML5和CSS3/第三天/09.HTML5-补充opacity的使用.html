@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09.HTML5-补充opacity的使用</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            margin: 100px auto;
+            /* 通过opacity设置透明度：如果设置父容器，那么父容器中的所有子元素也会透明 */
+            opacity: .5;
+        }
+        span{
+            position: absolute;
+            left: 650px;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <span>这是内容</span>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tabs案例-自定义属性的使用</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .tabs{
+            box-sizing: border-box;
+            width: 500px;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+        }
+        .tabs > div{
+            width: 100%;
+        }
+        .tabs > div > a{
+            box-sizing: border-box;
+            display: block;
+            float: left;
+            width: 25%;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 2px solid #fff;
+            background-color: #ceffbb;
+            text-align: center;
+            text-decoration: none;
+        }
+        .tabs > div > a.active{
+            background-color: #ffcea1;
+        }
+        .tabs > div > a.last-child{
+            border-right: none;
+        }
+        .tabs > section{
+            clear: both;
+            display: none;
+            width: 100%;
+            padding: 20px;
+        }
+        .tabs > section > ol{
+            padding-left: 30px;
+        }
+        .tabs > section > ol > li{
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <div>
+            <!-- data-target="local"说明当前a标签是控制指定target名称的内容面板 -->
+            <a href="javascript:;" data-target="local">国内新闻</a>
+            <a href="javascript:;" data-target="global">国际新闻</a>
+            <a href="javascript:;" data-target="sports">体育新闻</a>
+            <a href="javascript:;" data-target="entertainment">娱乐新闻</a>
+        </div>
+        <section class="" id="local">
+            <ol>
+                <li>习近平向2名晋升为上将军官颁发命令状</li>
+                <li>郭声琨了解指导公安消防部队抗洪工作</li>
+                <li>媒体：曾任职中办的这位官员仕途有变</li>
+                <li>广西警方端掉地下兵工厂缴获大批炮弹</li>
+                <li>她完美诠释奇葩考题夺金牌</li>
+                <li>中国奥运选手在里约多次遭抢劫</li>
+            </ol>
+        </section>
+        <section class="" id="global">
+            <ol>
+                <li>河南再次发生矿难，死伤人数超过100</li>
+                <li>禽流感再次发生蔓延，温家宝指示</li>
+                <li>南方大旱，农作物减产绝收面积上亩</li>
+                <li>猪流感在广减产绝收发</li>
+                <li>禽流感在全国多作物减产绝收面积上亩</li>
+                <li>猪流感在广东群体性暴发</li>
+            </ol>
+        </section>
+        <section class="" id="sports">
+            <ol>
+                <li>河南再次发生矿难，死伤人数超过10</li>
+                <li>禽流感在全国多处农作物蔓延，温家宝指示</li>
+                <li>南方大旱，农作物减产绝收面积上亩</li>
+                <li>猪流感在广东群体性暴发</li>
+                <li>禽流感在全农作物继续蔓延，温家宝指示</li>
+                <li>南方大农作物减产绝收面积上亩</li>
+                <li>猪流感在广东群体性暴发</li>
+            </ol>
+        </section>
+        <section class="" id="entertainment">
+            <ol>
+                <li>福建发生血腥命案：两女遭割喉 1男孩被砍数刀</li>
+                <li>四川原副省长李成云被查 5年前曾违纪又复出</li>
+                <li>胡歌反对粉丝探班：以前请吃饭现在会黑脸</li>
+                <li>曝郑爽爸爸歌厅撩妹 与女子勾肩搭背显亲密</li>
+                <li>宜宾公安副局长无证驾驶出车祸 弃车离开现场</li>
+                <li>国子监大街门匾现错字 已悬挂近10年（图）</li>
+                <li>猪流感在广东群体性暴发</li>
+            </ol>
+        </section>
+    </div>
+    <script>
+        // 1.获取到所有a标签
+        // 2.为a标签添加点击事件
+        // 3.为点击某个a标签的时候，获取到当前a标签的target属性值，让对应名称的section面板显示
+        // 4.让上一个被点击的超链接的样式清除，同时让对应名称的面板隐藏
+        // (function(index){
+        //     var allA=document.querySelectorAll('a');
+        //     // 循环添加事件
+        //     for(var i = 0;i < allA.length;i++){
+        //         // 初始化面板的显示
+        //         if(i==index){   //说明这就是默认需要展示的面板
+        //             allA[i].classList.add('active');
+        //             var firstTarget=allA[i].dataset['target'];
+        //             document.querySelector("#"+firstTarget).style.display="block";
+        //         }
+        //         allA[i].onclick=function(){
+        //             // 先找到上一个被点击的a标签
+        //             var lastA=document.querySelector('.active');
+        //             lastA.classList.remove('active');
+        //             var lastTarget=lastA.dataset['target'];
+        //             // 让其隐藏
+        //             document.querySelector("#"+lastTarget).style.display="none";
+
+        //             // 1.添加active样式
+        //             this.classList.add('active');
+        //             // 2.获取target属性值
+        //             var target=this.dataset['target'];
+        //             // 3.让对应名称的面板显示
+        //             document.querySelector("#"+target).style.display="block";
+        //         }
+        //     }
+        // })(3);
+    </script>
+
+    <!-- 使用webapi第二天24的方式做 -->
+    <script>
+        (function(index){        
+            var sections = document.getElementsByTagName("section");
+            var allA = document.querySelectorAll("a");
+            for(var i = 0;i < allA.length;i++){
+                if(i == index){
+                    allA[i].classList.add("active");
+                    sections[i].style.display = "block";
+                }
+                allA[i].setAttribute("index",i);
+                allA[i].onclick = function(){
+                    for(var j = 0;j < allA.length;j++){
+                        allA[j].classList.remove("active");
+                    }
+                    this.classList.add("active");
+                    var num = this.getAttribute("index");
+                    for(var k = 0;k < sections.length;k++){
+                        sections[k].style.display = "none";
+                    }
+                    sections[num].style.display = "block";
+                }
+            }
+        })(3);
+    </script>
+</body>
+</html>
